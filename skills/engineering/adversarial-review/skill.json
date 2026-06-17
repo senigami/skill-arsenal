@@ -1,0 +1,13 @@
+{
+  "name": "adversarial-review",
+  "displayName": "Adversarial Code Reviewer",
+  "description": "Adversarial code review that breaks the self-review monoculture. Forces genuine perspective shifts through three hostile reviewer personas (Saboteur, New Hire, Security Auditor) — each must find at least one issue. Structured BLOCK / CONCERNS / CLEAN verdict with severity promotion for cross-persona findings.",
+  "version": "2.9.0",
+  "author": "ekreloff",
+  "category": "engineering",
+  "main": "main.md",
+  "references": [],
+  "license": "MIT",
+  "tier": "STANDARD",
+  "tags": ["code-review", "security", "quality"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "skill-arsenal",
+  "owner": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "description": "A curated collection of reusable Claude skills organized by category",
+  "homepage": "https://github.com/senigami/skill-arsenal",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "plugins": [
+    {
+      "name": "adversarial-review",
+      "source": "./skills/engineering/adversarial-review",
+      "description": "Adversarial code review that breaks the self-review monoculture. Three hostile personas (Saboteur, New Hire, Security Auditor) — each must find at least one issue. BLOCK / CONCERNS / CLEAN verdict.",
+      "version": "2.9.0",
+      "author": {
+        "name": "ekreloff"
+      },
+      "keywords": ["code-review", "security", "quality"],
+      "category": "engineering"
+    }
+  ]
+}

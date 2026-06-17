@@ -1,0 +1,12 @@
+{
+  "name": "adversarial-review",
+  "description": "Adversarial code review that breaks the self-review monoculture. Three hostile personas (Saboteur, New Hire, Security Auditor) — each must find at least one issue. BLOCK / CONCERNS / CLEAN verdict.",
+  "version": "2.9.0",
+  "author": {
+    "name": "ekreloff"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/adversarial-review",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}
