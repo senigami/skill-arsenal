@@ -101,37 +101,21 @@ cp -r skills/engineering/adversarial-review/skills/adversarial-review \
 
 ## Skill structure
 
-Each skill is a self-contained directory under `skills/<category>/<name>/`:
+Each skill is a self-contained Claude Code plugin under `skills/<category>/<name>/`:
 
 ```
 skills/
 └── engineering/
     └── adversarial-review/
         ├── .claude-plugin/
-        │   └── plugin.json          # Claude Code native plugin manifest
-        ├── skills/
-        │   └── adversarial-review/
-        │       ├── SKILL.md         # skill content (the thing Claude reads)
-        │       └── references/      # supporting docs loaded as context (optional)
-        └── skill.json               # human-readable metadata for this repo
+        │   └── plugin.json          # plugin manifest (Claude Code reads this)
+        └── skills/
+            └── adversarial-review/
+                ├── SKILL.md         # skill content (the thing Claude loads)
+                └── references/      # supporting docs loaded as context (optional)
 ```
 
-The `.claude-plugin/plugin.json` is what the `/plugin` system uses. `SKILL.md` is what Claude Code loads when you invoke the skill. `skill.json` is a browsable index entry for this repo's own tooling.
-
-### skill.json fields
-
-| Field | Description |
-|-------|-------------|
-| `name` | Slug — becomes the `/skill-name` command |
-| `displayName` | Human-readable title |
-| `description` | One-line summary shown in skill pickers |
-| `version` | Semver |
-| `author` | Original author |
-| `category` | Directory category (e.g. `engineering`) |
-| `main` | `skills/<name>/SKILL.md` |
-| `references` | Files in `references/` loaded as context |
-| `license` | SPDX identifier |
-| `tags` | Searchable tags |
+The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is the catalog Claude Code's `/plugin` system reads. Each plugin's `.claude-plugin/plugin.json` is its manifest. `SKILL.md` is the content Claude loads when the skill is invoked.
 
 ---
 
@@ -139,13 +123,8 @@ The `.claude-plugin/plugin.json` is what the `/plugin` system uses. `SKILL.md` i
 
 1. Fork this repo
 2. Create your skill under `skills/<category>/<name>/` following the structure above
-3. Add a `skill.json` and `.claude-plugin/plugin.json`
-4. Put the skill content in `skills/<name>/SKILL.md`
-5. Add an entry to both `registry.json` and `.claude-plugin/marketplace.json`
-6. Open a PR — category is confirmed in review
+3. Add `.claude-plugin/plugin.json` and `skills/<name>/SKILL.md`
+4. Add a plugin entry to the root `.claude-plugin/marketplace.json`
+5. Open a PR — category is confirmed in review
 
----
-
-## Registry
-
-[`registry.json`](registry.json) is the machine-readable index of all skills. [`\.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is what Claude Code's `/plugin` system reads.
+The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).

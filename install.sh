@@ -10,13 +10,16 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 list_skills() {
   echo "Available skills:"
-  while IFS= read -r -d '' skill_json; do
-    local name category version
-    name=$(grep '"name"' "$skill_json" | head -1 | sed 's/.*"name": *"\([^"]*\)".*/\1/')
-    category=$(grep '"category"' "$skill_json" | head -1 | sed 's/.*"category": *"\([^"]*\)".*/\1/')
-    version=$(grep '"version"' "$skill_json" | head -1 | sed 's/.*"version": *"\([^"]*\)".*/\1/')
-    printf "  %-30s %s  v%s\n" "$name" "$category" "$version"
-  done < <(find "$REPO_DIR/skills" -name "skill.json" -print0 | sort -z)
+  # Discover skills from the spec'd plugin manifests (.claude-plugin/plugin.json).
+  while IFS= read -r -d '' manifest; do
+    local plugin_dir name version category
+    plugin_dir=$(dirname "$(dirname "$manifest")")
+    name=$(grep '"name"' "$manifest" | head -1 | sed 's/.*"name": *"\([^"]*\)".*/\1/')
+    version=$(grep '"version"' "$manifest" | head -1 | sed 's/.*"version": *"\([^"]*\)".*/\1/')
+    # Category is the path segment between skills/ and the plugin directory.
+    category=$(echo "${plugin_dir#"$REPO_DIR"/skills/}" | cut -d/ -f1)
+    printf "  %-30s %s  v%s\n" "$name" "$category" "${version:-?}"
+  done < <(find "$REPO_DIR/skills" -path '*/.claude-plugin/plugin.json' -print0 | sort -z)
 }
 
 install_skill() {
