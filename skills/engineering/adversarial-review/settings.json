@@ -1,0 +1,15 @@
+{
+  "name": "adversarial-review",
+  "displayName": "Adversarial Code Reviewer",
+  "version": "2.9.0",
+  "description": "Adversarial code review that breaks the self-review monoculture. Three hostile personas — Saboteur, New Hire, Security Auditor — each must find at least one issue. BLOCK / CONCERNS / CLEAN verdict.",
+  "author": "ekreloff",
+  "license": "MIT",
+  "platforms": ["claude-code"],
+  "category": "engineering",
+  "tags": ["code-review", "security", "quality", "adversarial", "personas"],
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "commands": {
+    "adversarial-review": "/adversarial-review"
+  }
+}
