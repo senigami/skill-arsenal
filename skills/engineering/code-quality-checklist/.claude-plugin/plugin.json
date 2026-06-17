@@ -1,0 +1,10 @@
+{
+  "name": "code-quality-checklist",
+  "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs verification before marking done. Adapts to any codebase via project-rules.md.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/code-quality-checklist",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

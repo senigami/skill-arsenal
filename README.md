@@ -49,6 +49,10 @@ The skill is now available as `/adversarial-review` in any project.
 | [pr-review](skills/engineering/pr-review/) | `/plugin install pr-review@skill-arsenal` | Review a GitHub PR for real, unflagged blockers — verified against the code. Returns APPROVE or confirmed blockers; never posts on its own. |
 | [planrunner](skills/engineering/planrunner/) | `/plugin install planrunner@skill-arsenal` | Orchestrator-driven execution of an approved plan: slice → delegate → verify → adversarial review, fixing real blockers. |
 | [modern-web-guidance](skills/engineering/modern-web-guidance/) | `/plugin install modern-web-guidance@skill-arsenal` | Curated database of standardized modern web-platform patterns so Claude uses the platform instead of heavy deps or ad-hoc CSS/JS. |
+| [tdd](skills/engineering/tdd/) | `/plugin install tdd@skill-arsenal` | Enforce the red → green → refactor TDD cycle for every new behavior or bug fix. |
+| [codex](skills/engineering/codex/) | `/plugin install codex@skill-arsenal` | Bounded implementation worker rules for handing off to Codex — scope discipline, handoff checklist, Studio 2.0 conventions. |
+| [code-quality-checklist](skills/engineering/code-quality-checklist/) | `/plugin install code-quality-checklist@skill-arsenal` | Pre/during/post-task quality guardrail — surfaces assumptions, enforces triggered workflows, and runs verification before marking done. Adapts to any codebase via project-rules.md. |
+| [worker](skills/engineering/worker/) | `/plugin install worker@skill-arsenal` | Cursor task orchestrator — decompose a task JSON into slices, dispatch to Haiku subagents, adversarially review, fix blockers, and return a clean report. |
 
 ### Design
 

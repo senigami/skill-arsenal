@@ -1,0 +1,10 @@
+{
+  "name": "worker",
+  "description": "Cursor task orchestrator — decompose a Cursor task JSON into focused slices, dispatch each to Haiku subagents, adversarially review their output, fix blockers, run final verification, and return a clean report.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/worker",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

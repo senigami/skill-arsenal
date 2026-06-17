@@ -1,0 +1,10 @@
+{
+  "name": "codex",
+  "description": "Bounded implementation worker rules for handing off to Codex — scope discipline, handoff checklist, Studio 2.0 conventions.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/codex",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

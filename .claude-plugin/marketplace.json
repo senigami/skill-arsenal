@@ -154,6 +154,42 @@
       "version": "1.0.0",
       "keywords": ["pinokio", "launcher", "apps", "automation", "discovery"],
       "category": "automation"
+    },
+    {
+      "name": "tdd",
+      "source": "./skills/engineering/tdd",
+      "description": "Enforce the red → green → refactor TDD cycle for every new behavior or bug fix.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["tdd", "testing", "red-green-refactor", "quality"],
+      "category": "engineering"
+    },
+    {
+      "name": "codex",
+      "source": "./skills/engineering/codex",
+      "description": "Bounded implementation worker rules for handing off to Codex — scope discipline, handoff checklist, Studio 2.0 conventions.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["codex", "handoff", "implementation", "scope", "worker"],
+      "category": "engineering"
+    },
+    {
+      "name": "code-quality-checklist",
+      "source": "./skills/engineering/code-quality-checklist",
+      "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs verification before marking done. Adapts to any codebase via project-rules.md.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["quality", "checklist", "verification", "testing", "conventions"],
+      "category": "engineering"
+    },
+    {
+      "name": "worker",
+      "source": "./skills/engineering/worker",
+      "description": "Cursor task orchestrator — decompose a Cursor task JSON into focused slices, dispatch each to Haiku subagents, adversarially review their output, fix blockers, run final verification, and return a clean report.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["orchestration", "cursor", "subagents", "haiku", "task-execution"],
+      "category": "engineering"
     }
   ]
 }

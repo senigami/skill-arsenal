@@ -1,0 +1,10 @@
+{
+  "name": "tdd",
+  "description": "Enforce the red → green → refactor TDD cycle for every new behavior or bug fix.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/tdd",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}
