@@ -45,6 +45,29 @@ The skill is now available as `/adversarial-review` in any project.
 
 ---
 
+## No CLI? Install via Claude chat
+
+If you don't have the Claude Code CLI installed, paste this prompt directly into any Claude chat session and it will set everything up for you:
+
+> Please install the skill-arsenal marketplace manually into Claude Code by running these two steps:
+>
+> 1. Clone the repo into the Claude marketplaces directory:
+>    `git clone https://github.com/senigami/skill-arsenal.git ~/.claude/plugins/marketplaces/skill-arsenal`
+>
+> 2. Add "skill-arsenal" as an entry in `~/.claude/plugins/known_marketplaces.json` — read the file first, then add the new key alongside any existing entries:
+>    ```json
+>    "skill-arsenal": {
+>      "source": { "source": "git", "url": "https://github.com/senigami/skill-arsenal.git" },
+>      "installLocation": "<home-dir>/.claude/plugins/marketplaces/skill-arsenal",
+>      "lastUpdated": "<today's date as ISO string>"
+>    }
+>    ```
+>    Replace `<home-dir>` with the actual home directory path from the system.
+>
+> Then restart Claude Code. The skill-arsenal tab will appear under Plugins when you browse skills.
+
+---
+
 ## Manual installation (no plugin system)
 
 If you prefer not to use `/plugin`, you can install directly with the included script.
