@@ -1,0 +1,10 @@
+{
+  "name": "task-plan-architect",
+  "description": "Research a large task and produce a detailed, mapped implementation plan that a smaller model can execute without losing the big picture — the parts, how they connect, and an ordered set of self-contained tasks. Saves the plan outside the repo by default.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/task-plan-architect",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

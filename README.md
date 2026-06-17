@@ -42,6 +42,8 @@ The skill is now available as `/adversarial-review` in any project.
 | Skill | Install command | Description |
 |-------|----------------|-------------|
 | [adversarial-review](skills/engineering/adversarial-review/) | `/plugin install adversarial-review@skill-arsenal` | Adversarial code review via three hostile personas — Saboteur, New Hire, Security Auditor. BLOCK / CONCERNS / CLEAN verdict. |
+| [code-audit-planner](skills/engineering/code-audit-planner/) | `/plugin install code-audit-planner@skill-arsenal` | Audit a codebase across many dimensions and produce an ordered, verifiable implementation-plan folder. Plans only; never edits source. |
+| [task-plan-architect](skills/engineering/task-plan-architect/) | `/plugin install task-plan-architect@skill-arsenal` | Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture. |
 
 ---
 

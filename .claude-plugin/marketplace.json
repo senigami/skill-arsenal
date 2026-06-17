@@ -18,6 +18,28 @@
       },
       "keywords": ["code-review", "security", "quality"],
       "category": "engineering"
+    },
+    {
+      "name": "code-audit-planner",
+      "source": "./skills/engineering/code-audit-planner",
+      "description": "Audit a codebase across many dimensions (DRY/reuse, organization, logic errors, test quality, UX, theming, spec drift) and produce a self-contained implementation-plan folder of ordered, verifiable tasks. Plans only; never edits source.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": ["audit", "planning", "code-quality", "refactoring", "orchestration"],
+      "category": "engineering"
+    },
+    {
+      "name": "task-plan-architect",
+      "source": "./skills/engineering/task-plan-architect",
+      "description": "Research a large task and produce a detailed, mapped implementation plan that a smaller model can execute without losing the big picture — the parts, how they connect, and an ordered set of self-contained tasks. Saves the plan outside the repo by default.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": ["planning", "architecture", "task-breakdown", "implementation-plan", "orchestration"],
+      "category": "engineering"
     }
   ]
 }

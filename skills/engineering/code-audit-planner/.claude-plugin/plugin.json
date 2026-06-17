@@ -1,0 +1,10 @@
+{
+  "name": "code-audit-planner",
+  "description": "Audit a codebase across many dimensions (DRY/reuse, organization, logic errors, test quality, UX, theming, spec drift) and produce a self-contained implementation-plan folder of ordered, verifiable tasks. Plans only; never edits source.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/code-audit-planner",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}
