@@ -1,0 +1,8 @@
+{
+  "name": "gepeto",
+  "description": "Guide for building 1-click launchers and building apps with launchers built-in using Pinokio.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/automation/gepeto",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "skills": ["./skills"]
+}

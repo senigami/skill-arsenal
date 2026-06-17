@@ -1,0 +1,8 @@
+{
+  "name": "pinokio",
+  "description": "Discover, launch, and use apps and tools for the current task via Pinokio.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/automation/pinokio",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "skills": ["./skills"]
+}

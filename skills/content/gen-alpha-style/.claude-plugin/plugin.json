@@ -1,0 +1,8 @@
+{
+  "name": "gen-alpha-style",
+  "description": "Gen Alpha / brainrot output-style transformation rules and vocabulary — a comprehensive glossary, transformation patterns, and examples for rewriting responses in Gen Alpha internet slang.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/content/gen-alpha-style",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "skills": ["./skills"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "modern-web-guidance",
+  "description": "Use before writing HTML, CSS, or frontend JS. Searches a curated database of standardized modern web-platform patterns (container queries, :has(), View Transitions, scroll-driven animations, anchor positioning, Core Web Vitals) so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/modern-web-guidance",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "skills": ["./skills"]
+}

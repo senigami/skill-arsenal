@@ -48,6 +48,7 @@ The skill is now available as `/adversarial-review` in any project.
 | [frontend-code-layout](skills/engineering/frontend-code-layout/) | `/plugin install frontend-code-layout@skill-arsenal` | Keep frontend structure, styling, and behavior separable — semantic tokens + Model/View/Presenter layering so the look can swap without rewrites. |
 | [pr-review](skills/engineering/pr-review/) | `/plugin install pr-review@skill-arsenal` | Review a GitHub PR for real, unflagged blockers — verified against the code. Returns APPROVE or confirmed blockers; never posts on its own. |
 | [planrunner](skills/engineering/planrunner/) | `/plugin install planrunner@skill-arsenal` | Orchestrator-driven execution of an approved plan: slice → delegate → verify → adversarial review, fixing real blockers. |
+| [modern-web-guidance](skills/engineering/modern-web-guidance/) | `/plugin install modern-web-guidance@skill-arsenal` | Curated database of standardized modern web-platform patterns so Claude uses the platform instead of heavy deps or ad-hoc CSS/JS. |
 
 ### Design
 
@@ -61,6 +62,23 @@ The skill is now available as `/adversarial-review` in any project.
 |-------|----------------|-------------|
 | [fusion-reasoning](skills/productivity/fusion-reasoning/) | `/plugin install fusion-reasoning@skill-arsenal` | Reasoning amplifier — a panel of independent agents cross-examine and a judge synthesizes one answer that beats any single pass. |
 | [efficient-orchestration](skills/productivity/efficient-orchestration/) | `/plugin install efficient-orchestration@skill-arsenal` | Always-on token-efficiency operating model: delegate mechanical work to the smallest capable model, monitor spend, checkpoint when deep. |
+
+### Content
+
+| Skill | Install command | Description |
+|-------|----------------|-------------|
+| [humanizer](skills/content/humanizer/) | `/plugin install humanizer@skill-arsenal` | Remove signs of AI-generated writing from text, based on Wikipedia's "Signs of AI writing" guide. |
+| [comedy-writers-room](skills/content/comedy-writers-room/) | `/plugin install comedy-writers-room@skill-arsenal` | Write stand-up comedy — one subagent writes jokes while three play audience members reacting to them. |
+| [gen-alpha-style](skills/content/gen-alpha-style/) | `/plugin install gen-alpha-style@skill-arsenal` | Gen Alpha / brainrot output-style transformation rules, glossary, and examples. |
+
+### Automation
+
+| Skill | Install command | Description |
+|-------|----------------|-------------|
+| [pinokio](skills/automation/pinokio/) | `/plugin install pinokio@skill-arsenal` | Discover, launch, and use apps and tools for the current task via Pinokio. |
+| [gepeto](skills/automation/gepeto/) | `/plugin install gepeto@skill-arsenal` | Build 1-click launchers and apps with launchers built-in using Pinokio. |
+
+> **Attribution.** Some skills are third-party, included here for easy reference and kept under their original licenses: **humanizer** by [Siqi Chen](https://github.com/blader/humanizer) (MIT), **comedy-writers-room** by [Tal Raviv](https://github.com/talsraviv/comedy-writers-room). Original LICENSE/README files are preserved inside each skill directory.
 
 ---
 

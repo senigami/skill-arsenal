@@ -103,6 +103,57 @@
       "author": { "name": "Steven Dunn" },
       "keywords": ["orchestration", "execution", "implementation", "plan", "subagents", "review"],
       "category": "engineering"
+    },
+    {
+      "name": "modern-web-guidance",
+      "source": "./skills/engineering/modern-web-guidance",
+      "description": "Use before writing HTML, CSS, or frontend JS. Searches a curated database of standardized modern web-platform patterns (container queries, :has(), View Transitions, scroll-driven animations, anchor positioning, Core Web Vitals) so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.",
+      "version": "1.0.0",
+      "keywords": ["frontend", "css", "html", "web-platform", "performance", "core-web-vitals"],
+      "category": "engineering"
+    },
+    {
+      "name": "humanizer",
+      "source": "./skills/content/humanizer",
+      "description": "Remove signs of AI-generated writing from text. Based on Wikipedia's \"Signs of AI writing\" guide — detects and fixes inflated symbolism, promotional language, em dash overuse, rule of three, AI vocabulary, passive voice, negative parallelisms, and filler.",
+      "version": "2.8.0",
+      "author": { "name": "Siqi Chen", "url": "https://github.com/blader/humanizer" },
+      "license": "MIT",
+      "keywords": ["writing", "editing", "ai-detection", "humanize", "prose"],
+      "category": "content"
+    },
+    {
+      "name": "comedy-writers-room",
+      "source": "./skills/content/comedy-writers-room",
+      "description": "Write stand-up comedy, jokes, or humorous material — one subagent writes jokes while three others play audience members (enthusiast, skeptic, overthinker) reacting to them.",
+      "version": "1.0.0",
+      "author": { "name": "Tal Raviv", "url": "https://github.com/talsraviv/comedy-writers-room" },
+      "keywords": ["comedy", "writing", "humor", "jokes", "subagents"],
+      "category": "content"
+    },
+    {
+      "name": "gen-alpha-style",
+      "source": "./skills/content/gen-alpha-style",
+      "description": "Gen Alpha / brainrot output-style transformation rules and vocabulary — a comprehensive glossary, transformation patterns, and examples for rewriting responses in Gen Alpha internet slang.",
+      "version": "0.1.0",
+      "keywords": ["writing", "style", "slang", "gen-alpha", "output-style"],
+      "category": "content"
+    },
+    {
+      "name": "gepeto",
+      "source": "./skills/automation/gepeto",
+      "description": "Guide for building 1-click launchers and building apps with launchers built-in using Pinokio.",
+      "version": "1.0.0",
+      "keywords": ["pinokio", "launcher", "apps", "automation", "1-click"],
+      "category": "automation"
+    },
+    {
+      "name": "pinokio",
+      "source": "./skills/automation/pinokio",
+      "description": "Discover, launch, and use apps and tools for the current task via Pinokio.",
+      "version": "1.0.0",
+      "keywords": ["pinokio", "launcher", "apps", "automation", "discovery"],
+      "category": "automation"
     }
   ]
 }

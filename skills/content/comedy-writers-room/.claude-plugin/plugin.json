@@ -1,0 +1,9 @@
+{
+  "name": "comedy-writers-room",
+  "description": "Write stand-up comedy, jokes, or humorous material — one subagent writes jokes while three others play audience members (enthusiast, skeptic, overthinker) reacting to them.",
+  "version": "1.0.0",
+  "author": { "name": "Tal Raviv", "url": "https://github.com/talsraviv/comedy-writers-room" },
+  "homepage": "https://github.com/talsraviv/comedy-writers-room",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "skills": ["./skills"]
+}
