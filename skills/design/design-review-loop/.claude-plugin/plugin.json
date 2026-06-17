@@ -1,0 +1,10 @@
+{
+  "name": "design-review-loop",
+  "description": "Iterative multi-agent design review-and-build loop for UI work. Captures live screenshots, fans out specialist reviewers (UX, UI craft, Apple HIG, design-system, accessibility), reconciles their findings, builds the changes, and repeats until scores clear a threshold.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/design/design-review-loop",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

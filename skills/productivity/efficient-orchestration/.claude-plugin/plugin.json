@@ -1,0 +1,10 @@
+{
+  "name": "efficient-orchestration",
+  "description": "Always-on token-efficiency operating model. For every non-trivial task, decide inline vs. delegate to cheaper subagents, monitor token spend, and checkpoint when work runs deep. The large model holds strategy and verification; mechanical work fans out to the smallest capable model.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/productivity/efficient-orchestration",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

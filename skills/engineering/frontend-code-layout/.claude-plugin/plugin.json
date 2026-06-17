@@ -1,0 +1,10 @@
+{
+  "name": "frontend-code-layout",
+  "description": "Keep frontend code's structure, styling, and behavior separable. Realizes the CSS Zen Garden ideal (swap the look without rewriting structure) via semantic tokens, Model/View/Presenter layering, and readability hygiene.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/frontend-code-layout",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

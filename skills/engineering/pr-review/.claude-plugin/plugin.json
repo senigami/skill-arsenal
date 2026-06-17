@@ -1,0 +1,10 @@
+{
+  "name": "pr-review",
+  "description": "Reviews a GitHub pull request for real blocking problems nobody has flagged yet — correctness bugs, security gaps, broken contracts, data races, unmet acceptance criteria. Verifies every concern against the code; returns APPROVE or confirmed blockers. Never posts to GitHub on its own.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/pr-review",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

@@ -44,6 +44,23 @@ The skill is now available as `/adversarial-review` in any project.
 | [adversarial-review](skills/engineering/adversarial-review/) | `/plugin install adversarial-review@skill-arsenal` | Adversarial code review via three hostile personas — Saboteur, New Hire, Security Auditor. BLOCK / CONCERNS / CLEAN verdict. |
 | [code-audit-planner](skills/engineering/code-audit-planner/) | `/plugin install code-audit-planner@skill-arsenal` | Audit a codebase across many dimensions and produce an ordered, verifiable implementation-plan folder. Plans only; never edits source. |
 | [task-plan-architect](skills/engineering/task-plan-architect/) | `/plugin install task-plan-architect@skill-arsenal` | Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture. |
+| [spec-docs-generator](skills/engineering/spec-docs-generator/) | `/plugin install spec-docs-generator@skill-arsenal` | Generate or update a numbered spec-document set (index, topics, ADRs) as the source of truth an agent obeys, and fix spec drift. |
+| [frontend-code-layout](skills/engineering/frontend-code-layout/) | `/plugin install frontend-code-layout@skill-arsenal` | Keep frontend structure, styling, and behavior separable — semantic tokens + Model/View/Presenter layering so the look can swap without rewrites. |
+| [pr-review](skills/engineering/pr-review/) | `/plugin install pr-review@skill-arsenal` | Review a GitHub PR for real, unflagged blockers — verified against the code. Returns APPROVE or confirmed blockers; never posts on its own. |
+| [planrunner](skills/engineering/planrunner/) | `/plugin install planrunner@skill-arsenal` | Orchestrator-driven execution of an approved plan: slice → delegate → verify → adversarial review, fixing real blockers. |
+
+### Design
+
+| Skill | Install command | Description |
+|-------|----------------|-------------|
+| [design-review-loop](skills/design/design-review-loop/) | `/plugin install design-review-loop@skill-arsenal` | Iterative multi-agent design review-and-build loop — screenshot, fan out specialist reviewers, reconcile, build, repeat until scores clear. |
+
+### Productivity
+
+| Skill | Install command | Description |
+|-------|----------------|-------------|
+| [fusion-reasoning](skills/productivity/fusion-reasoning/) | `/plugin install fusion-reasoning@skill-arsenal` | Reasoning amplifier — a panel of independent agents cross-examine and a judge synthesizes one answer that beats any single pass. |
+| [efficient-orchestration](skills/productivity/efficient-orchestration/) | `/plugin install efficient-orchestration@skill-arsenal` | Always-on token-efficiency operating model: delegate mechanical work to the smallest capable model, monitor spend, checkpoint when deep. |
 
 ---
 

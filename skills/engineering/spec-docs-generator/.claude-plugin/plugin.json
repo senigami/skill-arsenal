@@ -1,0 +1,10 @@
+{
+  "name": "spec-docs-generator",
+  "description": "Generate or update a numbered spec-document set (docs/00-index.md, docs/NN-topic.md, ADRs) that becomes the source of truth an agent obeys when writing code. Detects existing specs, diffs them against the code, and fixes drift.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/spec-docs-generator",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}

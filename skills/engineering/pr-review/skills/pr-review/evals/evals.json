@@ -1,0 +1,23 @@
+{
+  "skill_name": "pr-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review PR #673 in the ShiftEngineering/greenlight repo for blockers. Tell me if it's safe to approve or if something needs fixing.",
+      "expected_output": "Verdict APPROVE. Reads the changed files, checks the linked ticket's acceptance criteria, chooses an initial-pass depth (not high-risk). Confirms the jsonb column is correctly deserialized by the pg driver and/or that the integration test covers the real path. Must NOT recommend defensive typeof/JSON.parse parsing (the known false positive).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Someone reviewed PR #702 (ShiftEngineering/greenlight) and flagged this: 'On line 255 of apps/server/src/services/app-mutations.ts the status literal has leading/trailing spaces: .set({ status: \\' queued_for_deletion \\' }), which won't match the enum and silently fails, skipping the audit log and background task.' Is this real or a false positive? Give me a response to take back to them.",
+      "expected_output": "Verdict: false positive. Reads the actual file via git show and quotes that line 255 is 'queued_for_deletion' with no spaces. Provides a short collegial response the user can send back. Does not fan out heavily — this is the single-comment validation fast path.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you review PR #691 in ShiftEngineering/greenlight before I approve it? Let me know about any blockers.",
+      "expected_output": "Verdict APPROVE. Reads the kill-switch service, checks linked-ticket AC coverage. Must NOT flag the notInArray subquery as malformed SQL — if mentioned at all, confirms it's valid Drizzle usage by reading the installed type signature. Should note the concurrency/race handling is sound.",
+      "files": []
+    }
+  ]
+}

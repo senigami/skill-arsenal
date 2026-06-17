@@ -40,6 +40,69 @@
       },
       "keywords": ["planning", "architecture", "task-breakdown", "implementation-plan", "orchestration"],
       "category": "engineering"
+    },
+    {
+      "name": "design-review-loop",
+      "source": "./skills/design/design-review-loop",
+      "description": "Iterative multi-agent design review-and-build loop for UI work. Captures live screenshots, fans out specialist reviewers (UX, UI craft, Apple HIG, design-system, accessibility), reconciles findings, builds the changes, and repeats until scores clear a threshold.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["design", "ui", "ux", "review", "accessibility", "orchestration"],
+      "category": "design"
+    },
+    {
+      "name": "fusion-reasoning",
+      "source": "./skills/productivity/fusion-reasoning",
+      "description": "A reasoning amplifier for hard problems — runs an adaptively-sized panel of independent Claude agents, optionally has them cross-examine, and a judge synthesizes consensus, resolves contradictions, and surfaces blind spots into one unified result.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["reasoning", "planning", "multi-agent", "consensus", "judge"],
+      "category": "productivity"
+    },
+    {
+      "name": "spec-docs-generator",
+      "source": "./skills/engineering/spec-docs-generator",
+      "description": "Generate or update a numbered spec-document set (docs/00-index.md, docs/NN-topic.md, ADRs) that becomes the source of truth an agent obeys when writing code. Detects existing specs, diffs them against the code, and fixes drift.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["documentation", "specs", "adr", "source-of-truth", "architecture"],
+      "category": "engineering"
+    },
+    {
+      "name": "frontend-code-layout",
+      "source": "./skills/engineering/frontend-code-layout",
+      "description": "Keep frontend code's structure, styling, and behavior separable. Realizes the CSS Zen Garden ideal (swap the look without rewriting structure) via semantic tokens, Model/View/Presenter layering, and readability hygiene.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["frontend", "react", "css", "design-tokens", "separation-of-concerns", "refactoring"],
+      "category": "engineering"
+    },
+    {
+      "name": "pr-review",
+      "source": "./skills/engineering/pr-review",
+      "description": "Reviews a GitHub pull request for real blocking problems nobody has flagged yet — correctness bugs, security gaps, broken contracts, data races, unmet acceptance criteria. Verifies every concern against the code; returns APPROVE or confirmed blockers. Never posts to GitHub on its own.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["pr-review", "code-review", "github", "blockers", "security"],
+      "category": "engineering"
+    },
+    {
+      "name": "efficient-orchestration",
+      "source": "./skills/productivity/efficient-orchestration",
+      "description": "Always-on token-efficiency operating model. For every non-trivial task, decide inline vs. delegate to cheaper subagents, monitor token spend, and checkpoint when work runs deep. The large model holds strategy and verification; mechanical work fans out to the smallest capable model.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["orchestration", "token-efficiency", "subagents", "delegation", "operating-model"],
+      "category": "productivity"
+    },
+    {
+      "name": "planrunner",
+      "source": "./skills/engineering/planrunner",
+      "description": "Orchestrator-driven execution of an approved plan. The main loop acts as orchestrator + reviewer: decomposes the plan into small slices, delegates each to an implementer subagent, verifies every slice against intent, then runs up to 3 adversarial review rounds fixing real blockers.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["orchestration", "execution", "implementation", "plan", "subagents", "review"],
+      "category": "engineering"
     }
   ]
 }

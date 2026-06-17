@@ -1,0 +1,10 @@
+{
+  "name": "fusion-reasoning",
+  "description": "A reasoning amplifier for hard problems — runs an adaptively-sized panel of independent Claude agents, optionally has them cross-examine, and a judge synthesizes consensus, resolves contradictions, and surfaces blind spots into one unified result.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/productivity/fusion-reasoning",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}
