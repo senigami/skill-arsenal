@@ -15,7 +15,7 @@ It runs as an orchestration: you (the large model) are the architect holding the
 
 ## Step 0 — Settle the basics (ask upfront)
 
-Before researching, confirm three things. Ask them in **one** batch; skip any the user already specified.
+Before researching, confirm four things. Ask them in **one** batch; skip any the user already specified.
 
 1. **Where does the plan live?** This is the important one. **Default: outside the repo**, and **every plan gets its own dedicated subfolder** so multiple plans never collide. The path is `~/.claude/plans/<project>/<task-slug>/` — namespaced by project (so plans for different repos stay separate) and then by an descriptive task-slug (so each task this skill is invoked for gets its own folder). Derive `<project>` from the repo/directory name and `<task-slug>` from the task itself (kebab-case, specific — `add-sso-login`, not `feature`). Ask the user: *"Keep the plan apart (default, outside the repo) or put it in-repo (e.g. `docs/plans/<task-slug>/`)?"* — and note that in-repo also gets its own per-task subfolder. Only write inside the repo if the user chooses it. Either way, report the absolute path in your summary so they can find it.
 
@@ -26,7 +26,13 @@ Before researching, confirm three things. Ask them in **one** batch; skip any th
 
    Only fall back to auto-picking a more specific slug when it's a *different* task that merely collided on slug — never silently duplicate the same task.
 2. **New plan or expand an existing one?** If expanding, get the path to the existing plan/notes and treat this as a grow-and-reconcile run (see [references/plan-folder.md](references/plan-folder.md) — "Expanding an existing plan").
-3. **What's the task, really?** If the task as stated is vague or huge, get the goal, the boundaries (what's explicitly out of scope), any hard constraints, and what "done" looks like. A sharp task statement is what keeps the map from sprawling.
+3. **What's the task, really?** If the task as stated is vague or huge, get the goal, the boundaries (what's explicitly out of scope), and any hard constraints. A sharp task statement is what keeps the map from sprawling.
+
+4. **What does "done" actually mean? — nail the acceptance criteria.** This is the most important thing to get right: the definition of done is the target the entire plan is reverse-engineered from. Every workload's verification and every task's acceptance criteria trace back to it, so a fuzzy end goal produces a fuzzy plan that builds the wrong thing efficiently. So **gate this on your confidence**:
+   - **High confidence** — the task statement makes the end state and how it'll be judged unambiguous (a clear bug with an obvious correct behavior; a feature with self-evident success). State the definition of done back to the user in one or two lines as a confirmation ("Done = X works, Y is covered, Z passes") and proceed; you don't need to interrogate what's already clear.
+   - **Unsure** — the end goal, its scope, or how success is measured is ambiguous in any way that would change what you plan. Don't paper over it with an assumption. Ask targeted questions until you understand the real end goal: what specifically must be true when this is finished, what the user will check to accept it, which edge cases or quality bars count, and what would make them reject it. Surface competing interpretations as explicit options rather than guessing.
+
+   Capture the result as the **success criteria** in `00-overview.md`, and let it drive the acceptance criteria on each task. When in doubt, ask — a few clarifying questions up front are far cheaper than a well-organized plan aimed at the wrong target.
 
 ## Step 1 — Research the task (focused, not a repo audit)
 
