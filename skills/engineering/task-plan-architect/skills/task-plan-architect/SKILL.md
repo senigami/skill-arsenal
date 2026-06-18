@@ -30,7 +30,7 @@ Before researching, confirm three things. Ask them in **one** batch; skip any th
 
 ## Step 1 — Research the task (focused, not a repo audit)
 
-Understand only what this task touches — its blast radius — not the whole codebase. Fan the reading out to light, cheap agents (mechanical file reading needs no large model) and keep the synthesis yourself. Cover:
+Understand only what this task touches — its blast radius — not the whole codebase. Fan the reading out to light, cheap agents (mechanical file reading needs no large model) and keep the synthesis yourself. Run the scouts in parallel (multiple `Agent` calls in one message), and give each a **tight return contract** — the specific files or question to investigate and exactly what to report back (the contract shape, the caller list, the pattern in use) — so findings land in your context compact and digested, not as raw file dumps. Cover:
 
 - **The surface the task touches**: the modules, files, routes, schemas, components, and services in scope, and the ones immediately adjacent (callers, dependents).
 - **The contracts at the edges**: the interfaces, types, API shapes, events, and data formats where this task meets the rest of the system. These are where executors break things they can't see.

@@ -37,23 +37,23 @@ Spawn via the `Agent` tool with `subagent_type`. Models are usually pinned in th
 
 1. **Decompose.** Break the approved plan into small, independently-implementable slices. Each slice = one focused, verifiable unit of work. **If the plan came from `task-plan-architect`** (a plan folder with `01-map.md`, `02-roadmap.md`, and `tasks/NNN-*.md`), don't re-derive the structure — the slices are already written: use the roadmap's workload order and dependency graph, treat each task file as a slice spec, and keep `01-map.md` open as the source of contracts and invariants every slice must honor. Only decompose from scratch when the plan has no such structure.
 
-2. **Delegate each slice → `implementer`** (mid tier; drop to light tier if trivial/mechanical). Give a standalone spec: files, the exact change, utilities to reuse, constraints, and the relevant slice of the plan (for architect plans, include the task file plus the map links it points to). Subagents can't see this conversation — the prompt must stand alone. Run independent slices in parallel (multiple `Agent` calls in one message); keep tightly-coupled edits in one call.
+2. **Delegate each slice → `implementer`** (mid tier; drop to light tier if trivial/mechanical). Give a standalone spec: files, the exact change, utilities to reuse, constraints, and the relevant slice of the plan (for architect plans, include the task file plus the map links it points to). Subagents can't see this conversation — the prompt must stand alone. Run independent slices in parallel (multiple `Agent` calls in one message); keep tightly-coupled edits in one call. **Never parallelize two slices that touch the same file** — concurrent implementers will clobber each other's edits. Serialize them, or merge them into one slice.
 
 3. **Verify each returned slice (you, the orchestrator).** Read the actual diff. Does it match the intent and the plan? Is it in scope, correct, consistent with conventions?
    - **Accept** if it's right.
    - Otherwise **return it** to a fresh `implementer` with specific correction instructions (what's wrong, what to change). Repeat until accepted. You own the gate — a slice isn't done until you've checked it.
 
-4. **When ALL slices are accepted → adversarial review.** Scrutinize the whole change for correctness, security, edge cases, race conditions, regressions, and reuse/simplification. For large or risky changes, fan out `reviewer` (top tier) subagents by concern (correctness / security / regressions) in parallel and synthesize their findings; for small changes, review inline. Verify findings against the real code — don't accept hand-waving.
+4. **When ALL slices are accepted → get to green FIRST (delegate → `runner`).** Run the project's tests/lint/typecheck/build. Route any failure's fix through `implementer` (the `runner` never edits), then re-run until green. Do this *before* adversarial review — it's the cheapest tier catching the cheapest class of bugs, and it means the expensive review in step 5 only ever runs on code that actually compiles and passes. Reviewing red code wastes your most expensive resource on findings tests would have caught for free.
 
-5. **Classify findings: real blockers vs. nitpicks.** Only **real blockers** (correctness, security, broken contracts/regressions, data loss) gate. Note nitpicks but don't loop on them.
+5. **On green → adversarial review.** Scrutinize the whole change for correctness, security, edge cases, race conditions, regressions, and reuse/simplification. For large or risky changes, fan out `reviewer` (top tier) subagents by concern (correctness / security / regressions) in parallel and synthesize their findings; for small changes, review inline. Verify findings against the real code — don't accept hand-waving.
 
-6. **Fix blockers via the SAME slice procedure** — decompose the fixes, delegate to `implementer`, verify each returned fix. Then **re-review.**
+6. **Classify findings: real blockers vs. nitpicks.** Only **real blockers** (correctness, security, broken contracts/regressions, data loss) gate. Note nitpicks but don't loop on them.
 
-7. **Repeat review→fix up to 3 adversarial rounds total.** Stop as soon as a round finds no real blockers. If blockers remain after 3 rounds, stop looping and report them honestly with what's left — don't spin forever.
+7. **Fix blockers via the SAME slice procedure** — decompose the fixes, delegate to `implementer`, verify each returned fix, then **re-run the green gate (step 4)** so a fix can't silently break a test. **Re-review** focuses on the fixed areas and their blast radius, not a full from-scratch pass.
 
-8. **Verify (delegate → `runner`).** Run the project's tests/lint/typecheck/build and report. Commit via `runner` only if the user asked to commit.
+8. **Repeat review→fix up to 3 adversarial rounds total.** Stop as soon as a round finds no real blockers. If blockers remain after 3 rounds, stop looping and report them honestly with what's left — don't spin forever.
 
-9. **Report (you).** Summarize what changed, what each review round caught and fixed, verification results, and any residual risk or unresolved blockers. Relay subagent results faithfully.
+9. **Report (you).** Summarize what changed, what each review round caught and fixed, verification results, and any residual risk or unresolved blockers. Commit via `runner` only if the user asked to commit. Relay subagent results faithfully.
 
 ## When NOT to delegate
 

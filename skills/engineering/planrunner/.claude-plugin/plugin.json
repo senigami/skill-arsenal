@@ -1,7 +1,7 @@
 {
   "name": "planrunner",
   "description": "Orchestrator-driven execution of an approved plan. The main loop acts as orchestrator + reviewer: decomposes the plan into small slices, delegates each to an implementer subagent, verifies every slice against intent, then runs up to 3 adversarial review rounds fixing real blockers.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": { "name": "Steven Dunn" },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/planrunner",
   "repository": "https://github.com/senigami/skill-arsenal",
