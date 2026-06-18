@@ -365,14 +365,19 @@ When a user points you to this repository/README and requests a skill installati
    - Present a clean markdown table of available skills categorized by their parent category, displaying their names and descriptions.
    - Ask the user: *"Which skill would you like to install?"*
 
-3. **Install the Selected/Specified Skill**:
-   - Locate the source path containing the `SKILL.md` file: `skills/<category>/<skill_name>/skills/<skill_name>`.
-   - Determine the destination based on the user's preference:
-     - **Globally**: `~/.gemini/config/skills/<skill_name>`
-     - **Workspace-specific**: `.agents/skills/<skill_name>` (relative to the active workspace root).
-   - Ensure the parent `skills/` directory exists in the destination.
-   - Create a symbolic link (symlink) from the source directory to the destination directory. For example:
-     `ln -s <absolute-source-path> <absolute-destination-path>`
-   - Confirm the installation was successful and state that the skill is now active.
+3. **Install the Selected/Specified Skill & Dependencies**:
+   - Find the source path containing the target skill's `SKILL.md`: `skills/<category>/<skill_name>/skills/<skill_name>`.
+   - **Resolve Dependencies**:
+     - Read the top part of the target `SKILL.md` file. Check for sections like `## Requirements` or listings of required/optional skills that belong to `@skill-arsenal`.
+     - If any other skills from the repository are required, locate and install them first using these same steps recursively.
+   - **Determine Destination**:
+     - Determine the destination based on the user's preference:
+       - **Globally**: `~/.gemini/config/skills/<skill_name>`
+       - **Workspace-specific**: `.agents/skills/<skill_name>` (relative to the active workspace root).
+     - Ensure the parent `skills/` directory exists in the destination.
+   - **Create Symlink**:
+     - Create a symbolic link (symlink) from the source directory to the destination directory. For example:
+       `ln -s <absolute-source-path> <absolute-destination-path>`
+   - Verify all links (including dependencies) are active and confirm the successful installation to the user, listing both the primary skill and all resolved dependencies.
    
 </details>
