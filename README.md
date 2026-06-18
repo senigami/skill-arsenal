@@ -2,6 +2,7 @@
 
 A curated collection of reusable Agent skills organized by category.
 
+> **To install:** paste this page's URL into any AI agent (Claude, Codex, Gemini, etc.) and it will walk you through setup automatically.
 
 ## Featured skills
 <details>
