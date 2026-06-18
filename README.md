@@ -413,14 +413,14 @@ Engineering
   ✅ tdd*                  Red→green→refactor TDD enforcer
   ✅ pr-review*            GitHub PR check for real blockers
   ✅ code-audit-planner*   Codebase audit → ordered task list
-  ✅ frontend-code-layout* Separable UI structure & styling
+  ✅ frontend-code-layout* Separable UI layers — tokens + MVP
   ✅ modern-web-guidance*  Modern CSS/HTML/browser-API patterns
-  ❌ codex                 Codex handoff worker rules
-  ❌ worker                Cursor task orchestrator (Haiku)
+  ❌ codex                 Bounded worker rules for Codex handoffs
+  ❌ worker                Cursor orchestrator — dispatches to Haiku
 
 Productivity
   ✅ fusion-reasoning*     Multi-agent reasoning panel + judge
-  ✅ efficient-orchestration* Token-efficient model tiering
+  ✅ efficient-orchestration* Token-efficient subagent model tiering
 
 Design
   ❌ design-review-loop    Screenshot→review→build design loop
@@ -432,7 +432,7 @@ Content
 
 Automation
   ❌ gepeto                Build Pinokio 1-click launchers
-  ❌ pinokio               Discover & launch Pinokio apps
+  ❌ pinokio               Discover, launch & use Pinokio apps
 
 * indicates default
 ```
