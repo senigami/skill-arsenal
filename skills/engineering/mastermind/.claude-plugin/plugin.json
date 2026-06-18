@@ -6,5 +6,12 @@
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/mastermind",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": ["./skills"],
+  "dependencies": [
+    "fusion-reasoning",
+    "task-plan-architect",
+    "planrunner",
+    "efficient-orchestration",
+    "adversarial-review"
+  ]
 }
