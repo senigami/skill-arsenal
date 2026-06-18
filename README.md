@@ -271,115 +271,45 @@ The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is
 The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).
 
 <details>
-<summary>For Claude and Codex / AI assistants: quick self install</summary>
+<summary>For AI agents: install instructions</summary>
 
-## Default install list (all agents)
+## Agent install instructions
 
-Before installing, read `.claude-plugin/defaults.json` from the cloned repo. It contains a `"defaults"` array — the explicit list of skills to install when the user says "install skill-arsenal" or "set this up" without specifying individual skills. Everything else in `marketplace.json` is available but requires an explicit request by name.
+If a user points you at this README and asks you to install the skill-arsenal (or a specific skill from it), follow these steps. **You know your own platform's conventions** — where skills live, whether you use a plugin marketplace, a skills directory, or symlinks, and what makes a skill discoverable to you. These instructions give you the repo's structure and rules; apply your own platform mechanics to the rest.
 
-- **"install skill-arsenal" / "set this up"** → install only the skills listed in `defaults.json`
-- **"install [skill name]"** → install that specific skill regardless of whether it's in the defaults
-- **"install all skills"** → install everything in `marketplace.json`
+### 1. Get the repo locally
 
-To find a skill's category and source path, look up its `"source"` field in `marketplace.json` — e.g. `"./skills/engineering/tdd"` means category `engineering`, name `tdd`.
-
----
-
-## Claude agent quick install
-
-If a user points this README at a Claude chat session and asks to set up the skill-arsenal, follow these steps:
-
-**Step 1 — Check if already registered**
-
-Read `~/.claude/plugins/known_marketplaces.json`. If a `skill-arsenal` key already exists, the marketplace is registered — skip to Step 3. If the file doesn't exist yet, you'll create it in Step 2.
-
-**Step 2 — Clone the repo and register the marketplace**
+If a local clone doesn't already exist, clone it:
 
 ```bash
-git clone https://github.com/senigami/skill-arsenal.git ~/.claude/plugins/marketplaces/skill-arsenal
+git clone https://github.com/senigami/skill-arsenal.git
 ```
 
-Then read `~/.claude/plugins/known_marketplaces.json` (or start fresh if it doesn't exist) and add the `skill-arsenal` entry alongside any existing entries:
+Put it wherever your platform expects marketplaces/plugins to live (e.g. a Claude Code marketplace dir, a Codex plugins dir, or any working location). If your platform has a native marketplace command (`/plugin marketplace add senigami/skill-arsenal`, `codex plugin marketplace add senigami/skill-arsenal`, etc.), prefer that and skip the manual clone.
 
-```json
-"skill-arsenal": {
-  "source": { "source": "git", "url": "https://github.com/senigami/skill-arsenal.git" },
-  "installLocation": "<actual-home-dir>/.claude/plugins/marketplaces/skill-arsenal",
-  "lastUpdated": "<today's date as ISO 8601>"
-}
-```
+### 2. Decide which skills to install
 
-Replace `<actual-home-dir>` with the real home directory path from the system (run `echo $HOME` to get it). Write the updated file back.
+Read [`.claude-plugin/defaults.json`](.claude-plugin/defaults.json). It holds a `"defaults"` array — the curated set installed when the user doesn't name specific skills:
 
-**Step 3 — Install skills**
+- **"install skill-arsenal" / "set this up"** → install only the skills in `defaults.json`
+- **"install [skill name]"** → install that skill, whether or not it's a default
+- **"install all skills"** → install everything in [`marketplace.json`](.claude-plugin/marketplace.json)
+- **"show me what's available"** → present a table of all skills by category, then ask which they want
 
-Apply the default install rules from the preamble above. Copy each skill using the pattern:
+### 3. Locate each skill in the repo
 
-```bash
-cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/<category>/<name>/skills/<name> ~/.claude/skills/<name>
-```
+Skill definitions live at `skills/<category>/<name>/skills/<name>/` — that inner folder contains `SKILL.md` and any `references/`. To map a skill name to its path, read its `"source"` field in `marketplace.json` (e.g. `"./skills/engineering/tdd"` → category `engineering`, name `tdd`).
 
-**Step 4 — Confirm and advise restart**
+### 4. Resolve dependencies
 
-Tell the user which skills were installed, which were skipped as optional (and how to install them if wanted), and their invoke commands (e.g. `/mastermind`). Let them know Claude Code needs to be restarted (or a new session started) for new skills to appear in the slash-command picker.
+Before installing a skill, read the top of its `SKILL.md` for a `## Requirements` section. If it lists other skill-arsenal skills, install those too (recursively). Mastermind in particular pulls in a spine of skills; install its requirements so it works fully (it degrades gracefully if some are missing).
 
-**If the user only wants one skill**, install Mastermind — it auto-invokes the rest of the spine when they're present, and the workflow degrades gracefully to inline when they're not.
+### 5. Install into your platform's skill location
 
+Copy or symlink the inner `skills/<name>/` folder into wherever your platform loads skills from — for example `~/.claude/skills/<name>/`, `~/.gemini/config/skills/<name>/`, `.agents/skills/<name>/`, or your equivalent. Use whichever mechanism (copy vs. symlink, global vs. workspace) matches the user's request and your platform's norms.
 
-## Codex agent quick install
+### 6. Confirm and advise
 
-If a user points Codex at this repository and asks to use the skills here, install the marketplace first, then install the requested skill:
+Tell the user which skills were installed (and any dependencies pulled in), how to invoke them (e.g. `/mastermind`), and whether they need to restart or start a new session for the skills to appear.
 
-```bash
-codex plugin marketplace add senigami/skill-arsenal
-codex plugin add <skill-name>@skill-arsenal
-```
-
-If the user's shell does not have `codex` on `PATH`, use the Codex app binary directly:
-
-```bash
-/Applications/Codex.app/Contents/Resources/codex plugin marketplace add senigami/skill-arsenal
-/Applications/Codex.app/Contents/Resources/codex plugin add <skill-name>@skill-arsenal
-```
-
-If the user is testing unpublished local changes from a checkout, register the local repo path instead of the GitHub shorthand:
-
-```bash
-/Applications/Codex.app/Contents/Resources/codex plugin marketplace add /path/to/skill-arsenal
-/Applications/Codex.app/Contents/Resources/codex plugin add <skill-name>@skill-arsenal
-```
-
-After installing, restart Codex or start a new thread so the skill appears in the picker/context.
-
-## Install via Antigravity / Gemini Code Agent
-If you are using Antigravity (or another Gemini agent with terminal and filesystem capabilities), paste the link to this README into the chat and say:
-*"Install a skill-arsenal skill"* or *"Install [skill-name] from this repo"*.
-
-### Agent Instructions for Installation:
-When a user points you to this repository/README and requests a skill installation, please follow these instructions:
-
-1. **Verify or Clone the Repository**:
-   - Check if a local clone of this repository exists on the user's system (e.g., check `~/GitHub/skill-arsenal` or a path mentioned by the user).
-   - If it does not exist, clone this repository to a local folder (e.g., `~/GitHub/skill-arsenal` or `~/.gemini/config/plugins/marketplaces/skill-arsenal`).
-
-2. **Determine which skills to install (If no skill name is specified)**:
-   - Apply the default install rules from the preamble above — read `.claude-plugin/defaults.json` and install only the listed skills.
-   - If the user asked to see what's available, scan the `skills/` folder and present a markdown table of all skills by category (each skill's definition is at `skills/<category>/<skill_name>/skills/<skill_name>/SKILL.md`).
-   - Only ask *"Which skill would you like to install?"* if the user explicitly said they want to choose.
-
-3. **Install the Selected/Specified Skill & Dependencies**:
-   - Find the source path containing the target skill's `SKILL.md`: `skills/<category>/<skill_name>/skills/<skill_name>`.
-   - **Resolve Dependencies**:
-     - Read the top part of the target `SKILL.md` file. Check for sections like `## Requirements` or listings of required/optional skills that belong to `@skill-arsenal`.
-     - If any other skills from the repository are required, locate and install them first using these same steps recursively.
-   - **Determine Destination**:
-     - Determine the destination based on the user's preference:
-       - **Globally**: `~/.gemini/config/skills/<skill_name>`
-       - **Workspace-specific**: `.agents/skills/<skill_name>` (relative to the active workspace root).
-     - Ensure the parent `skills/` directory exists in the destination.
-   - **Create Symlink**:
-     - Create a symbolic link (symlink) from the source directory to the destination directory. For example:
-       `ln -s <absolute-source-path> <absolute-destination-path>`
-   - Verify all links (including dependencies) are active and confirm the successful installation to the user, listing both the primary skill and all resolved dependencies.
-   
 </details>
