@@ -1,0 +1,10 @@
+{
+  "name": "choreographer",
+  "description": "End-to-end workflow conductor — interview to understand, fusion-reasoning to solve, task-plan-architect to plan, planrunner to execute, a completion audit, and adversarial review. Gates at confirm-understanding, confirm-plan, and present-verification; loops to root-cause and fix until satisfied.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/choreographer",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "skills": ["./skills"]
+}
