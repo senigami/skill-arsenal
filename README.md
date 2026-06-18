@@ -265,6 +265,59 @@ The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is
 The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).
 
 <details>
+<summary>For Claude / AI assistants: quick install</summary>
+
+## Claude agent quick install
+
+If a user points this README at a Claude chat session and asks to set up the skill-arsenal, follow these steps:
+
+**Step 1 — Check if already registered**
+
+Read `~/.claude/plugins/known_marketplaces.json`. If a `skill-arsenal` key already exists, the marketplace is registered — skip to Step 3. If the file doesn't exist yet, you'll create it in Step 2.
+
+**Step 2 — Clone the repo and register the marketplace**
+
+```bash
+git clone https://github.com/senigami/skill-arsenal.git ~/.claude/plugins/marketplaces/skill-arsenal
+```
+
+Then read `~/.claude/plugins/known_marketplaces.json` (or start fresh if it doesn't exist) and add the `skill-arsenal` entry alongside any existing entries:
+
+```json
+"skill-arsenal": {
+  "source": { "source": "git", "url": "https://github.com/senigami/skill-arsenal.git" },
+  "installLocation": "<actual-home-dir>/.claude/plugins/marketplaces/skill-arsenal",
+  "lastUpdated": "<today's date as ISO 8601>"
+}
+```
+
+Replace `<actual-home-dir>` with the real home directory path from the system (run `echo $HOME` to get it). Write the updated file back.
+
+**Step 3 — Install skills**
+
+If the user hasn't specified which skills to install, recommend starting with Mastermind and the recommended pair:
+
+```bash
+# Copy each skill's folder into ~/.claude/skills/
+cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/mastermind/skills/mastermind ~/.claude/skills/mastermind
+cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/spec-docs-generator/skills/spec-docs-generator ~/.claude/skills/spec-docs-generator
+cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/code-quality-checklist/skills/code-quality-checklist ~/.claude/skills/code-quality-checklist
+```
+
+For any other skill, the pattern is:
+```bash
+cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/<category>/<name>/skills/<name> ~/.claude/skills/<name>
+```
+
+**Step 4 — Confirm and advise restart**
+
+Tell the user which skills were installed and their invoke commands (e.g. `/mastermind`). Let them know Claude Code needs to be restarted (or a new session started) for new skills to appear in the slash-command picker.
+
+**If the user only wants one skill**, install Mastermind — it auto-invokes the rest of the spine when they're present, and the workflow degrades gracefully to inline when they're not.
+
+</details>
+
+<details>
 <summary>For Codex / coding agents: quick install</summary>
 
 ## Codex agent quick install
