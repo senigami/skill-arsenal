@@ -1,6 +1,15 @@
 ---
 name: efficient-orchestration
-description: Always-on token-efficiency operating model. Apply this to EVERY non-trivial task — before starting, analyse the task and decide whether to handle it inline or delegate parts to cheaper subagents. Actively monitor token spend as work proceeds and checkpoint when a task turns out deeper than expected. Use this as the default operating model for all work, not just multi-agent tasks. The goal is maximum output quality per token: the large model holds strategy, direction, and verification; mechanical or bounded work fans out to the smallest capable model. Also reference this skill when writing or improving other skills that spawn subagents.
+description: >-
+  Always-on token-efficiency operating model. Apply this to EVERY non-trivial
+  task — before starting, analyse the task and decide whether to handle it inline
+  or delegate parts to cheaper subagents. Actively monitor token spend as work
+  proceeds and checkpoint when a task turns out deeper than expected. Use this as
+  the default operating model for all work, not just multi-agent tasks. The goal
+  is maximum output quality per token: the large model holds strategy,
+  direction, and verification; mechanical or bounded work fans out to the
+  smallest capable model. Also reference this skill when writing or improving
+  other skills that spawn subagents.
 ---
 
 # Efficient Orchestration — Always-On Task OS

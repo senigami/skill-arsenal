@@ -1,0 +1,35 @@
+{
+  "name": "task-plan-architect",
+  "version": "1.3.0",
+  "description": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md — goal, scope, and success criteria\n2. 01-map.md — parts, connections, contracts, and invariants\n3. 02-roadmap.md — ordered workloads and dependency graph\n4. tasks/NNN-slug.md — self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/task-plan-architect",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "planning",
+    "architecture",
+    "task-breakdown",
+    "implementation-plan",
+    "orchestration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Task Plan Architect",
+    "shortDescription": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.",
+    "longDescription": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md — goal, scope, and success criteria\n2. 01-map.md — parts, connections, contracts, and invariants\n3. 02-roadmap.md — ordered workloads and dependency graph\n4. tasks/NNN-slug.md — self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use task-plan-architect for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

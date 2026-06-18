@@ -1,0 +1,36 @@
+{
+  "name": "frontend-code-layout",
+  "version": "1.0.0",
+  "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/frontend-code-layout",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "react",
+    "css",
+    "design-tokens",
+    "separation-of-concerns",
+    "refactoring"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend Code Layout",
+    "shortDescription": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.",
+    "longDescription": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use frontend-code-layout for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

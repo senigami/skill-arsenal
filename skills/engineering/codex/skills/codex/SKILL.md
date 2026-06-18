@@ -1,4 +1,5 @@
 ---
+name: codex
 description: Bounded implementation worker rules for handing off to Codex. Use when acting as an implementation worker whose output will be reviewed by Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.
 ---
 

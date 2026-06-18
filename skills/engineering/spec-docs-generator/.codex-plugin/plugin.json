@@ -1,0 +1,35 @@
+{
+  "name": "spec-docs-generator",
+  "version": "1.0.0",
+  "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n\nDetects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. Conflict resolution happens before writing.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/spec-docs-generator",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "specs",
+    "adr",
+    "source-of-truth",
+    "architecture"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spec Docs Generator",
+    "shortDescription": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.",
+    "longDescription": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n\nDetects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. Conflict resolution happens before writing.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use spec-docs-generator for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "efficient-orchestration",
+  "version": "1.0.0",
+  "description": "Always-on token-efficiency operating model — for every non-trivial task, decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/productivity/efficient-orchestration",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "token-efficiency",
+    "subagents",
+    "delegation",
+    "operating-model"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Efficient Orchestration",
+    "shortDescription": "Always-on token-efficiency operating model — for every non-trivial task, decide inline vs.",
+    "longDescription": "Always-on token-efficiency operating model — for every non-trivial task, decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
+    "developerName": "Steven Dunn",
+    "category": "Productivity",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use efficient-orchestration for this task."
+    ],
+    "brandColor": "#EA580C"
+  }
+}

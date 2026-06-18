@@ -1,0 +1,35 @@
+{
+  "name": "code-quality-checklist",
+  "version": "1.0.0",
+  "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task — surface assumptions, clarify scope, read project-rules.md\n2. During — run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task — run scripts/verify.sh; self-review before handoff\n\nSilent by default — fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/code-quality-checklist",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "quality",
+    "checklist",
+    "verification",
+    "testing",
+    "conventions"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Code Quality Checklist",
+    "shortDescription": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before mark...",
+    "longDescription": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task — surface assumptions, clarify scope, read project-rules.md\n2. During — run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task — run scripts/verify.sh; self-review before handoff\n\nSilent by default — fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use code-quality-checklist for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

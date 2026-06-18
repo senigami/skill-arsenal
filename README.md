@@ -1,43 +1,13 @@
 # skill-arsenal
 
-A curated collection of reusable [Claude Code](https://claude.ai/code) skills organized by category.
+A curated collection of reusable [Claude Code](https://claude.ai/code) and Codex skills organized by category.
 
-## Adding this store to Claude Code
-
-Claude Code has a built-in plugin system. Register this repo once and you can browse and install skills without ever touching the filesystem.
-
-### Step 1 — Add the marketplace
-
-In any Claude Code session, run:
-
-```
-/plugin marketplace add senigami/skill-arsenal
-```
-
-This clones the repo into `~/.claude/plugins/marketplaces/skill-arsenal/` and registers it. You only need to do this once.
-
-### Step 2 — Install a skill
-
-```
-/plugin install adversarial-review@skill-arsenal
-```
-
-The skill is now available as `/adversarial-review` in any project.
-
-### Other useful commands
-
-```
-/plugin update                          # pull latest skill updates
-/plugin update adversarial-review       # update one skill
-/plugin remove adversarial-review       # uninstall a skill
-/plugin marketplace remove skill-arsenal  # remove this store
-```
-
----
 
 ## Featured skill — Mastermind
 
-**[Mastermind](skills/engineering/mastermind/)** is the flagship skill of this arsenal — a single command that takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.
+<details>
+<summary>**[Mastermind](skills/engineering/mastermind/)** is the flagship skill of this arsenal — a single command that takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.</summary>
+
 
 ```
 /plugin install mastermind@skill-arsenal
@@ -53,6 +23,7 @@ It chains the best skills in this repo into one seamless workflow:
 6. **Adversarial review** — hostile correctness, security, and edge-case pass
 
 Three checkpoints keep you in control (confirm-understanding, confirm-plan, present-verification). Everything between checkpoints runs autonomously. Installing Mastermind also installs all five dependent skills automatically.
+</details>
 
 > If you only install one skill, make it this one.
 
@@ -60,7 +31,8 @@ Three checkpoints keep you in control (confirm-understanding, confirm-plan, pres
 
 ## Recommended pair — Spec Docs Generator + Code Quality Checklist
 
-For any project where consistency matters, install these two skills together:
+<details>
+<summary>For any project where consistency matters, install these two skills together:</summary>
 
 ```
 /plugin install spec-docs-generator@skill-arsenal
@@ -73,9 +45,13 @@ For any project where consistency matters, install these two skills together:
 
 Together: the generator captures *what the project is supposed to be*; the checklist enforces *that every future change stays that way* — and Mastermind wires them together automatically with no extra configuration needed.
 
+</details>
+
 ---
 
 ## Available skills
+<details>
+<summary>[Show all skills]</summary>
 
 ### Engineering
 
@@ -126,6 +102,41 @@ Together: the generator captures *what the project is supposed to be*; the check
 > **Attribution.** Some skills are third-party, included here for easy reference and kept under their original licenses: **humanizer** by [Siqi Chen](https://github.com/blader/humanizer) (MIT), **comedy-writers-room** by [Tal Raviv](https://github.com/talsraviv/comedy-writers-room). Original LICENSE/README files are preserved inside each skill directory.
 
 ---
+</details>
+
+## Adding this store to Claude Code
+
+Claude Code has a built-in plugin system. Register this repo once and you can browse and install skills without ever touching the filesystem.
+
+<details>
+<summary>[Expand for install steps]</summary>
+
+### Step 1 — Add the marketplace
+
+In any Claude Code session, run:
+
+```
+/plugin marketplace add senigami/skill-arsenal
+```
+
+This clones the repo into `~/.claude/plugins/marketplaces/skill-arsenal/` and registers it. You only need to do this once.
+
+### Step 2 — Install a skill
+
+```
+/plugin install adversarial-review@skill-arsenal
+```
+
+The skill is now available as `/adversarial-review` in any project.
+
+### Other useful commands
+
+```
+/plugin update                          # pull latest skill updates
+/plugin update adversarial-review       # update one skill
+/plugin remove adversarial-review       # uninstall a skill
+/plugin marketplace remove skill-arsenal  # remove this store
+```
 
 ## No CLI? Install via Claude chat
 
@@ -150,9 +161,44 @@ If you don't have the Claude Code CLI installed, paste this prompt directly into
 
 ---
 
+</details>
+
+## Adding this store to Codex
+Codex reads this repo as a plugin marketplace through [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). Register the marketplace once, then install individual skills from the Codex plugin picker.
+
+<details>
+<summary>[Expand for install steps]</summary>
+
+### Step 1 — Add the marketplace
+
+From Codex CLI, run:
+
+```
+codex plugin marketplace add senigami/skill-arsenal
+```
+
+Restart Codex after adding the marketplace.
+
+### Step 2 — Install a skill
+
+Open the Codex plugin picker:
+
+```
+codex
+/plugins
+```
+
+Choose the `Skill Arsenal` marketplace, then install the skill you want. In the Codex app, open **Plugins**, switch to the `Skill Arsenal` source, and select **Add to Codex** for a skill.
+
+After installation, start a new thread. You can ask for the task directly and let Codex pick the matching skill, or invoke an installed plugin/skill explicitly with `@` in the composer or `$skill-name` where skill mentions are available.
+</details>
+
+---
+
 ## Manual installation (no plugin system)
 
-If you prefer not to use `/plugin`, you can install directly with the included script.
+<details>
+<summary>If you prefer not to use `/plugin`, you can install directly with the included script.</summary>
 
 ### Clone and install
 
@@ -183,7 +229,7 @@ cp -r skills/engineering/adversarial-review/skills/adversarial-review \
 
 ## Skill structure
 
-Each skill is a self-contained Claude Code plugin under `skills/<category>/<name>/`:
+Each skill is a self-contained Claude Code and Codex plugin under `skills/<category>/<name>/`:
 
 ```
 skills/
@@ -191,13 +237,16 @@ skills/
     └── adversarial-review/
         ├── .claude-plugin/
         │   └── plugin.json          # plugin manifest (Claude Code reads this)
+        ├── .codex-plugin/
+        │   └── plugin.json          # plugin manifest (Codex reads this)
         └── skills/
             └── adversarial-review/
-                ├── SKILL.md         # skill content (the thing Claude loads)
+                ├── SKILL.md         # shared skill content
                 └── references/      # supporting docs loaded as context (optional)
 ```
 
-The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is the catalog Claude Code's `/plugin` system reads. Each plugin's `.claude-plugin/plugin.json` is its manifest. `SKILL.md` is the content Claude loads when the skill is invoked.
+The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is the catalog Claude Code's `/plugin` system reads. The root [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) is the catalog Codex reads. Each plugin's `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` are the platform-specific manifests. `SKILL.md` is the shared skill content loaded when the skill is invoked.
+</details>
 
 ---
 
@@ -205,8 +254,12 @@ The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is
 
 1. Fork this repo
 2. Create your skill under `skills/<category>/<name>/` following the structure above
-3. Add `.claude-plugin/plugin.json` and `skills/<name>/SKILL.md`
-4. Add a plugin entry to the root `.claude-plugin/marketplace.json`
-5. Open a PR — category is confirmed in review
+3. Add `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, and `skills/<name>/SKILL.md`
+4. Add plugin entries to the root `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json`
+5. Validate the Codex manifest:
+   ```bash
+   python3 /path/to/plugin-creator/scripts/validate_plugin.py skills/<category>/<name>
+   ```
+6. Open a PR — category is confirmed in review
 
 The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).

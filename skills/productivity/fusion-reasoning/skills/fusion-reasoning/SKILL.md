@@ -1,6 +1,19 @@
 ---
 name: fusion-reasoning
-description: A reasoning amplifier for hard problems — fuses several independent model attempts into one answer that beats any single pass. Use whenever the user wants to "think hard about", "reason through", "create a plan for", "find the best approach", "find bugs in", "design this properly", or "get multiple perspectives" on a problem too tricky for one attempt to be trustworthy — especially planning, UI / Apple HIG design reasoning, architecture decisions, and bug hunting. A stand-in for a frontier reasoning model: it runs an adaptively-sized panel of independent Claude agents, optionally has them cross-examine, and a judge synthesizes consensus, resolves contradictions, and surfaces blind spots into one unified result. Discovers and invokes whatever relevant skills are available (research, design, accessibility) by matching their descriptions to the need, rather than depending on any specific skill being installed.
+description: >-
+  A reasoning amplifier for hard problems — fuses several independent model
+  attempts into one answer that beats any single pass. Use whenever the user
+  wants to "think hard about", "reason through", "create a plan for", "find the
+  best approach", "find bugs in", "design this properly", or "get multiple
+  perspectives" on a problem too tricky for one attempt to be trustworthy —
+  especially planning, UI / Apple HIG design reasoning, architecture decisions,
+  and bug hunting. A stand-in for a frontier reasoning model: it runs an
+  adaptively-sized panel of independent Claude agents, optionally has them
+  cross-examine, and a judge synthesizes consensus, resolves contradictions, and
+  surfaces blind spots into one unified result. Discovers and invokes whatever
+  relevant skills are available (research, design, accessibility) by matching
+  their descriptions to the need, rather than depending on any specific skill
+  being installed.
 ---
 
 # Fusion Reasoning

@@ -1,0 +1,35 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate — workers are cheap execution.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/worker",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "cursor",
+    "subagents",
+    "haiku",
+    "task-execution"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Worker",
+    "shortDescription": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fi...",
+    "longDescription": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate — workers are cheap execution.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use worker for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "fusion-reasoning",
+  "version": "1.0.0",
+  "description": "Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Frame the problem and design a panel with distinct angles\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge synthesizes consensus, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/productivity/fusion-reasoning",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "reasoning",
+    "planning",
+    "multi-agent",
+    "consensus",
+    "judge"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fusion Reasoning",
+    "shortDescription": "Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that...",
+    "longDescription": "Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Frame the problem and design a panel with distinct angles\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge synthesizes consensus, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
+    "developerName": "Steven Dunn",
+    "category": "Productivity",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use fusion-reasoning for this task."
+    ],
+    "brandColor": "#EA580C"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "pr-review",
+  "version": "1.0.0",
+  "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/pr-review",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "pr-review",
+    "code-review",
+    "github",
+    "blockers",
+    "security"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PR Review",
+    "shortDescription": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.",
+    "longDescription": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use pr-review for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

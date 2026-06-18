@@ -1,0 +1,35 @@
+{
+  "name": "codex",
+  "version": "1.0.0",
+  "description": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/codex",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "handoff",
+    "implementation",
+    "scope",
+    "worker"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex",
+    "shortDescription": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.",
+    "longDescription": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use codex for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

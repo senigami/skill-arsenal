@@ -1,0 +1,35 @@
+{
+  "name": "gepeto",
+  "version": "1.0.0",
+  "description": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/automation/gepeto",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "pinokio",
+    "launcher",
+    "apps",
+    "automation",
+    "1-click"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Gepeto",
+    "shortDescription": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.",
+    "longDescription": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
+    "developerName": "Steven Dunn",
+    "category": "Automation",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use gepeto for this task."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

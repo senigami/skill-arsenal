@@ -1,0 +1,35 @@
+{
+  "name": "humanizer",
+  "version": "2.8.0",
+  "description": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm — the signals that make writing sound human.",
+  "author": {
+    "name": "Siqi Chen",
+    "url": "https://github.com/blader/humanizer"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/content/humanizer",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "ai-detection",
+    "humanize",
+    "prose"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Humanizer",
+    "shortDescription": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.",
+    "longDescription": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm — the signals that make writing sound human.",
+    "developerName": "Siqi Chen",
+    "category": "Content",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use humanizer for this task."
+    ],
+    "brandColor": "#DB2777"
+  }
+}

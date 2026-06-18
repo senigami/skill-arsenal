@@ -1,0 +1,260 @@
+{
+  "name": "skill-arsenal",
+  "interface": {
+    "displayName": "Skill Arsenal"
+  },
+  "plugins": [
+    {
+      "name": "gepeto",
+      "source": {
+        "source": "local",
+        "path": "./skills/automation/gepeto"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Automation"
+    },
+    {
+      "name": "pinokio",
+      "source": {
+        "source": "local",
+        "path": "./skills/automation/pinokio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Automation"
+    },
+    {
+      "name": "comedy-writers-room",
+      "source": {
+        "source": "local",
+        "path": "./skills/content/comedy-writers-room"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Content"
+    },
+    {
+      "name": "gen-alpha-style",
+      "source": {
+        "source": "local",
+        "path": "./skills/content/gen-alpha-style"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Content"
+    },
+    {
+      "name": "humanizer",
+      "source": {
+        "source": "local",
+        "path": "./skills/content/humanizer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Content"
+    },
+    {
+      "name": "design-review-loop",
+      "source": {
+        "source": "local",
+        "path": "./skills/design/design-review-loop"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "adversarial-review",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/adversarial-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "code-audit-planner",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/code-audit-planner"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "code-quality-checklist",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/code-quality-checklist"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "codex",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "frontend-code-layout",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/frontend-code-layout"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "mastermind",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/mastermind"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "modern-web-guidance",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/modern-web-guidance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "planrunner",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/planrunner"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "pr-review",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/pr-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "spec-docs-generator",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/spec-docs-generator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "task-plan-architect",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/task-plan-architect"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "tdd",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/tdd"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "worker",
+      "source": {
+        "source": "local",
+        "path": "./skills/engineering/worker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "efficient-orchestration",
+      "source": {
+        "source": "local",
+        "path": "./skills/productivity/efficient-orchestration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "fusion-reasoning",
+      "source": {
+        "source": "local",
+        "path": "./skills/productivity/fusion-reasoning"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

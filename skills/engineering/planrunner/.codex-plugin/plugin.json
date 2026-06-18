@@ -1,0 +1,36 @@
+{
+  "name": "planrunner",
+  "version": "1.2.0",
+  "description": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate — tests, lint, and typecheck pass before review\n2. Slice → delegate → verify — each slice checked against the plan's acceptance criteria\n3. Adversarial review — up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/planrunner",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "execution",
+    "implementation",
+    "plan",
+    "subagents",
+    "review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Planrunner",
+    "shortDescription": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, a...",
+    "longDescription": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate — tests, lint, and typecheck pass before review\n2. Slice → delegate → verify — each slice checked against the plan's acceptance criteria\n3. Adversarial review — up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use planrunner for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

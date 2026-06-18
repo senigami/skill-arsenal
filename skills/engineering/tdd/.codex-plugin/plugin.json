@@ -1,0 +1,34 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "description": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/tdd",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "tdd",
+    "testing",
+    "red-green-refactor",
+    "quality"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "TDD",
+    "shortDescription": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.",
+    "longDescription": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use tdd for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

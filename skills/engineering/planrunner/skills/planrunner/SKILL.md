@@ -1,6 +1,17 @@
 ---
 name: planrunner
-description: Orchestrator-driven execution of an approved plan. Use right after a plan is approved / when the user says "execute the plan", "run the plan", "build this", "start working", "planrunner", or invokes this skill in plan mode. The main loop stays on the user's chosen model and acts as ORCHESTRATOR + REVIEWER — it does not write the bulk of the code itself. It decomposes the plan into small slices, delegates each to a mid-tier `implementer` subagent (or a light-tier agent for trivial/mechanical slices), verifies every returned slice against intent, then runs up to 3 adversarial review rounds, fixing real blockers via the same slice→subagent→verify procedure. Model-agnostic: it discovers the available models at runtime and assigns work by capability tier rather than by model name. Skip for trivial one-line changes or pure Q&A.
+description: >-
+  Orchestrator-driven execution of an approved plan. Use right after a plan is
+  approved / when the user says "execute the plan", "run the plan", "build
+  this", "start working", "planrunner", or invokes this skill in plan mode. The
+  main loop stays on the user's chosen model and acts as ORCHESTRATOR + REVIEWER
+  — it does not write the bulk of the code itself. It decomposes the plan into
+  small slices, delegates each to a mid-tier `implementer` subagent (or a
+  light-tier agent for trivial/mechanical slices), verifies every returned slice
+  against intent, then runs up to 3 adversarial review rounds, fixing real
+  blockers via the same slice→subagent→verify procedure. Model-agnostic: it
+  discovers the available models at runtime and assigns work by capability tier
+  rather than by model name. Skip for trivial one-line changes or pure Q&A.
 ---
 
 # planrunner — orchestrate, delegate, verify, review

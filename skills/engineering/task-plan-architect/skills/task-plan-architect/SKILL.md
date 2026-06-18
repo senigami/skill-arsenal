@@ -1,6 +1,19 @@
 ---
 name: task-plan-architect
-description: Research a large task and produce a detailed, mapped implementation plan that a smaller model can execute without losing the big picture. Use whenever the user wants to "plan out", "make a plan for", "map out", "research and plan", "break down a big task", "architect an approach", "scope this feature", or "expand an existing plan" — anything large or multi-part enough that no single context can hold all of it at once. It does NOT audit the whole repo for problems; it takes a given task (or an existing plan to grow) and builds the big-picture map: the parts, how they connect, the contracts and invariants between them, and an ordered set of self-contained tasks that each link back to the map. Saves the plan OUTSIDE the repo by default so it never contaminates the codebase, and asks upfront whether to keep it apart or in-repo. The result keeps a long project on track, connected, and organized as cheaper executor agents work through it.
+description: >-
+  Research a large task and produce a detailed, mapped implementation plan that
+  a smaller model can execute without losing the big picture. Use whenever the
+  user wants to "plan out", "make a plan for", "map out", "research and plan",
+  "break down a big task", "architect an approach", "scope this feature", or
+  "expand an existing plan" — anything large or multi-part enough that no single
+  context can hold all of it at once. It does NOT audit the whole repo for
+  problems; it takes a given task (or an existing plan to grow) and builds the
+  big-picture map: the parts, how they connect, the contracts and invariants
+  between them, and an ordered set of self-contained tasks that each link back to
+  the map. Saves the plan OUTSIDE the repo by default so it never contaminates
+  the codebase, and asks upfront whether to keep it apart or in-repo. The result
+  keeps a long project on track, connected, and organized as cheaper executor
+  agents work through it.
 ---
 
 # Task Plan Architect

@@ -1,0 +1,35 @@
+{
+  "name": "code-audit-planner",
+  "version": "1.0.0",
+  "description": "Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.\n\nAudit dimensions:\n- DRY/reuse and code organization\n- Logic errors and test quality\n- UX and responsive design\n- Spec drift (code vs. spec gaps)\n- Theming and accessibility\n\nFans reading out to light agents in parallel; writes numbered task files with exact acceptance criteria so a future agent can execute each independently. Plans only — never edits source.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/code-audit-planner",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": [
+    "audit",
+    "planning",
+    "code-quality",
+    "refactoring",
+    "orchestration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Code Audit Planner",
+    "shortDescription": "Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.",
+    "longDescription": "Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.\n\nAudit dimensions:\n- DRY/reuse and code organization\n- Logic errors and test quality\n- UX and responsive design\n- Spec drift (code vs. spec gaps)\n- Theming and accessibility\n\nFans reading out to light agents in parallel; writes numbered task files with exact acceptance criteria so a future agent can execute each independently. Plans only — never edits source.",
+    "developerName": "Steven Dunn",
+    "category": "Engineering",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Use code-audit-planner for this task."
+    ],
+    "brandColor": "#059669"
+  }
+}

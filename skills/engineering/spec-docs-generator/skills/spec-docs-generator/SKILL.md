@@ -1,6 +1,22 @@
 ---
 name: spec-docs-generator
-description: Generate OR update a numbered spec-document set (docs/00-index.md, docs/NN-topic.md, docs/decisions/ ADRs) that becomes the source of truth an agent obeys when writing code. Use whenever the user wants to "create specs", "document the architecture", "set up a docs/ folder", "make a source of truth", "spec out this app", or "reverse-engineer documentation". Also use on projects that ALREADY have spec docs — "update the specs", "audit the docs", "reconcile specs with the code", "are the specs still current?", or fix spec drift: it detects the existing set, diffs each spec against the code, updates what's drifted, adds what's missing, retires what's gone, supersedes (never rewrites) ADRs, and leaves a changelog. Works for existing codebases, greenfield apps (interviews the user), a mix, or an existing spec set that needs refreshing. Best paired with `code-quality-checklist`: once specs are generated at docs/00-index.md, code-quality-checklist uses them as the authoritative source of conventions for every future implementation task — verifying not just that tests pass but that the code matches what the specs document.
+description: >-
+  Generate OR update a numbered spec-document set (docs/00-index.md,
+  docs/NN-topic.md, docs/decisions/ ADRs) that becomes the source of truth an
+  agent obeys when writing code. Use whenever the user wants to "create specs",
+  "document the architecture", "set up a docs/ folder", "make a source of
+  truth", "spec out this app", or "reverse-engineer documentation". Also use on
+  projects that ALREADY have spec docs — "update the specs", "audit the docs",
+  "reconcile specs with the code", "are the specs still current?", or fix spec
+  drift: it detects the existing set, diffs each spec against the code, updates
+  what's drifted, adds what's missing, retires what's gone, supersedes (never
+  rewrites) ADRs, and leaves a changelog. Works for existing codebases,
+  greenfield apps (interviews the user), a mix, or an existing spec set that
+  needs refreshing. Best paired with `code-quality-checklist`: once specs are
+  generated at docs/00-index.md, code-quality-checklist uses them as the
+  authoritative source of conventions for every future implementation task —
+  verifying not just that tests pass but that the code matches what the specs
+  document.
 ---
 
 # Spec Docs Generator
