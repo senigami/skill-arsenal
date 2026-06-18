@@ -398,39 +398,63 @@ Build two lists: **installed** and **not installed**. Also read [`.claude-plugin
 
 ### Step 3 — Show the skill dashboard
 
-Present all skills in a compact list — name, one-line description, install status, and whether it's a recommended default. Use the descriptions from the skill entries above in this README.
+Assign each skill a letter (a–t for 20 skills) in a fixed order. Present the dashboard as a monospace-aligned list. Keep descriptions to **35 characters or fewer** so lines don't wrap in a terminal. Use this exact skill order and these short descriptions:
 
 ```
 SKILL ARSENAL — senigami/skill-arsenal
 
 Engineering
-  ✅ mastermind            End-to-end workflow conductor (installs 8 dependencies)  [default]
-  ✅ adversarial-review    Three hostile personas tear your code apart before it ships  [default]
-  ✅ spec-docs-generator   Generate or update numbered spec docs as your source of truth  [default]
-  ✅ code-quality-checklist  Pre/during/post-task quality guardrail  [default]
-  ❌ codex                 Bounded worker rules for Codex handoffs
-  ❌ worker                Cursor task orchestrator (Haiku subagents)
-  ...
+  a. ✅ mastermind            End-to-end workflow conductor  [default]
+  b. ✅ adversarial-review    Three hostile code reviewers   [default]
+  c. ✅ spec-docs-generator   Numbered spec docs & ADRs      [default]
+  d. ✅ code-quality-checklist Pre/during/post quality gate  [default]
+  e. ✅ task-plan-architect   Maps large tasks into plans    [default]
+  f. ✅ planrunner            Executes plans via subagents   [default]
+  g. ✅ tdd                   Red→green→refactor enforcer    [default]
+  h. ✅ pr-review             GitHub PR blocker check        [default]
+  i. ✅ code-audit-planner    Codebase audit → task list     [default]
+  j. ✅ frontend-code-layout  Separable UI structure/style   [default]
+  k. ✅ modern-web-guidance   Modern CSS/HTML/API patterns   [default]
+  l. ❌ codex                 Codex handoff worker rules
+  m. ❌ worker                Cursor orchestrator (Haiku)
 
 Productivity
-  ✅ fusion-reasoning      Panel of agents, judge synthesizes one answer that beats any single pass  [default]
-  ...
+  n. ✅ fusion-reasoning      Multi-agent reasoning panel    [default]
+  o. ✅ efficient-orchestration Token-efficient model tiers  [default]
+
+Design
+  p. ❌ design-review-loop    Screenshot→review→build loop
+
+Content
+  q. ❌ humanizer             Strip AI writing patterns
+  r. ❌ comedy-writers-room   Comedy writer + critic panel
+  s. ❌ gen-alpha-style       Gen Alpha / brainrot filter
+
+Automation
+  t. ❌ gepeto                Build Pinokio launcher projects
+  u. ❌ pinokio               Launch Pinokio apps via pterm
 ```
+
+Replace ✅/❌ with the actual install status. Replace [default] with the actual defaults from `defaults.json`.
 
 ---
 
 ### Step 4 — Prompt the user
 
-After showing the dashboard, ask:
+After the dashboard, show the action menu:
 
-> **What would you like to do?**
-> 1. Install recommended defaults (skills marked [default] not yet installed)
-> 2. Install all skills
-> 3. Install specific skills — tell me which
-> 4. Uninstall a skill — tell me which
-> 5. Nothing, just browsing
+```
+What would you like to do?
+  1. Install recommended defaults
+  2. Install all skills
+  3. Install a skill — type its letter (e.g. l)
+  4. Uninstall a skill — type its letter (e.g. b)
+  5. Nothing, just browsing
+```
 
-If **all defaults are already installed**, lead with that and make options 3/4/5 the focus.
+Accept a **single letter** as a skill selector for options 3 and 4 — the user types `l` to act on codex, `b` to act on adversarial-review, etc. Accept a **number** for the menu options.
+
+If **all defaults are already installed**, lead with that and skip option 1.
 
 ---
 
