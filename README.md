@@ -404,23 +404,23 @@ Assign each skill a letter (a–t for 20 skills) in a fixed order. Present the d
 SKILL ARSENAL — senigami/skill-arsenal
 
 Engineering
-  a. ✅ mastermind            End-to-end workflow conductor  [default]
-  b. ✅ adversarial-review    Three hostile code reviewers   [default]
-  c. ✅ spec-docs-generator   Numbered spec docs & ADRs      [default]
-  d. ✅ code-quality-checklist Pre/during/post quality gate  [default]
-  e. ✅ task-plan-architect   Maps large tasks into plans    [default]
-  f. ✅ planrunner            Executes plans via subagents   [default]
-  g. ✅ tdd                   Red→green→refactor enforcer    [default]
-  h. ✅ pr-review             GitHub PR blocker check        [default]
-  i. ✅ code-audit-planner    Codebase audit → task list     [default]
-  j. ✅ frontend-code-layout  Separable UI structure/style   [default]
-  k. ✅ modern-web-guidance   Modern CSS/HTML/API patterns   [default]
+  a. ✅ mastermind*           End-to-end workflow conductor
+  b. ✅ adversarial-review*   Three hostile code reviewers
+  c. ✅ spec-docs-generator*  Numbered spec docs & ADRs
+  d. ✅ code-quality-checklist* Pre/during/post quality gate
+  e. ✅ task-plan-architect*  Maps large tasks into plans
+  f. ✅ planrunner*           Executes plans via subagents
+  g. ✅ tdd*                  Red→green→refactor enforcer
+  h. ✅ pr-review*            GitHub PR blocker check
+  i. ✅ code-audit-planner*   Codebase audit → task list
+  j. ✅ frontend-code-layout* Separable UI structure/style
+  k. ✅ modern-web-guidance*  Modern CSS/HTML/API patterns
   l. ❌ codex                 Codex handoff worker rules
   m. ❌ worker                Cursor orchestrator (Haiku)
 
 Productivity
-  n. ✅ fusion-reasoning      Multi-agent reasoning panel    [default]
-  o. ✅ efficient-orchestration Token-efficient model tiers  [default]
+  n. ✅ fusion-reasoning*     Multi-agent reasoning panel
+  o. ✅ efficient-orchestration* Token-efficient model tiers
 
 Design
   p. ❌ design-review-loop    Screenshot→review→build loop
@@ -433,9 +433,11 @@ Content
 Automation
   t. ❌ gepeto                Build Pinokio launcher projects
   u. ❌ pinokio               Launch Pinokio apps via pterm
+
+* indicates default
 ```
 
-Replace ✅/❌ with the actual install status. Replace [default] with the actual defaults from `defaults.json`.
+Replace ✅/❌ with the actual install status. Mark defaults with `*` using the list in `defaults.json`.
 
 ---
 
@@ -445,7 +447,7 @@ After the dashboard, show the action menu:
 
 ```
 What would you like to do?
-  1. Install recommended defaults
+  1. Install defaults (*)
   2. Install all skills
   3. Install a skill — type its letter (e.g. l)
   4. Uninstall a skill — type its letter (e.g. b)
