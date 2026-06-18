@@ -8,6 +8,20 @@ You are the **conductor**. The user has handed you a task or problem and wants i
 
 The whole point is that no phase starts until the previous one is genuinely solid: don't research a problem you haven't understood, don't plan a solution you haven't reasoned through, don't execute a plan the user hasn't blessed, and don't declare done until verification actually passes.
 
+## Requirements — install these skills first
+
+choreographer is a **conductor**: it delegates each phase to a dedicated skill. For the full workflow, install all of these from the same marketplace **before** running it:
+
+```
+/plugin install fusion-reasoning@skill-arsenal       # Phase 2 (reason) + Phase 5 (completion audit)
+/plugin install task-plan-architect@skill-arsenal    # Phase 3 (plan)
+/plugin install planrunner@skill-arsenal             # Phase 4 (execute)
+/plugin install efficient-orchestration@skill-arsenal # operating model across all phases
+/plugin install adversarial-review@skill-arsenal     # Phase 6 (review)
+```
+
+These are **soft dependencies**: if one is missing, choreographer still runs that phase inline rather than aborting (see Phase 0) — but the workflow is meaningfully weaker without them, and the dedicated skills are the intended path. At Phase 0, check which of these are actually present and tell the user which phases will run inline because a skill is missing, so they can install it first if they'd rather.
+
 ## Phase 0 — Take stock of your tools
 
 Before anything else, look at the skills actually available in this environment and pick the ones that fit this task. This workflow names a specific spine of skills (below), but the user's task may call for others — a deep-research skill, a frontend/design skill, a domain skill. Load the spine, then add whatever genuinely helps. If a named spine skill isn't installed, fall back to doing that phase's work inline (the phase still happens; it just isn't delegated to a dedicated skill).
