@@ -65,11 +65,13 @@ Run **`planrunner`** to execute the approved plan. Because the plan came from `t
 
 This is the step that catches what a normal run misses. Independently verify that **every item the plan tasked was actually completed** — not "the implementer said so," but confirmed against the real code and the plan's acceptance criteria. Run **`fusion-reasoning`** in a verification framing: fan out **light-tier** agents, each taking a slice of the task list, each answering one question per task — *is this acceptance criterion actually met in the code, yes or no, with the evidence (file:line)?* Synthesize their findings into a completion matrix: done / partial / missed, with evidence.
 
-Use light models here deliberately — it's mechanical confirmation work, and parallel cheap checkers catch the overlooked items that a single pass glosses over. Anything **partial or missed** becomes a blocker fed into the fix loop (Phase 7).
+Use light models here deliberately — it's mechanical confirmation work, and parallel cheap checkers catch the overlooked items that a single pass glosses over.
+
+**This audit hard-gates the adversarial review. Do not proceed to Phase 6 until completion is confirmed.** Anything **partial or missed** goes straight **back to Phase 4 (execute)** — feed the unfinished items to `planrunner` as a fresh slice of work, let it implement and re-verify them, then **re-run this completion audit.** Loop Phase 4 ↔ Phase 5 until every tasked item is confirmed done. There's no point hunting for subtle bugs in work that isn't even finished — finish it first, then review.
 
 ## Phase 6 — Adversarial review (adversarial-review)
 
-With completion confirmed, run **`adversarial-review`** for a hostile correctness/security/edge-case pass over the whole change. Classify findings into real blockers vs. nitpicks. Real blockers feed the fix loop; nitpicks are noted for the user but don't gate.
+Only once the completion audit fully passes, run **`adversarial-review`** for a hostile correctness/security/edge-case pass over the whole change. Classify findings into real blockers vs. nitpicks. Real blockers feed the fix loop; nitpicks are noted for the user but don't gate.
 
 ## Phase 7 — Present verification, and loop until satisfied (CHECKPOINT)
 
@@ -85,6 +87,6 @@ Then the loop:
 - **Each checkpoint shows just enough.** The heart of the problem, the shape of the plan (with a link to the full one), the precise verification steps — not raw dumps. The user should feel you understand it, not have to read everything.
 - **Don't skip phases, even when a spine skill is missing.** If `fusion-reasoning` isn't installed, reason it through yourself; if `adversarial-review` isn't, do a rigorous review inline. The phase always happens.
 - **Understanding gates research; reasoning gates planning; approval gates execution; verification gates done.** Never run a phase on an unconfirmed prior phase.
-- **The completion audit is not optional.** It exists precisely because tasked items get silently dropped during execution. Always confirm against real code, never against a subagent's say-so.
+- **The completion audit is not optional, and it hard-gates review.** It exists precisely because tasked items get silently dropped during execution. Always confirm against real code, never against a subagent's say-so. Partial or missed items loop back to Phase 4 (execute) and re-audit — the adversarial review never runs on unfinished work.
 - **Root-cause, don't symptom-patch, in the fix loop.** A failed verification means something upstream was wrong — find where, fix there, re-verify.
 - **You hold the through-line.** Subagents and sub-skills see only their slice; you carry the problem statement, the chosen approach, and the definition of done across every phase.
