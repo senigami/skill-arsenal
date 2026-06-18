@@ -398,6 +398,8 @@ Build two lists: **installed** and **not installed**. Also read [`.claude-plugin
 
 ### Step 3 — Show the skill dashboard
 
+> **If your platform can render an interactive option picker** (clickable choices, a selection menu, a multiple-choice prompt, etc.), use it for the dashboard and the prompts below — present each skill as a selectable option and skip the letter scheme entirely. The letters exist only as a fallback for plain-text chat where the user must type their choice. Everything below describes that text fallback.
+
 Assign each skill a letter (a–u) in a fixed order. Present the dashboard as a monospace-aligned list. Keep descriptions to **40 characters or fewer** so lines don't wrap in a terminal or narrow chat panel. Use this exact skill order and these short descriptions:
 
 ```
