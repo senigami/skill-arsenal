@@ -22,14 +22,14 @@ One model's answer to a hard question carries that model's blind spots. Fusion r
 
 Use it as a **frontier-reasoning stand-in**: when you'd want your most capable reasoning model for a plan, a design call, or a bug hunt and it isn't available, fusion approximates that caliber by spending breadth instead of a single bigger brain.
 
-This skill runs as an orchestration: you (the large model) are the orchestrator and the judge; the panel work fans out to the smallest agents that can do it well, and you keep your context for synthesis. Size the panel to the problem — match the model to each angle's difficulty, and don't spend a five-Opus panel on a question one good pass would answer.
+This skill runs as an orchestration: you (the large model) are the orchestrator and the judge; the panel work fans out to the smallest agents that can do it well, and you keep your context for synthesis. Size the panel to the problem — match the model to each persona's difficulty, and don't spend a five-Opus panel on a question one good pass would answer.
 
 ## The shape
 
 ```
 0. Frame    → classify the problem, decide if external facts are needed, design the panel
 1. Research → (only if needed) invoke a research capability — if available — for a cited factual brief the panel reasons on
-2. Panel    → N independent agents reason in parallel, each from a distinct ANGLE, structured returns
+2. Panel    → N independent agents reason in parallel, each as a distinct PERSONA, structured returns
 3. Cross-exam → (hard problems) panel sees each other's answers once, flags agreements/contradictions, revises
 4. Fuse     → YOU (or a fresh Opus judge) synthesize: consensus + resolved contradictions + unique insights + blind spots
 5. Deliver  → one unified answer; escalate ONLY genuinely ambiguous forks to the user (options + your pick) + Fusion Summary
@@ -39,19 +39,26 @@ This skill runs as an orchestration: you (the large model) are the orchestrator 
 
 Read the task and decide four things:
 
-1. **Type** — what kind of reasoning is this? It determines the *angles* you assign (see [references/panel-and-prompts.md](references/panel-and-prompts.md) for the angle menus per type):
-   - **Planning** → angles like MVP-first / risk-first / user-value-first.
-   - **Design (UI / Apple HIG)** → angles like HIG-principles / visual-hierarchy / user-flow — each loading the relevant design skill.
-   - **Bug hunting** → angles like correctness / security / edge-cases-&-concurrency.
-   - **General reasoning / decision** → angles like steelman-A / steelman-B / disconfirming-evidence.
-2. **External facts?** If the answer depends on real-world current information (library behavior, benchmarks, prices, recent events, anything you can't reason out from first principles), plan to run **Step 1**. If it's pure reasoning over what's already known or in the repo, skip it.
-3. **Panel size & models (adaptive)** — match spend to difficulty. The diversity of *angles* matters more than raw model size; a panel of three Sonnets with sharply different stances often beats one Opus.
-   - *Light* (genuinely answerable in one good pass, low stakes): 2 agents, or skip fusion entirely and just answer — say so.
-   - *Standard* (most real problems): 3 agents, mixed Sonnet/Haiku by angle.
-   - *Hard* (high stakes, subtle, or you're explicitly subbing for a frontier model): 3–5 agents, the hardest angle on Opus, plus cross-examination.
-4. **Match lenses to available skills (don't hardcode names).** For each angle, decide what *kind* of expertise would sharpen it (e.g. "Apple HIG guidance", "this repo's design-system rules", "an accessibility rubric", "a code-review/security rubric"). Then scan the **currently available skills** — look at the skill list in context and read each candidate's description — and have the agent invoke whichever genuinely matches that need. Match by what a skill *does*, described in its own metadata, not by a name this file guessed. If two fit, pick the more specific; if none fit, the agent reasons from its own expertise in that domain — say so in its prompt. These lenses are enhancements, not requirements; never block the panel waiting for a skill that isn't there. (The one skill this pattern actively reaches for is a deep-research capability in Step 1, again invoked only if such a skill is available.)
+1. **Type & persona selection** — what kind of reasoning is this? Read [references/personas.md](references/personas.md) — it's a lightweight **router**: a selection guide mapping problem type to a persona shortlist, plus which domain file each lives in. Don't read all the domain files; from the guide, pick the personas your panel size calls for, then open only the relevant domain file(s) (`personas-planning.md`, `personas-creative.md`, `personas-technical.md`, `personas-reasoning.md`) for their full mindset/priorities.
 
-State the panel design in one or two lines before dispatching, so the cost and reasoning are visible.
+   Pick the personas whose combined angles give the most independent coverage of the problem, and include at least one whose job is to oppose the likely consensus. Goal: each agent knows exactly what kind of thinker it is, and the set would genuinely disagree. Two personas with the same underlying stance are one persona run twice.
+
+   If no preset fits a critical dimension of the problem, compose a new one using the template at the bottom of the router — same structure, same cost to invoke, added to the relevant domain file for future use.
+
+   **If the task is to critique existing work** (review this PR, audit this design or doc) rather than decide what to build, you may also borrow personas from the `adversarial-review` skill's library if it's installed — its router lists 52 reviewer personas tuned for scrutiny. Treat both libraries as one pool and combine freely (e.g. a fusion Devil's Advocate plus two adversarial review personas matched to the artifact). See "Borrowing review personas" in the router.
+
+   State the chosen personas and one-line rationale for each before dispatching.
+
+2. **External facts?** If the answer depends on real-world current information (library behavior, benchmarks, prices, recent events, anything you can't reason out from first principles), plan to run **Step 1**. If it's pure reasoning over what's already known or in the repo, skip it.
+
+3. **Panel size & models (adaptive)** — match spend to difficulty. The diversity of *personas* matters more than raw model size; a panel of three Sonnets with sharply different stances often beats one Opus.
+   - *Light* (genuinely answerable in one good pass, low stakes): 2 agents, or skip fusion entirely and just answer — say so.
+   - *Standard* (most real problems): 3 agents, mixed Sonnet/Haiku by persona difficulty.
+   - *Hard* (high stakes, subtle, or you're explicitly subbing for a frontier model): 3–5 agents, the hardest persona on Opus, plus cross-examination.
+
+4. **Match personas to available skills (don't hardcode names).** For each persona, decide what *kind* of expertise would sharpen it (e.g. "Apple HIG guidance", "an accessibility rubric", "a security checklist"). Then scan the **currently available skills** and have the agent invoke whichever genuinely matches that need. Match by what a skill *does*, not by a name this file guessed. If none fit, the agent reasons from its own expertise — say so in its prompt. Never block the panel waiting for a skill that isn't there.
+
+State the panel design — personas chosen, why, models assigned — in two or three lines before dispatching, so the cost and reasoning are visible.
 
 ## Step 1 — Research substrate (only when external facts are needed)
 
@@ -60,11 +67,11 @@ If Step 0 flagged external facts, produce a shared cited brief first. Check the 
 ## Step 2 — Dispatch the panel (parallel, independent)
 
 Dispatch all panel agents in **one batch** so they run concurrently. Each agent:
-- Gets the problem, the shared research brief (if any), and **its specific angle** — not the other agents' work. Independence is the whole point; anchoring kills the diversity that makes fusion work.
+- Gets the problem, the shared research brief (if any), and **its persona** — name, mindset, and priorities (pass all three, not just the name) — but *not* the other agents' work. Independence is the whole point; anchoring kills the diversity that makes fusion work.
 - Loads its domain skill where one applies.
-- Returns the **structured verdict** (its answer + key reasoning + assumptions + confidence + the strongest objection to its own answer), not a loose essay.
+- Returns the **structured verdict** (its answer + key reasoning + evidence + assumptions + confidence + the strongest objection to its own answer), not a loose essay.
 
-Model per agent follows the panel design — match the model to the angle's difficulty; never spend a bigger model than the angle needs. Dispatch prompt template and return schema are in [references/panel-and-prompts.md](references/panel-and-prompts.md).
+Model per agent follows the panel design — match the model to the persona's difficulty; never spend a bigger model than the persona needs. Dispatch prompt template and return schema are in [references/panel-and-prompts.md](references/panel-and-prompts.md).
 
 ## Step 3 — Cross-examination (hard problems only)
 
@@ -92,7 +99,7 @@ Lead with the fused answer in whatever form the task wants (a plan, a design dir
 **Then, only if Step 4 surfaced genuinely ambiguous forks, put those to the user as choices.** Use `AskUserQuestion`: one question per open fork, each with the realistic options drawn from the panel's positions, a one-line note on the trade-off, and **your recommendation marked** (the option you'd pick, why). Batch all open forks into one round, not a drip. If there are no ambiguous forks, ask nothing — deliver the answer and proceed. Don't manufacture a decision to seem rigorous; agreement needs no vote.
 
 Close with a short **Fusion Summary**:
-- Panel used (how many agents, which models, what angles) and whether cross-exam ran.
+- Panel used (how many agents, which models, which personas) and whether cross-exam ran.
 - The key contradictions you resolved and which way (so the user can see what you decided on their behalf).
 - Overall confidence. (The open forks, if any, are the `AskUserQuestion` above — not buried here.)
 
@@ -107,6 +114,6 @@ The summary makes the process transparent and shows where the extra spend went.
 ## Guardrails
 
 - **Adaptive means honest sizing.** Don't default to the biggest panel to look thorough; match it to difficulty and say why. A skill that always runs five Opus agents is overfit to seeming impressive.
-- **Diversity comes from angles, not just models.** Two agents with the same stance are one agent run twice. Assign genuinely different lenses.
+- **Diversity comes from personas, not just models.** Two agents with the same stance are one agent run twice. Assign genuinely different personas, and include at least one whose job is to disagree with the likely consensus (see the composition guardrails in [references/panel-and-prompts.md](references/panel-and-prompts.md)).
 - **Independence first, then deliberation.** Never let the panel see each other's work before the independent pass — it collapses the diversity fusion depends on.
 - **The judge synthesizes; it doesn't average.** A muddy "on the one hand / on the other" is a failed fusion. The output is a decision with reasoning.

@@ -62,14 +62,16 @@ Best paired with `spec-docs-generator`: once specs exist, this skill enforces th
 <details>
 <summary><a href="skills/engineering/adversarial-review/">adversarial-review</a> — Three hostile personas tear your code apart before it ships</summary>
 
-Adversarial code review that breaks the self-review monoculture — three hostile personas must each find at least one issue.
+Adversarial review that breaks the self-review monoculture — three hostile personas each must find at least one issue.
 
-**Personas:**
-1. Saboteur — hunts for production failures and logic errors
-2. New Hire — flags unclear code, missing docs, and maintainability traps
-3. Security Auditor — looks for vulnerabilities, auth gaps, and data exposure
+It picks the 3 best-fit personas from a **library of 52**, matched to what's being reviewed:
+- **Code & reliability:** Saboteur, New Hire, Concurrency Specialist, Regression Hunter, Mutant, Invariant Hunter
+- **Security:** Security Auditor, Threat Modeler, Red Teamer
+- **Data & API:** Data Integrity Auditor, Query Planner, Contract Breaker, Chaos Engineer
+- **UX:** Accessibility Critic, First-Click Saboteur, Affordance Skeptic, Dark-Pattern Hunter
+- **Content:** Proofreader, Grammarian, Fact-Checker, Humanizer, Plain-Language Auditor, Lost Reader
 
-Findings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact file:line citations and paste-ready comments.
+Findings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact citations and paste-ready comments.
 
 </details>
 
@@ -237,13 +239,13 @@ Tracks scores per dimension round-over-round. Escalates genuine reviewer disagre
 <details>
 <summary><a href="skills/productivity/fusion-reasoning/">fusion-reasoning</a> — Panel of independent agents cross-examine, a judge synthesizes one answer that beats any single pass</summary>
 
-Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.
+Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.
 
 **How it works:**
-1. Frame the problem and design a panel with distinct angles
+1. Pick distinct personas from a **library of 39** (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Steelman Advocate, Disconfirmer, and more), matched to the problem
 2. Dispatch panel agents in parallel (independently, no cross-talk)
 3. Optionally run a cross-examination reaction pass
-4. Judge synthesizes consensus, resolves contradictions, surfaces blind spots
+4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots
 
 Panel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.
 

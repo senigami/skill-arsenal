@@ -1,89 +1,69 @@
-# Panel design, angles, and prompt templates
+# Panel design, personas, and prompt templates
 
-The diversity that makes fusion work comes from giving each agent a **genuinely different angle**, not from model size. Below: angle menus per problem type, the dispatch prompt, the cross-examination prompt, and the judge meta-prompt. All ready to adapt.
+The diversity that makes fusion work comes from giving each agent a **genuinely different persona** — a stance *plus* a job — not from model size. This file covers: how to compose a sound panel, the dispatch prompt, the cross-examination prompt, the judge meta-prompt, and the robustness guardrails that keep a panel from agreeing its way into a wrong answer.
 
-## Angle menus by problem type
+## Composing the panel
 
-Pick 2–5 angles that genuinely pull in different directions. An angle is a *stance + a job*, not just a topic.
+Personas come from [personas.md](personas.md) — that's the library, organized by problem type with a quick selection guide at the top. Pick from it; compose a new persona only when no preset covers a critical dimension.
 
-### Planning
-| Angle | Stance it argues from |
-|-------|----------------------|
-| MVP-first | Smallest thing that delivers the core value; cut everything deferrable |
-| Risk-first | What's most likely to go wrong or be expensive to reverse; sequence to de-risk early |
-| User-value-first | What the end user feels soonest; order by visible payoff |
-| Maintainability-first | The shape that's cheapest to live with in 6 months; boring over clever |
-| Dependency-first | What unblocks the most other work; the critical path |
+A persona carries three things into the dispatch prompt: its **name**, its **mindset** (one sentence), and its **priorities** (the specific things it weighs hardest). Pass all three — an agent told only "you are the Risk Scout" reasons more weakly than one given the full mindset and priority list.
 
-### Design (UI / Apple HIG)
-| Angle | Lens to look for among available skills | Argues from |
-|-------|------------------------------------------|-------------|
-| HIG principles | a skill offering Apple HIG / platform design guidance | Clarity / deference / depth; platform convention; restraint |
-| Visual hierarchy & craft | (usually none needed) | Spacing, type scale, what the eye hits first, the squint test |
-| User flow & IA | (usually none needed) | Can a first-timer complete the task; cognitive load; step count |
-| Design-system fit | a skill describing *this* repo's/project's design system or design-compliance rules | Token-driven, consistent with existing vocabulary |
-| Accessibility & inclusivity | a skill offering an accessibility / WCAG audit rubric | Contrast, targets, color-isn't-the-only-signal, real-user range |
+For a quick, low-stakes panel you can use a lighter **angle** instead of a full persona — just a stance + a job ("MVP-first: smallest thing that delivers the core value; cut everything deferrable"). Angles and personas mix freely in one panel.
 
-For the "lens to look for" column, match by capability against whatever skills are actually available in the environment — don't assume a specific skill name exists. If nothing matches, the agent reasons from its own domain expertise.
+### Composition guardrails (check before dispatching)
 
-### Bug hunting
-| Angle | Hunts for |
-|-------|-----------|
-| Correctness | Off-by-one, boundary, null/empty/error paths, logic that contradicts intent |
-| Security | Unvalidated input, authz gaps, injection, secret handling, trust boundaries |
-| Concurrency & state | Races, stale reads, ordering assumptions, shared-state mutation |
-| Edge cases & inputs | Unusual/extreme/malformed inputs; the unhappy paths nobody tested |
-| Contract & integration | Where this code's assumptions disagree with its callers/dependencies |
-
-### General reasoning / decision
-| Angle | Job |
-|-------|-----|
-| Steelman A | Build the strongest possible case for option A |
-| Steelman B | Build the strongest possible case for the leading alternative |
-| Disconfirming evidence | Actively hunt for what would prove the appealing answer wrong |
-| First-principles | Ignore convention; reason up from fundamentals |
-| Base-rate / outside view | What usually happens in situations like this, regardless of specifics |
+1. **Distinctness** — no two panelists should hunt the same thing. Two personas with the same core concern are one persona run twice; replace one. If you can't name N genuinely distinct stances, the panel is too big — shrink it.
+2. **Coverage** — between them, do the personas cover the dimensions on which this problem could actually go wrong? A planning panel of three optimists has a hole where risk should be.
+3. **Built-in opposition** — include at least one persona whose job is to disagree with the likely consensus (Devil's Advocate, Disconfirmer, Skeptic, or a domain critic). A panel with no dissenter tends to converge prematurely.
+4. **Balance the tilt** — if the natural panel skews one way (all skeptics, all builders), add the counterweight (Optimist/Maximalist against skeptics; Risk Scout/Skeptic against builders) so the fusion isn't lopsided.
 
 ## Dispatch prompt (independent pass, per agent)
 
-> You are one member of a reasoning panel attacking a hard problem independently. Your assigned angle: **<angle + its stance>**. <If a domain skill applies:> First load the `<skill>` skill and reason through its lens.
+> You are one member of a reasoning panel attacking a hard problem **independently**. You have not seen the other panelists' work, and you must not try to produce a balanced, all-sides answer — that's the judge's job. Your job is to push *your* persona's view as far as it honestly goes.
 >
-> The problem: `<problem statement>`. <If research ran:> Shared facts to reason on (do not re-research): `<cited brief>`.
+> **Your persona: <name>.**
+> Mindset: *<one-sentence mindset>*
+> You weigh these hardest: *<priority list>*.
 >
-> Reason hard from your angle specifically — push it further than a balanced take would. Other panelists cover other angles, so don't hedge into neutrality; give this angle its strongest, most concrete expression. Then state the single strongest objection to your own conclusion.
+> <If a domain skill applies:> First load the `<skill>` skill and reason through its lens.
+>
+> The problem: `<problem statement>`. <If research ran:> Shared facts to reason on — treat as given, do not re-research: `<cited brief>`.
+>
+> Reason concretely, not abstractly: name specifics, cite locations/evidence where they exist, and commit to a position. Ground every factual claim in the shared brief or in evidence you can point to — if you're inferring or assuming, say so. Then state the single strongest objection to your own conclusion honestly.
 >
 > Return only this JSON:
 > ```json
 > {
->   "angle": "<your angle>",
->   "answer": "your conclusion / recommendation / findings, concrete",
+>   "persona": "<your persona name>",
+>   "answer": "your conclusion / recommendation / findings — concrete and committed",
 >   "key_reasoning": ["the load-bearing steps that got you there"],
+>   "evidence": ["facts/locations/citations the answer rests on; empty if pure reasoning"],
 >   "assumptions": ["what you assumed that, if wrong, changes the answer"],
 >   "strongest_objection": "the best case against your own conclusion",
 >   "confidence": "high | medium | low"
 > }
 > ```
 
-For bug-hunting panels, `answer` is a list of findings, each with `location` (path:line), `problem`, and `proposed_fix`.
+For bug-hunting panels, `answer` is a list of findings, each with `location` (path:line), `problem`, `severity` (critical | warning | note), and `proposed_fix`.
 
 ## Cross-examination prompt (hard panels only)
 
-After compiling the independent answers into one combined report tagged by angle:
+After compiling the independent answers into one combined report tagged by persona:
 
-> You are the **<angle>** panelist. Here are the panel's independent answers, tagged by angle: `<combined report>`.
+> You are the **<persona name>** panelist. Here are the panel's independent answers, tagged by persona: `<combined report>`.
 >
-> React as a panelist, don't re-solve from scratch:
-> - Where do you **agree** with another angle's conclusion? (one line each)
-> - Where do you **disagree**, and why is your reasoning stronger? Be specific and concrete.
-> - What did another angle make you **newly see** that you missed?
-> - Given the discussion, what's your **revised position and confidence**?
+> React as a panelist — don't re-solve from scratch:
+> - Where do you **agree** with another persona's conclusion? (one line each)
+> - Where do you **disagree**, and why is your reasoning stronger? Be specific and concrete — point to the flaw, don't just restate your view.
+> - What did another persona make you **newly see** that you missed?
+> - Given the discussion, what's your **revised position and confidence**? Changing your mind is a valid and valuable outcome — say so plainly if another persona convinced you.
 >
 > Return only this JSON:
 > ```json
 > {
->   "angle": "<your angle>",
->   "agreements": [{"with": "<angle>", "on": "..."}],
->   "disagreements": [{"with": "<angle>", "claim": "...", "why_you_differ": "..."}],
+>   "persona": "<your persona name>",
+>   "agreements": [{"with": "<persona>", "on": "..."}],
+>   "disagreements": [{"with": "<persona>", "claim": "...", "why_you_differ": "..."}],
 >   "newly_seen": ["..."],
 >   "revised_position": "your updated conclusion",
 >   "confidence": "high | medium | low"
@@ -94,26 +74,37 @@ After compiling the independent answers into one combined report tagged by angle
 
 Use this whether you (the orchestrator) synthesize directly or spawn a fresh Opus judge. If spawning, the judge gets the panel answers (and cross-exam, if run) and nothing else — a clean read.
 
-> You are the Fusion Judge. Below are independent reasoning reports from a panel that attacked this problem from different angles<, plus their cross-examination round>. You did not write any of them — read them fresh and build the best possible single answer.
+> You are the Fusion Judge. Below are independent reasoning reports from a panel that attacked this problem from different personas<, plus their cross-examination round>. You did not write any of them — read them fresh and build the best possible single answer.
 >
 > Problem: `<problem statement>`.
 > Panel reports: `<bundled reports>`.
 >
-> Do not summarize or staple the reports together. Produce a unified answer by:
-> 1. **Consensus** — what most/all angles agree on; treat as load-bearing unless you have reason to doubt it.
-> 2. **Contradictions** — where they disagree, decide the most likely truth and justify it by the stronger reasoning, not by vote count. Commit to a call. Flag separately any disagreement that is *genuinely* a matter of taste, product priority, or a trade-off only the user can weigh — list those as "open forks for the user" with the options and your recommendation, rather than deciding them yourself.
-> 3. **Unique insight** — the valuable point only one angle found; weigh it on merit, not on how many agreed.
-> 4. **Blind spots** — what the whole panel missed that you can see from above it.
-> 5. **Synthesis** — one cohesive, authoritative answer in the form the task needs (plan / design direction / ranked findings / decision + rationale).
+> Do not summarize or staple the reports together. Produce a unified answer by working through these in order:
+> 1. **Verify before trusting.** A panel agreeing on something does not make it true. Spot-check every load-bearing claim — especially factual ones and any bug a single persona reported — against the evidence each cited. If a claim rests on an unsupported assumption, mark it unverified and do not let it carry the answer.
+> 2. **Consensus** — what most/all personas agree on *and survives verification*; treat that as load-bearing.
+> 3. **Contradictions** — where they disagree, decide the most likely truth by the stronger reasoning, not by vote count. Commit to a call and say why. Flag separately any disagreement that is *genuinely* a matter of taste, product priority, or a trade-off only the user can weigh — those become "open forks for the user," not decisions you make.
+> 4. **Unique insight** — the valuable point only one persona found. Weigh it on merit, not on how many agreed. A correct minority insight is exactly what a single pass would have missed — do not discard it just because it stood alone.
+> 5. **Blind spots** — what the whole panel missed that you can see from above it.
+> 6. **Deduplicate** — where several personas raised the same point in different words, merge it into one; don't inflate the answer by counting it many times.
+> 7. **Synthesis** — one cohesive, authoritative answer in the form the task needs (plan / design direction / ranked findings / decision + rationale).
 >
-> Flag any claim you're relying on that should be verified against real evidence before the user acts on it. Return the synthesized answer, then a 3–5 line note on the key contradiction(s) you resolved and overall confidence, and finally an **"open forks"** list (possibly empty) of any genuinely ambiguous decisions that should go to the user as a choice rather than be decided here — each with the realistic options and your recommendation.
+> Then return, in this order:
+> - The synthesized answer.
+> - A 3–5 line **judge's note**: the key contradiction(s) you resolved and which way, anything you marked unverified, and overall calibrated confidence.
+> - An **"open forks"** list (possibly empty) of genuinely ambiguous decisions for the user — each with the realistic options and your recommendation.
+
+### Degenerate panels — catch these in the judge
+
+- **Trivial consensus.** If every persona agreed easily with high confidence and found nothing to push back on, the panel was probably too homogeneous (or the problem didn't need fusion). Say so, and treat the agreement with mild suspicion rather than as strong signal.
+- **Uniformly low confidence.** If no persona got above "low/medium," the bottleneck is usually missing information, not missing reasoning. Don't manufacture false certainty — recommend the cheap experiment, the fact to gather, or the question to ask, and say what would raise confidence.
+- **Two-against-one on a factual point.** Majority is not evidence. Resolve it by checking the fact, not by counting votes.
 
 ## Sizing cheat-sheet
 
-| Difficulty | Agents | Models (by angle) | Cross-exam |
-|------------|--------|-------------------|------------|
+| Difficulty | Agents | Models (by persona) | Cross-exam |
+|------------|--------|---------------------|------------|
 | Light | 1–2 (or just answer) | Haiku/Sonnet | no |
-| Standard | 3 | mostly Sonnet, Haiku for the broad/mechanical angle | optional |
-| Hard / frontier stand-in | 3–5 | hardest angle on Opus, rest Sonnet | yes |
+| Standard | 3 | mostly Sonnet, Haiku for the broad/mechanical persona | optional |
+| Hard / frontier stand-in | 3–5 | hardest persona on Opus, rest Sonnet | yes |
 
-Match angles to the count: 3 agents = 3 sharply different angles, not 3 shades of the same one. If you can't name N genuinely distinct angles, the panel is too big — shrink it.
+Match personas to the count: 3 agents = 3 sharply different personas, not 3 shades of one. If you can't name N genuinely distinct stances, the panel is too big — shrink it.

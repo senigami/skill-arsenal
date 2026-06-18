@@ -61,6 +61,20 @@ This skill forces a genuine perspective shift by requiring you to adopt adversar
 
 ## Review Workflow
 
+### Step 0: Select the Three Personas
+
+Read [references/personas.md](references/personas.md) — it's a lightweight **router**: a selection guide mapping what's being reviewed to a shortlist of personas, plus which domain file each lives in. Don't read all the domain files; from the selection guide, pick the ~3 personas with the most complementary coverage, then open only the domain file(s) those personas live in (`personas-code.md`, `personas-data-api.md`, `personas-ux.md`, `personas-content.md`) to get their full mindset/priorities/process.
+
+Goal: pick the critics who would most plausibly catch what a self-review would miss, with genuinely different angles — two personas with the same core concern are one persona run twice.
+
+**Default** (general code changes with no strong domain signal): Saboteur + New Hire + Security Auditor (all in `personas-code.md`).
+
+**Otherwise:** use the selection guide to match the dominant change type (UI, API, DB migration, auth, performance, tests, written content, etc.) and swap in the better-fit personas. You can keep one or two defaults and swap the rest. The library spans code *and* written/visual content — for a docs or copy review, draw from `personas-content.md`. If the change spans a dimension the library doesn't cover, compose a new persona with the template at the bottom of the router.
+
+State your chosen three personas — names and one-line rationale for each — before running the review.
+
+---
+
 ### Step 1: Gather the Changes
 
 Determine what to review based on invocation:

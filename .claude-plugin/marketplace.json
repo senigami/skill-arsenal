@@ -11,7 +11,7 @@
     {
       "name": "adversarial-review",
       "source": "./skills/engineering/adversarial-review",
-      "description": "Adversarial code review that breaks the self-review monoculture — three hostile personas must each find at least one issue.\n\nPersonas:\n1. Saboteur — hunts for production failures and logic errors\n2. New Hire — flags unclear code, missing docs, and maintainability traps\n3. Security Auditor — looks for vulnerabilities, auth gaps, and data exposure\n\nFindings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact file:line citations and paste-ready comments.",
+      "description": "Adversarial review that breaks the self-review monoculture — three hostile personas each must find at least one issue.\n\nPicks the 3 best-fit personas from a library of 52, matched to what's being reviewed:\n- Code & reliability: Saboteur, Concurrency Specialist, Regression Hunter, Mutant\n- Security: Security Auditor, Threat Modeler, Red Teamer\n- Data & API: Query Planner, Contract Breaker, Chaos Engineer\n- UX: Accessibility Critic, First-Click Saboteur, Dark-Pattern Hunter\n- Content: Proofreader, Fact-Checker, Humanizer, Lost Reader\n\nFindings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact citations and paste-ready comments.",
       "version": "2.9.0",
       "author": {
         "name": "ekreloff"
@@ -53,7 +53,7 @@
     {
       "name": "fusion-reasoning",
       "source": "./skills/productivity/fusion-reasoning",
-      "description": "Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Frame the problem and design a panel with distinct angles\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge synthesizes consensus, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
+      "description": "Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
       "version": "1.0.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["reasoning", "planning", "multi-agent", "consensus", "judge"],
