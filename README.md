@@ -104,6 +104,12 @@ Together: the generator captures *what the project is supposed to be*; the check
 ---
 </details>
 
+## Installation
+
+> **Quickest path:** paste this page's URL into Claude or Codex and say *"install the skill-arsenal"*. The agent instructions at the bottom of this page tell it exactly what to do — it will clone the repo, register the marketplace, and install the recommended skills with no further input from you.
+
+---
+
 ## Adding this store to Claude Code
 
 Claude Code has a built-in plugin system. Register this repo once and you can browse and install skills without ever touching the filesystem.
@@ -265,7 +271,7 @@ The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is
 The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).
 
 <details>
-<summary>For Claude / AI assistants: quick install</summary>
+<summary>For Claude and Codex / AI assistants: quick self install</summary>
 
 ## Claude agent quick install
 
@@ -315,10 +321,6 @@ Tell the user which skills were installed and their invoke commands (e.g. `/mast
 
 **If the user only wants one skill**, install Mastermind — it auto-invokes the rest of the spine when they're present, and the workflow degrades gracefully to inline when they're not.
 
-</details>
-
-<details>
-<summary>For Codex / coding agents: quick install</summary>
 
 ## Codex agent quick install
 
