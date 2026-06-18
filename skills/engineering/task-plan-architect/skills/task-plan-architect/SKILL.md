@@ -11,6 +11,8 @@ It produces a durable, hand-offable plan folder, but it **assumes a specific tas
 
 It runs as an orchestration: you (the large model) are the architect holding the whole picture and doing the high-judgment work — the map and the sequencing — while fanning the focused reading out to the smallest capable agents and keeping your own context free. Match the model to the job: mechanical reading goes to light, cheap agents; judgment stays with you. Never spend a bigger model than the work needs.
 
+**Model-agnostic by design.** Don't assume a specific provider or model name. Determine what models the `Agent` tool actually offers at runtime and sort them into capability tiers — **light** (fastest/cheapest: Haiku-, Flash-, Mini/Nano-class), **mid** (Sonnet-class), **top** (Opus-class) — then delegate by tier, not by name: send the mechanical file-reading to the light tier whatever it happens to be, and keep the synthesis and mapping for yourself. If only one tier is available, use it for everything. The principle holds across any model lineup.
+
 ## Step 0 — Settle the basics (ask upfront)
 
 Before researching, confirm three things. Ask them in **one** batch; skip any the user already specified.

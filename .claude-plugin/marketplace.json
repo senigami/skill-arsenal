@@ -34,7 +34,7 @@
       "name": "task-plan-architect",
       "source": "./skills/engineering/task-plan-architect",
       "description": "Research a large task and produce a detailed, mapped implementation plan that a smaller model can execute without losing the big picture — the parts, how they connect, and an ordered set of self-contained tasks. Saves the plan outside the repo by default.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Steven Dunn"
       },
@@ -99,7 +99,7 @@
       "name": "planrunner",
       "source": "./skills/engineering/planrunner",
       "description": "Orchestrator-driven execution of an approved plan. The main loop acts as orchestrator + reviewer: decomposes the plan into small slices, delegates each to an implementer subagent, verifies every slice against intent, then runs up to 3 adversarial review rounds fixing real blockers.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["orchestration", "execution", "implementation", "plan", "subagents", "review"],
       "category": "engineering"
