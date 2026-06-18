@@ -398,41 +398,41 @@ Build two lists: **installed** and **not installed**. Also read [`.claude-plugin
 
 ### Step 3 — Show the skill dashboard
 
-Assign each skill a letter (a–t for 20 skills) in a fixed order. Present the dashboard as a monospace-aligned list. Keep descriptions to **35 characters or fewer** so lines don't wrap in a terminal. Use this exact skill order and these short descriptions:
+Assign each skill a letter (a–u) in a fixed order. Present the dashboard as a monospace-aligned list. Keep descriptions to **40 characters or fewer** so lines don't wrap in a terminal or narrow chat panel. Use this exact skill order and these short descriptions:
 
 ```
 SKILL ARSENAL — senigami/skill-arsenal
 
 Engineering
-  a. ✅ mastermind*           End-to-end workflow conductor
-  b. ✅ adversarial-review*   Three hostile code reviewers
-  c. ✅ spec-docs-generator*  Numbered spec docs & ADRs
-  d. ✅ code-quality-checklist* Pre/during/post quality gate
-  e. ✅ task-plan-architect*  Maps large tasks into plans
-  f. ✅ planrunner*           Executes plans via subagents
-  g. ✅ tdd*                  Red→green→refactor enforcer
-  h. ✅ pr-review*            GitHub PR blocker check
-  i. ✅ code-audit-planner*   Codebase audit → task list
-  j. ✅ frontend-code-layout* Separable UI structure/style
-  k. ✅ modern-web-guidance*  Modern CSS/HTML/API patterns
+  a. ✅ mastermind*           End-to-end task workflow conductor
+  b. ✅ adversarial-review*   Three hostile code-review personas
+  c. ✅ spec-docs-generator*  Numbered spec docs & ADRs as truth
+  d. ✅ code-quality-checklist* Pre/during/post-task quality gate
+  e. ✅ task-plan-architect*  Maps large tasks into ordered plans
+  f. ✅ planrunner*           Executes plans via review subagents
+  g. ✅ tdd*                  Red→green→refactor TDD enforcer
+  h. ✅ pr-review*            GitHub PR check for real blockers
+  i. ✅ code-audit-planner*   Codebase audit → ordered task list
+  j. ✅ frontend-code-layout* Separable UI structure & styling
+  k. ✅ modern-web-guidance*  Modern CSS/HTML/browser-API patterns
   l. ❌ codex                 Codex handoff worker rules
-  m. ❌ worker                Cursor orchestrator (Haiku)
+  m. ❌ worker                Cursor task orchestrator (Haiku)
 
 Productivity
-  n. ✅ fusion-reasoning*     Multi-agent reasoning panel
-  o. ✅ efficient-orchestration* Token-efficient model tiers
+  n. ✅ fusion-reasoning*     Multi-agent reasoning panel + judge
+  o. ✅ efficient-orchestration* Token-efficient model tiering
 
 Design
-  p. ❌ design-review-loop    Screenshot→review→build loop
+  p. ❌ design-review-loop    Screenshot→review→build design loop
 
 Content
-  q. ❌ humanizer             Strip AI writing patterns
-  r. ❌ comedy-writers-room   Comedy writer + critic panel
-  s. ❌ gen-alpha-style       Gen Alpha / brainrot filter
+  q. ❌ humanizer             Strip AI-writing tells from prose
+  r. ❌ comedy-writers-room   Comedy writer + audience-react panel
+  s. ❌ gen-alpha-style       Gen Alpha / brainrot output filter
 
 Automation
-  t. ❌ gepeto                Build Pinokio launcher projects
-  u. ❌ pinokio               Launch Pinokio apps via pterm
+  t. ❌ gepeto                Build Pinokio 1-click launchers
+  u. ❌ pinokio               Discover & launch Pinokio apps
 
 * indicates default
 ```
@@ -461,6 +461,16 @@ If **all defaults are already installed**, lead with that and skip option 1.
 ---
 
 ### Step 5 — Install
+
+Before installing (options 1, 2, or 3), ask the user **where** the skills should live — unless they've already told you, or your platform only supports one location:
+
+```
+Install location?
+  1. Global  — available in every project on this machine
+  2. Local   — this project/workspace only
+```
+
+Map the choice to your platform's convention: global → the user-level skill dir (e.g. `~/.claude/skills/`) or a global marketplace install; local → the project-level location (e.g. `.claude/skills/` or `.agents/skills/` in the working directory). If your platform has no concept of local skills, install global and say so.
 
 To install a skill:
 
