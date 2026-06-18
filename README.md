@@ -263,3 +263,32 @@ The root [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is
 6. Open a PR — category is confirmed in review
 
 The authoring spec — exact manifest fields, required vs optional, and gotchas — lives in [CLAUDE.md](CLAUDE.md).
+
+<details>
+<summary>For Codex / coding agents: quick install</summary>
+
+## Codex agent quick install
+
+If a user points Codex at this repository and asks to use the skills here, install the marketplace first, then install the requested skill:
+
+```bash
+codex plugin marketplace add senigami/skill-arsenal
+codex plugin add <skill-name>@skill-arsenal
+```
+
+If the user's shell does not have `codex` on `PATH`, use the Codex app binary directly:
+
+```bash
+/Applications/Codex.app/Contents/Resources/codex plugin marketplace add senigami/skill-arsenal
+/Applications/Codex.app/Contents/Resources/codex plugin add <skill-name>@skill-arsenal
+```
+
+If the user is testing unpublished local changes from a checkout, register the local repo path instead of the GitHub shorthand:
+
+```bash
+/Applications/Codex.app/Contents/Resources/codex plugin marketplace add /path/to/skill-arsenal
+/Applications/Codex.app/Contents/Resources/codex plugin add <skill-name>@skill-arsenal
+```
+
+After installing, restart Codex or start a new thread so the skill appears in the picker/context.
+</details>
