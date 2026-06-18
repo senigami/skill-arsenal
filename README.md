@@ -398,43 +398,41 @@ Build two lists: **installed** and **not installed**. Also read [`.claude-plugin
 
 ### Step 3 — Show the skill dashboard
 
-> **If your platform can render an interactive option picker** (clickable choices, a selection menu, a multiple-choice prompt, etc.), use it for the dashboard and the prompts below — present each skill as a selectable option and skip the letter scheme entirely. The letters exist only as a fallback for plain-text chat where the user must type their choice. Everything below describes that text fallback.
-
-Assign each skill a letter (a–u) in a fixed order. Present the dashboard as a monospace-aligned list. Keep descriptions to **40 characters or fewer** so lines don't wrap in a terminal or narrow chat panel. Use this exact skill order and these short descriptions:
+Present the dashboard as a monospace-aligned list, by skill name — **no letter or number prefixes** (when a skill needs to be selected, use your platform's option picker, or let the user type the skill name). Keep descriptions to **40 characters or fewer** so lines don't wrap in a terminal or narrow chat panel. Use this skill order and these short descriptions:
 
 ```
 SKILL ARSENAL — senigami/skill-arsenal
 
 Engineering
-  a. ✅ mastermind*           End-to-end task workflow conductor
-  b. ✅ adversarial-review*   Three hostile code-review personas
-  c. ✅ spec-docs-generator*  Numbered spec docs & ADRs as truth
-  d. ✅ code-quality-checklist* Pre/during/post-task quality gate
-  e. ✅ task-plan-architect*  Maps large tasks into ordered plans
-  f. ✅ planrunner*           Executes plans via review subagents
-  g. ✅ tdd*                  Red→green→refactor TDD enforcer
-  h. ✅ pr-review*            GitHub PR check for real blockers
-  i. ✅ code-audit-planner*   Codebase audit → ordered task list
-  j. ✅ frontend-code-layout* Separable UI structure & styling
-  k. ✅ modern-web-guidance*  Modern CSS/HTML/browser-API patterns
-  l. ❌ codex                 Codex handoff worker rules
-  m. ❌ worker                Cursor task orchestrator (Haiku)
+  ✅ mastermind*           End-to-end task workflow conductor
+  ✅ adversarial-review*   Three hostile code-review personas
+  ✅ spec-docs-generator*  Numbered spec docs & ADRs as truth
+  ✅ code-quality-checklist* Pre/during/post-task quality gate
+  ✅ task-plan-architect*  Maps large tasks into ordered plans
+  ✅ planrunner*           Executes plans via review subagents
+  ✅ tdd*                  Red→green→refactor TDD enforcer
+  ✅ pr-review*            GitHub PR check for real blockers
+  ✅ code-audit-planner*   Codebase audit → ordered task list
+  ✅ frontend-code-layout* Separable UI structure & styling
+  ✅ modern-web-guidance*  Modern CSS/HTML/browser-API patterns
+  ❌ codex                 Codex handoff worker rules
+  ❌ worker                Cursor task orchestrator (Haiku)
 
 Productivity
-  n. ✅ fusion-reasoning*     Multi-agent reasoning panel + judge
-  o. ✅ efficient-orchestration* Token-efficient model tiering
+  ✅ fusion-reasoning*     Multi-agent reasoning panel + judge
+  ✅ efficient-orchestration* Token-efficient model tiering
 
 Design
-  p. ❌ design-review-loop    Screenshot→review→build design loop
+  ❌ design-review-loop    Screenshot→review→build design loop
 
 Content
-  q. ❌ humanizer             Strip AI-writing tells from prose
-  r. ❌ comedy-writers-room   Comedy writer + audience-react panel
-  s. ❌ gen-alpha-style       Gen Alpha / brainrot output filter
+  ❌ humanizer             Strip AI-writing tells from prose
+  ❌ comedy-writers-room   Comedy writer + audience-react panel
+  ❌ gen-alpha-style       Gen Alpha / brainrot output filter
 
 Automation
-  t. ❌ gepeto                Build Pinokio 1-click launchers
-  u. ❌ pinokio               Discover & launch Pinokio apps
+  ❌ gepeto                Build Pinokio 1-click launchers
+  ❌ pinokio               Discover & launch Pinokio apps
 
 * indicates default
 ```
@@ -445,18 +443,15 @@ Replace ✅/❌ with the actual install status. Mark defaults with `*` using the
 
 ### Step 4 — Prompt the user
 
-After the dashboard, show the action menu:
+After the dashboard, offer these actions. If your platform has an option picker, render them as selectable choices; otherwise list them and let the user reply in plain text:
 
-```
-What would you like to do?
-  1. Install defaults (*)
-  2. Install all skills
-  3. Install a skill — type its letter (e.g. l)
-  4. Uninstall a skill — type its letter (e.g. b)
-  5. Nothing, just browsing
-```
+- **Install defaults** — the skills marked `*`
+- **Install all skills**
+- **Install a skill** — pick from the picker, or type the skill name
+- **Uninstall a skill** — pick from the picker, or type the skill name
+- **Nothing, just browsing**
 
-Accept a **single letter** as a skill selector for options 3 and 4 — the user types `l` to act on codex, `b` to act on adversarial-review, etc. Accept a **number** for the menu options.
+When the user needs to choose *which* skill to install or uninstall, present the relevant skills (not-installed for install, installed for uninstall) through the picker if available — never ask them to match a letter or number. In plain-text chat, they simply type the skill name.
 
 If **all defaults are already installed**, lead with that and skip option 1.
 
