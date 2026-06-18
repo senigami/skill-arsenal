@@ -35,6 +35,29 @@ The skill is now available as `/adversarial-review` in any project.
 
 ---
 
+## Featured skill — Mastermind
+
+**[Mastermind](skills/engineering/mastermind/)** is the flagship skill of this arsenal — a single command that takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.
+
+```
+/plugin install mastermind@skill-arsenal
+```
+
+It chains the best skills in this repo into one seamless workflow:
+
+1. **Interview** — understands the real goal, constraints, and definition of done before touching any code
+2. **Fusion-reasoning** — fans out independent agents to stress-test solution approaches and converge on the right one
+3. **Task-plan-architect** — builds a mapped, ordered implementation plan
+4. **Planrunner** — executes the plan with token-efficient orchestration
+5. **Completion audit** — independently confirms every tasked item was actually done
+6. **Adversarial review** — hostile correctness, security, and edge-case pass
+
+Three checkpoints keep you in control (confirm-understanding, confirm-plan, present-verification). Everything between checkpoints runs autonomously. Installing Mastermind also installs all five dependent skills automatically.
+
+> If you only install one skill, make it this one.
+
+---
+
 ## Available skills
 
 ### Engineering
