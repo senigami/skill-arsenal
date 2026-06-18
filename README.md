@@ -69,9 +69,9 @@ For any project where consistency matters, install these two skills together:
 
 **[Spec Docs Generator](skills/engineering/spec-docs-generator/)** builds a numbered, navigable spec-document set (`docs/00-index.md`, spec files, ADRs) that becomes the project's source of truth — the architecture decisions, data shapes, API contracts, and conventions every agent must follow. Run it once on a new project, then again whenever the codebase drifts from the specs.
 
-**[Code Quality Checklist](skills/engineering/code-quality-checklist/)** uses those specs as its quality bar. Before every task it surfaces assumptions, during work it enforces triggered workflows, and before marking anything done it verifies the implementation matches not just tests but the documented conventions and contracts.
+**[Code Quality Checklist](skills/engineering/code-quality-checklist/)** uses those specs as its quality bar. Before every task it surfaces assumptions, during work it enforces triggered workflows, and before marking anything done it verifies the implementation matches not just tests but the documented conventions and contracts. When Mastermind is running and this skill is installed, it automatically activates it at each execution slice — pointing it at `docs/00-index.md` so every piece of work is checked against the project's own specs, not just generic quality rules.
 
-Together: the generator captures *what the project is supposed to be*; the checklist enforces *that every future change stays that way*. When Mastermind is running, it automatically activates the checklist with the spec path if specs are present — no extra configuration needed.
+Together: the generator captures *what the project is supposed to be*; the checklist enforces *that every future change stays that way* — and Mastermind wires them together automatically with no extra configuration needed.
 
 ---
 
