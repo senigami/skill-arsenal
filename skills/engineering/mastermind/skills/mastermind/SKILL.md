@@ -29,14 +29,19 @@ mastermind is a **meta-skill**: it delegates each phase to a dedicated skill. Fo
 /plugin install task-plan-architect@skill-arsenal    # Phase 3 (plan)
 /plugin install planrunner@skill-arsenal             # Phase 4 (execute)
 /plugin install efficient-orchestration@skill-arsenal # operating model across all phases
-/plugin install tdd@skill-arsenal                    # Phase 4 (test-driven implementation)
-/plugin install code-quality-checklist@skill-arsenal # Phase 4 (quality guardrails + pre/post-task verification)
-/plugin install spec-docs-generator@skill-arsenal    # Phase 4 (spec-aware quality checks when specs exist)
 /plugin install adversarial-review@skill-arsenal     # Phase 6 (hostile review)
-/plugin install pr-review@skill-arsenal              # Phase 6 optional (if output becomes a pull request)
 ```
 
 These are **soft dependencies**: if one is missing, mastermind still runs that phase inline rather than aborting (see Phase 0) — but the workflow is meaningfully weaker without them, and the dedicated skills are the intended path. At Phase 0, check which of these are actually present and tell the user which phases will run inline because a skill is missing, so they can install it first if they'd rather.
+
+**Optional enhancements — invoked automatically if installed, skipped gracefully if not:**
+
+```
+/plugin install tdd@skill-arsenal                    # Phase 4: test-driven implementation on every slice
+/plugin install code-quality-checklist@skill-arsenal # Phase 4: quality guardrails + verification gate
+/plugin install spec-docs-generator@skill-arsenal    # Phase 4: spec-aware quality checks (reads docs/00-index.md)
+/plugin install pr-review@skill-arsenal              # Phase 6: GitHub-specific pass if output becomes a PR
+```
 
 ## Phase 0 — Take stock of your tools
 
