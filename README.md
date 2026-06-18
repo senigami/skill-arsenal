@@ -4,9 +4,8 @@ A curated collection of reusable Agent skills organized by category.
 
 
 ## Featured skills
-
 <details>
-<summary>**[Mastermind](skills/engineering/mastermind/)** — End-to-end workflow conductor. Takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.  
+<summary>**[mastermind](skills/engineering/mastermind/)** — End-to-end workflow conductor. Takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.  
 **If you only install one skill, make it this one.**
 </summary>
 
@@ -25,68 +24,6 @@ Three checkpoints keep you in control (confirm-understanding, confirm-plan, pres
 </details>
 
 <details>
-<summary>**[Spec Docs Generator](skills/engineering/spec-docs-generator/)** — Builds a numbered, navigable spec-document set (`docs/00-index.md`, spec files, ADRs) that becomes the project's source of truth. Run it once on a new project, then again whenever the codebase drifts from the specs.</summary>
-
-Produces:
-- `docs/00-index.md` — router index every agent reads first
-- `docs/NN-topic.md` — numbered spec files (100–400 lines each)
-- `docs/decisions/` — Architecture Decision Records (ADRs, append-only history)
-
-Detects existing specs, diffs them against the code, and fixes drift. Conflict resolution happens before writing — so the specs become a *source of truth*, not a mirror of the mess.
-
----
-</details>
-
-<details>
-<summary>**[Code Quality Checklist](skills/engineering/code-quality-checklist/)** — Pre/during/post-task quality guardrail. Uses your spec docs as its quality bar, verifying every change against the project's own documented conventions — not just generic rules.</summary>
-
-When Mastermind is running and this skill is installed, it activates automatically at each execution slice — pointing it at `docs/00-index.md` so every piece of work is checked against what the project is *supposed* to be.
-
-Best paired with Spec Docs Generator: once specs exist at `docs/00-index.md`, this skill uses them as the authoritative source of conventions for every future task.
-
-</details>
-
-
----
-
-## All Skills
-
-### Engineering
-
-<details>
-<summary>**[mastermind](skills/engineering/mastermind/)** — End-to-end workflow conductor from raw problem to reviewed completion</summary>
-
-End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.
-
-**Workflow:**
-1. Interview — understand the real goal, constraints, and definition of done
-2. Fusion-reasoning — fan out agents to stress-test solution approaches
-3. Task-plan-architect — build a mapped, ordered implementation plan
-4. Planrunner — execute with TDD + code-quality-checklist guardrails on every slice
-5. Completion audit — confirm every tasked item was actually done
-6. Adversarial review — hostile correctness, security, and edge-case pass
-
-Three checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.
-
-Also installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, tdd, code-quality-checklist, spec-docs-generator, adversarial-review, pr-review.
-
-</details>
-
-<details>
-<summary>**[adversarial-review](skills/engineering/adversarial-review/)** — Three hostile personas tear your code apart before it ships</summary>
-
-Adversarial code review that breaks the self-review monoculture — three hostile personas must each find at least one issue.
-
-**Personas:**
-1. Saboteur — hunts for production failures and logic errors
-2. New Hire — flags unclear code, missing docs, and maintainability traps
-3. Security Auditor — looks for vulnerabilities, auth gaps, and data exposure
-
-Findings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact file:line citations and paste-ready comments.
-
-</details>
-
-<details>
 <summary>**[spec-docs-generator](skills/engineering/spec-docs-generator/)** — Generate or update a numbered spec-document set as your project's source of truth</summary>
 
 Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.
@@ -101,6 +38,7 @@ Detects existing specs, diffs them against the code, and fixes drift. ADRs are a
 Best paired with `code-quality-checklist`: once specs are generated, the checklist uses them as the authoritative source of conventions for every future implementation task.
 
 </details>
+
 
 <details>
 <summary>**[code-quality-checklist](skills/engineering/code-quality-checklist/)** — Pre/during/post-task quality guardrail that adapts to your project's own specs</summary>
@@ -117,6 +55,25 @@ Silent by default — fixes issues without listing them. Reads project-specific 
 Best paired with `spec-docs-generator`: once specs exist, this skill enforces them automatically.
 
 </details>
+
+## All Skills
+
+### Engineering
+
+<details>
+<summary>**[adversarial-review](skills/engineering/adversarial-review/)** — Three hostile personas tear your code apart before it ships</summary>
+
+Adversarial code review that breaks the self-review monoculture — three hostile personas must each find at least one issue.
+
+**Personas:**
+1. Saboteur — hunts for production failures and logic errors
+2. New Hire — flags unclear code, missing docs, and maintainability traps
+3. Security Auditor — looks for vulnerabilities, auth gaps, and data exposure
+
+Findings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact file:line citations and paste-ready comments.
+
+</details>
+
 
 <details>
 <summary>**[task-plan-architect](skills/engineering/task-plan-architect/)** — Research a large task and produce a mapped implementation plan any model can execute</summary>
