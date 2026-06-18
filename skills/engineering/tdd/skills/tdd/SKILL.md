@@ -1,5 +1,5 @@
 ---
-description: Enforce the red → green → refactor TDD cycle for every new behavior or bug fix. Use when writing new features, fixing bugs, or adding test coverage.
+description: Enforce the red → green → refactor TDD cycle. Invoke automatically whenever: implementing a new feature, function, method, or component; fixing a bug or regression; adding or modifying a test file; writing any code that introduces new behavior; changing an API contract or data shape; adding a new route, endpoint, or handler; refactoring logic that currently lacks test coverage. The rule is simple — no new behavior ships without a test written first. Skip only for pure mechanical refactors where full test coverage already exists and no behavior changes, or for changes limited to config files, documentation, or build scripts with no logic.
 ---
 
 Follow the **red → green → refactor** (TDD) cycle for every new behavior or bug fix:
