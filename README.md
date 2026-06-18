@@ -5,9 +5,7 @@ A curated collection of reusable Agent skills organized by category.
 
 ## Featured skills
 <details>
-<summary>**[mastermind](skills/engineering/mastermind/)** — End-to-end workflow conductor. Takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually.  
-**If you only install one skill, make it this one.**
-</summary>
+<summary>[mastermind](skills/engineering/mastermind/) — End-to-end workflow conductor. Takes any non-trivial task from raw problem to verified, reviewed completion without you having to orchestrate anything manually. If you only install one skill, make it this one.</summary>
 
 It chains the best skills in this repo into one seamless workflow:
 
@@ -24,7 +22,7 @@ Three checkpoints keep you in control (confirm-understanding, confirm-plan, pres
 </details>
 
 <details>
-<summary>**[spec-docs-generator](skills/engineering/spec-docs-generator/)** — Generate or update a numbered spec-document set as your project's source of truth</summary>
+<summary>[spec-docs-generator](skills/engineering/spec-docs-generator/) — Generate or update a numbered spec-document set as your project's source of truth</summary>
 
 Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.
 
@@ -41,7 +39,7 @@ Best paired with `code-quality-checklist`: once specs are generated, the checkli
 
 
 <details>
-<summary>**[code-quality-checklist](skills/engineering/code-quality-checklist/)** — Pre/during/post-task quality guardrail that adapts to your project's own specs</summary>
+<summary>[code-quality-checklist](skills/engineering/code-quality-checklist/) — Pre/during/post-task quality guardrail that adapts to your project's own specs</summary>
 
 Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.
 
@@ -61,7 +59,7 @@ Best paired with `spec-docs-generator`: once specs exist, this skill enforces th
 ### Engineering
 
 <details>
-<summary>**[adversarial-review](skills/engineering/adversarial-review/)** — Three hostile personas tear your code apart before it ships</summary>
+<summary>[adversarial-review](skills/engineering/adversarial-review/) — Three hostile personas tear your code apart before it ships</summary>
 
 Adversarial code review that breaks the self-review monoculture — three hostile personas must each find at least one issue.
 
@@ -76,7 +74,7 @@ Findings are deduplicated and severity-promoted when multiple personas catch the
 
 
 <details>
-<summary>**[task-plan-architect](skills/engineering/task-plan-architect/)** — Research a large task and produce a mapped implementation plan any model can execute</summary>
+<summary>[task-plan-architect](skills/engineering/task-plan-architect/) — Research a large task and produce a mapped implementation plan any model can execute</summary>
 
 Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.
 
@@ -91,7 +89,7 @@ Every task links back to the map so a context-limited executor knows what it con
 </details>
 
 <details>
-<summary>**[planrunner](skills/engineering/planrunner/)** — Orchestrator-driven execution of an approved implementation plan</summary>
+<summary>[planrunner](skills/engineering/planrunner/) — Orchestrator-driven execution of an approved implementation plan</summary>
 
 Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.
 
@@ -106,7 +104,7 @@ Consumes task-plan-architect output directly. File-collision guard prevents para
 </details>
 
 <details>
-<summary>**[tdd](skills/engineering/tdd/)** — Enforces red → green → refactor for every new behavior or bug fix</summary>
+<summary>[tdd](skills/engineering/tdd/) — Enforces red → green → refactor for every new behavior or bug fix</summary>
 
 Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.
 
@@ -120,7 +118,7 @@ Every failure must be for the right reason (not a setup error). Every implementa
 </details>
 
 <details>
-<summary>**[pr-review](skills/engineering/pr-review/)** — Reviews a GitHub PR for real blocking problems nobody has flagged yet</summary>
+<summary>[pr-review](skills/engineering/pr-review/) — Reviews a GitHub PR for real blocking problems nobody has flagged yet</summary>
 
 Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.
 
@@ -135,7 +133,7 @@ Reads files by ref (not checkout) to avoid corrupting local state. Returns APPRO
 </details>
 
 <details>
-<summary>**[code-audit-planner](skills/engineering/code-audit-planner/)** — Audits a codebase across quality dimensions and produces an ordered implementation plan</summary>
+<summary>[code-audit-planner](skills/engineering/code-audit-planner/) — Audits a codebase across quality dimensions and produces an ordered implementation plan</summary>
 
 Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.
 
@@ -151,7 +149,7 @@ Fans reading out to light agents in parallel; writes numbered task files with ex
 </details>
 
 <details>
-<summary>**[frontend-code-layout](skills/engineering/frontend-code-layout/)** — Keep structure, styling, and behavior separable so the look can swap without rewrites</summary>
+<summary>[frontend-code-layout](skills/engineering/frontend-code-layout/) — Keep structure, styling, and behavior separable so the look can swap without rewrites</summary>
 
 Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.
 
@@ -165,7 +163,7 @@ To rebrand: only the token file changes. Color is never the sole signal for acce
 </details>
 
 <details>
-<summary>**[modern-web-guidance](skills/engineering/modern-web-guidance/)** — Curated modern web-platform patterns so Claude uses the platform instead of heavy deps</summary>
+<summary>[modern-web-guidance](skills/engineering/modern-web-guidance/) — Curated modern web-platform patterns so Claude uses the platform instead of heavy deps</summary>
 
 Searches a curated database of standardized modern web-platform patterns before writing any browser code — so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.
 
@@ -181,7 +179,7 @@ Search first, then retrieve the full guide. Patterns default to Baseline Widely 
 </details>
 
 <details>
-<summary>**[codex](skills/engineering/codex/)** — Bounded implementation worker rules for handing off tasks to Codex</summary>
+<summary>[codex](skills/engineering/codex/) — Bounded implementation worker rules for handing off tasks to Codex</summary>
 
 Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.
 
@@ -196,7 +194,7 @@ Handoff always includes: changed files, tests run, pass/fail result, remaining r
 </details>
 
 <details>
-<summary>**[worker](skills/engineering/worker/)** — Cursor task orchestrator: decompose, dispatch to Haiku subagents, review, fix, report</summary>
+<summary>[worker](skills/engineering/worker/) — Cursor task orchestrator: decompose, dispatch to Haiku subagents, review, fix, report</summary>
 
 Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.
 
@@ -216,7 +214,7 @@ You (the large model) are the orchestrator and quality gate — workers are chea
 ### Design
 
 <details>
-<summary>**[design-review-loop](skills/design/design-review-loop/)** — Iterative multi-agent design review loop: screenshot → review → build → repeat until scores clear</summary>
+<summary>[design-review-loop](skills/design/design-review-loop/) — Iterative multi-agent design review loop: screenshot → review → build → repeat until scores clear</summary>
 
 Iterative multi-agent design review loop — captures live screenshots, fans out specialist reviewers, synthesizes findings, builds the changes, and repeats until quality scores clear a threshold.
 
@@ -236,7 +234,7 @@ Tracks scores per dimension round-over-round. Escalates genuine reviewer disagre
 ### Productivity
 
 <details>
-<summary>**[fusion-reasoning](skills/productivity/fusion-reasoning/)** — Panel of independent agents cross-examine, a judge synthesizes one answer that beats any single pass</summary>
+<summary>[fusion-reasoning](skills/productivity/fusion-reasoning/) — Panel of independent agents cross-examine, a judge synthesizes one answer that beats any single pass</summary>
 
 Reasoning amplifier — runs an adaptive panel of independent agents from different angles, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.
 
@@ -251,7 +249,7 @@ Panel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5
 </details>
 
 <details>
-<summary>**[efficient-orchestration](skills/productivity/efficient-orchestration/)** — Always-on token-efficiency model: delegate mechanical work to the smallest capable model</summary>
+<summary>[efficient-orchestration](skills/productivity/efficient-orchestration/) — Always-on token-efficiency model: delegate mechanical work to the smallest capable model</summary>
 
 Always-on token-efficiency operating model — for every non-trivial task, decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.
 
@@ -269,7 +267,7 @@ The large model holds strategy and verification; mechanical work fans out to the
 ### Content
 
 <details>
-<summary>**[humanizer](skills/content/humanizer/)** — Strip AI-writing signals from text while preserving specific detail and natural rhythm</summary>
+<summary>[humanizer](skills/content/humanizer/) — Strip AI-writing signals from text while preserving specific detail and natural rhythm</summary>
 
 Removes signs of AI-generated writing from text — based on Wikipedia's "Signs of AI writing" guide.
 
@@ -285,7 +283,7 @@ Optionally voice-matches against a writing sample. Preserves specific detail, un
 </details>
 
 <details>
-<summary>**[comedy-writers-room](skills/content/comedy-writers-room/)** — One writer, three audience personas reacting in series — material iterates on real feedback</summary>
+<summary>[comedy-writers-room](skills/content/comedy-writers-room/) — One writer, three audience personas reacting in series — material iterates on real feedback</summary>
 
 Write stand-up comedy, jokes, or humorous material — one subagent writes while three audience personas react, and the material iterates based on synthesized feedback.
 
@@ -299,7 +297,7 @@ Personas react in series so each reaction is visible. Synthesizes feedback and s
 </details>
 
 <details>
-<summary>**[gen-alpha-style](skills/content/gen-alpha-style/)** — Transform any output into Gen Alpha / brainrot internet slang (code blocks stay clean)</summary>
+<summary>[gen-alpha-style](skills/content/gen-alpha-style/) — Transform any output into Gen Alpha / brainrot internet slang (code blocks stay clean)</summary>
 
 Transforms all explanatory text into Gen Alpha / brainrot internet slang while preserving code blocks, commands, and variable names exactly as written.
 
@@ -317,7 +315,7 @@ Code blocks stay clean and valid. Error messages get dramatic interpretation; su
 ### Automation
 
 <details>
-<summary>**[pinokio](skills/automation/pinokio/)** — Discover, launch, and use Pinokio-managed apps via the pterm CLI</summary>
+<summary>[pinokio](skills/automation/pinokio/) — Discover, launch, and use Pinokio-managed apps via the pterm CLI</summary>
 
 Discovers, launches, and uses Pinokio-managed apps and tools via the pterm CLI control plane.
 
@@ -332,7 +330,7 @@ Creates a reusable skill folder with SKILL.md and client code for the app. Suppo
 </details>
 
 <details>
-<summary>**[gepeto](skills/automation/gepeto/)** — Development guide for building consistent, debuggable Pinokio launcher projects</summary>
+<summary>[gepeto](skills/automation/gepeto/) — Development guide for building consistent, debuggable Pinokio launcher projects</summary>
 
 Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.
 
