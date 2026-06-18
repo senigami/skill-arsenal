@@ -299,25 +299,25 @@ Then read `~/.claude/plugins/known_marketplaces.json` (or start fresh if it does
 
 Replace `<actual-home-dir>` with the real home directory path from the system (run `echo $HOME` to get it). Write the updated file back.
 
-**Step 3 — Install skills**
+**Step 3 — Determine which skills to install**
 
-If the user hasn't specified which skills to install, recommend starting with Mastermind and the recommended pair:
+Read `~/.claude/plugins/marketplaces/skill-arsenal/.claude-plugin/defaults.json`. This file contains a `"defaults"` array — the explicit list of skills that install on a bare "install skill-arsenal" request. Everything else in the marketplace exists but requires an explicit request by name.
 
-```bash
-# Copy each skill's folder into ~/.claude/skills/
-cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/mastermind/skills/mastermind ~/.claude/skills/mastermind
-cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/spec-docs-generator/skills/spec-docs-generator ~/.claude/skills/spec-docs-generator
-cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/engineering/code-quality-checklist/skills/code-quality-checklist ~/.claude/skills/code-quality-checklist
-```
+- **Default install** — skills listed in `defaults.json`
+- **Available but not default** — everything else in `marketplace.json` not in the defaults list
 
-For any other skill, the pattern is:
+If the user said "install skill-arsenal" or "install everything" without further qualification, install only the skills in `defaults.json`. If they asked for a specific skill by name (default or not), install it. If they asked to "install all skills", install everything in `marketplace.json`.
+
+Copy each skill to install using the pattern:
 ```bash
 cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/<category>/<name>/skills/<name> ~/.claude/skills/<name>
 ```
 
+To find a skill's category, look up its `"source"` path in `marketplace.json` — e.g. `"./skills/engineering/tdd"` means category `engineering`, name `tdd`.
+
 **Step 4 — Confirm and advise restart**
 
-Tell the user which skills were installed and their invoke commands (e.g. `/mastermind`). Let them know Claude Code needs to be restarted (or a new session started) for new skills to appear in the slash-command picker.
+Tell the user which skills were installed, which were skipped as optional (and how to install them if wanted), and their invoke commands (e.g. `/mastermind`). Let them know Claude Code needs to be restarted (or a new session started) for new skills to appear in the slash-command picker.
 
 **If the user only wants one skill**, install Mastermind — it auto-invokes the rest of the spine when they're present, and the workflow degrades gracefully to inline when they're not.
 

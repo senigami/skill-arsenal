@@ -1,0 +1,17 @@
+{
+  "defaults": [
+    "mastermind",
+    "fusion-reasoning",
+    "task-plan-architect",
+    "planrunner",
+    "efficient-orchestration",
+    "adversarial-review",
+    "spec-docs-generator",
+    "code-quality-checklist",
+    "tdd",
+    "pr-review",
+    "code-audit-planner",
+    "frontend-code-layout",
+    "modern-web-guidance"
+  ]
+}
