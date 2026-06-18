@@ -53,7 +53,7 @@ The skill is now available as `/adversarial-review` in any project.
 | [codex](skills/engineering/codex/) | `/plugin install codex@skill-arsenal` | Bounded implementation worker rules for handing off to Codex — scope discipline, handoff checklist, Studio 2.0 conventions. |
 | [code-quality-checklist](skills/engineering/code-quality-checklist/) | `/plugin install code-quality-checklist@skill-arsenal` | Pre/during/post-task quality guardrail — surfaces assumptions, enforces triggered workflows, and runs verification before marking done. Adapts to any codebase via project-rules.md. |
 | [worker](skills/engineering/worker/) | `/plugin install worker@skill-arsenal` | Cursor task orchestrator — decompose a task JSON into slices, dispatch to Haiku subagents, adversarially review, fix blockers, and return a clean report. |
-| [choreographer](skills/engineering/choreographer/) | `/plugin install choreographer@skill-arsenal` | End-to-end workflow conductor — interview → fusion-reasoning → task-plan-architect → planrunner → completion audit → adversarial review. Gates at confirm-understanding, confirm-plan, and present-verification; loops to root-cause and fix until satisfied. |
+| [mastermind](skills/engineering/mastermind/) | `/plugin install mastermind@skill-arsenal` | End-to-end workflow conductor — interview → fusion-reasoning → task-plan-architect → planrunner → completion audit → adversarial review. Gates at confirm-understanding, confirm-plan, and present-verification; loops to root-cause and fix until satisfied. |
 
 ### Design
 

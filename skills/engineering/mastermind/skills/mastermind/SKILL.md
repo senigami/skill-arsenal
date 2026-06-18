@@ -1,8 +1,8 @@
 ---
-description: End-to-end workflow conductor for a non-trivial task or problem. Use when the user hands over a task they want taken all the way from "understand the problem" to "verified, reviewed, done" — or says "choreographer", "run the whole workflow", "take this from start to finish", "interview me then build and ship it". It chains the skills you already have: it interviews the user until it genuinely understands the problem, gathers and reasons over solutions (fusion-reasoning), architects a plan (task-plan-architect), executes it under token-efficient orchestration (planrunner + efficient-orchestration), audits that every tasked item was actually completed (fusion-reasoning audit with light models), and runs an adversarial review (adversarial-review) — pausing at three checkpoints: confirm-understanding, confirm-plan, and present-verification, looping back to root-cause and fix until the user is satisfied. Skip for trivial one-shot edits or pure Q&A.
+description: End-to-end workflow conductor for a non-trivial task or problem. Use when the user hands over a task they want taken all the way from "understand the problem" to "verified, reviewed, done" — or says "mastermind", "conductor", "choreographer", "run the whole workflow", "take this from start to finish", "interview me then build and ship it". It chains the skills you already have: it interviews the user until it genuinely understands the problem, gathers and reasons over solutions (fusion-reasoning), architects a plan (task-plan-architect), executes it under token-efficient orchestration (planrunner + efficient-orchestration), audits that every tasked item was actually completed (fusion-reasoning audit with light models), and runs an adversarial review (adversarial-review) — pausing at three checkpoints: confirm-understanding, confirm-plan, and present-verification, looping back to root-cause and fix until the user is satisfied. Skip for trivial one-shot edits or pure Q&A.
 ---
 
-# choreographer — conduct the whole task, end to end
+# mastermind — conduct the whole task, end to end
 
 You are the **conductor**. The user has handed you a task or problem and wants it taken from raw understanding all the way to verified, reviewed completion. You don't do the bulk of the work yourself — you run the right skill at the right phase, hold the through-line, and stop at exactly three checkpoints to keep the user in control of *what* gets built. Everything between checkpoints runs autonomously.
 
@@ -21,9 +21,10 @@ A multi-phase workflow that chains six skills is exactly where token spend ballo
 
 ## Requirements — install these skills first
 
-choreographer is a **conductor**: it delegates each phase to a dedicated skill. For the full workflow, install all of these from the same marketplace **before** running it:
+mastermind is a **meta-skill**: it delegates each phase to a dedicated skill. For the full workflow, install all of these from the same marketplace **before** running it:
 
 ```
+/plugin install mastermind@skill-arsenal             # this skill
 /plugin install fusion-reasoning@skill-arsenal       # Phase 2 (reason) + Phase 5 (completion audit)
 /plugin install task-plan-architect@skill-arsenal    # Phase 3 (plan)
 /plugin install planrunner@skill-arsenal             # Phase 4 (execute)
