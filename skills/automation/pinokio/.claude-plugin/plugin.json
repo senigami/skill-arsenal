@@ -1,6 +1,6 @@
 {
   "name": "pinokio",
-  "description": "Discover, launch, and use apps and tools for the current task via Pinokio.",
+  "description": "Discovers, launches, and uses Pinokio-managed apps and tools via the pterm CLI control plane.\n\nWorkflow:\n1. Search for the app (pterm search)\n2. If not found, optionally search the registry with user approval\n3. Launch and poll until ready (pterm run <ref>)\n4. Use the app's HTTP API — direct call or generated client\n\nCreates a reusable skill folder with SKILL.md and client code for the app. Supports parallel launch for multiple apps. Never hardcodes paths, ports, or tokens in client files.",
   "version": "1.0.0",
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/automation/pinokio",
   "repository": "https://github.com/senigami/skill-arsenal",

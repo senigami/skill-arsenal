@@ -1,6 +1,6 @@
 {
   "name": "modern-web-guidance",
-  "description": "Use before writing HTML, CSS, or frontend JS. Searches a curated database of standardized modern web-platform patterns (container queries, :has(), View Transitions, scroll-driven animations, anchor positioning, Core Web Vitals) so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.",
+  "description": "Searches a curated database of standardized modern web-platform patterns before writing any browser code — so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.\n\nCovers:\n- Layout: container queries, :has(), subgrid\n- Motion: View Transitions, scroll-driven animations\n- Performance: LCP, Core Web Vitals, INP\n- Platform APIs: anchor positioning, Popover API\n- Accessibility and forms\n\nSearch first, then retrieve the full guide. Patterns default to Baseline Widely Available — safe across modern browsers.",
   "version": "1.0.0",
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/modern-web-guidance",
   "repository": "https://github.com/senigami/skill-arsenal",

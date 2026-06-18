@@ -1,6 +1,6 @@
 {
   "name": "gen-alpha-style",
-  "description": "Gen Alpha / brainrot output-style transformation rules and vocabulary — a comprehensive glossary, transformation patterns, and examples for rewriting responses in Gen Alpha internet slang.",
+  "description": "Transforms all explanatory text into Gen Alpha / brainrot internet slang while preserving code blocks, commands, and variable names exactly as written.\n\nApplies:\n- Vocabulary: no cap, fr fr, bussin, lowkey, rizz, gyatt, slay, etc.\n- 3–5+ slang terms per paragraph\n- Three intensity levels: light, moderate, full brainrot (default)\n\nCode blocks stay clean and valid. Error messages get dramatic interpretation; success messages celebrate with hype. Configure intensity via .claude/gen-alpha-output-style.local.md.",
   "version": "0.1.0",
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/content/gen-alpha-style",
   "repository": "https://github.com/senigami/skill-arsenal",

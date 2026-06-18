@@ -1,6 +1,6 @@
 {
   "name": "humanizer",
-  "description": "Remove signs of AI-generated writing from text. Based on Wikipedia's \"Signs of AI writing\" guide — detects and fixes inflated symbolism, promotional language, em dash overuse, rule of three, AI vocabulary, passive voice, negative parallelisms, and filler.",
+  "description": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm — the signals that make writing sound human.",
   "version": "2.8.0",
   "author": { "name": "Siqi Chen", "url": "https://github.com/blader/humanizer" },
   "homepage": "https://github.com/blader/humanizer",

@@ -1,6 +1,6 @@
 {
   "name": "frontend-code-layout",
-  "description": "Keep frontend code's structure, styling, and behavior separable. Realizes the CSS Zen Garden ideal (swap the look without rewriting structure) via semantic tokens, Model/View/Presenter layering, and readability hygiene.",
+  "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
   "version": "1.0.0",
   "author": { "name": "Steven Dunn" },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/frontend-code-layout",

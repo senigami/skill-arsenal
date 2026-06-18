@@ -1,6 +1,6 @@
 {
   "name": "tdd",
-  "description": "Enforce the red → green → refactor TDD cycle for every new behavior or bug fix.",
+  "description": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
   "version": "1.0.0",
   "author": { "name": "Steven Dunn" },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/tdd",
