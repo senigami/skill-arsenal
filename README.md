@@ -273,6 +273,18 @@ The authoring spec — exact manifest fields, required vs optional, and gotchas 
 <details>
 <summary>For Claude and Codex / AI assistants: quick self install</summary>
 
+## Default install list (all agents)
+
+Before installing, read `.claude-plugin/defaults.json` from the cloned repo. It contains a `"defaults"` array — the explicit list of skills to install when the user says "install skill-arsenal" or "set this up" without specifying individual skills. Everything else in `marketplace.json` is available but requires an explicit request by name.
+
+- **"install skill-arsenal" / "set this up"** → install only the skills listed in `defaults.json`
+- **"install [skill name]"** → install that specific skill regardless of whether it's in the defaults
+- **"install all skills"** → install everything in `marketplace.json`
+
+To find a skill's category and source path, look up its `"source"` field in `marketplace.json` — e.g. `"./skills/engineering/tdd"` means category `engineering`, name `tdd`.
+
+---
+
 ## Claude agent quick install
 
 If a user points this README at a Claude chat session and asks to set up the skill-arsenal, follow these steps:
@@ -299,21 +311,13 @@ Then read `~/.claude/plugins/known_marketplaces.json` (or start fresh if it does
 
 Replace `<actual-home-dir>` with the real home directory path from the system (run `echo $HOME` to get it). Write the updated file back.
 
-**Step 3 — Determine which skills to install**
+**Step 3 — Install skills**
 
-Read `~/.claude/plugins/marketplaces/skill-arsenal/.claude-plugin/defaults.json`. This file contains a `"defaults"` array — the explicit list of skills that install on a bare "install skill-arsenal" request. Everything else in the marketplace exists but requires an explicit request by name.
+Apply the default install rules from the preamble above. Copy each skill using the pattern:
 
-- **Default install** — skills listed in `defaults.json`
-- **Available but not default** — everything else in `marketplace.json` not in the defaults list
-
-If the user said "install skill-arsenal" or "install everything" without further qualification, install only the skills in `defaults.json`. If they asked for a specific skill by name (default or not), install it. If they asked to "install all skills", install everything in `marketplace.json`.
-
-Copy each skill to install using the pattern:
 ```bash
 cp -r ~/.claude/plugins/marketplaces/skill-arsenal/skills/<category>/<name>/skills/<name> ~/.claude/skills/<name>
 ```
-
-To find a skill's category, look up its `"source"` path in `marketplace.json` — e.g. `"./skills/engineering/tdd"` means category `engineering`, name `tdd`.
 
 **Step 4 — Confirm and advise restart**
 
@@ -358,12 +362,10 @@ When a user points you to this repository/README and requests a skill installati
    - Check if a local clone of this repository exists on the user's system (e.g., check `~/GitHub/skill-arsenal` or a path mentioned by the user).
    - If it does not exist, clone this repository to a local folder (e.g., `~/GitHub/skill-arsenal` or `~/.gemini/config/plugins/marketplaces/skill-arsenal`).
 
-2. **List Available Skills (If no skill name is specified)**:
-   - Scan the `skills/` folder of the cloned repository. 
-   - Note that each skill's actual definition folder is nested as: `skills/<category>/<skill_name>/skills/<skill_name>/` (which contains `SKILL.md`).
-   - Find all folders containing `SKILL.md`.
-   - Present a clean markdown table of available skills categorized by their parent category, displaying their names and descriptions.
-   - Ask the user: *"Which skill would you like to install?"*
+2. **Determine which skills to install (If no skill name is specified)**:
+   - Apply the default install rules from the preamble above — read `.claude-plugin/defaults.json` and install only the listed skills.
+   - If the user asked to see what's available, scan the `skills/` folder and present a markdown table of all skills by category (each skill's definition is at `skills/<category>/<skill_name>/skills/<skill_name>/SKILL.md`).
+   - Only ask *"Which skill would you like to install?"* if the user explicitly said they want to choose.
 
 3. **Install the Selected/Specified Skill & Dependencies**:
    - Find the source path containing the target skill's `SKILL.md`: `skills/<category>/<skill_name>/skills/<skill_name>`.
