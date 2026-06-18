@@ -1,7 +1,7 @@
 ---
 name: code-quality-checklist
 description: |
-  Use this skill to ensure code adheres to the team's development protocols. Trigger at three moments: (1) BEFORE starting a non-trivial task — to surface assumptions and align on approach; (2) DURING work — when modifying schemas, generated configs, or UI; (3) BEFORE marking a task complete — to run verification and self-review. The skill bundles project-specific rules in `references/project-rules.md` and a `scripts/verify.sh` runner so it adapts to any codebase. Use proactively whenever you're about to declare work done, hand off, or start a feature/fix — even if the user doesn't explicitly ask for a "review" or "checklist."
+  Use this skill to ensure code adheres to the team's development protocols. Trigger at three moments: (1) BEFORE starting a non-trivial task — to surface assumptions and align on approach; (2) DURING work — when modifying schemas, generated configs, or UI; (3) BEFORE marking a task complete — to run verification and self-review. The skill bundles project-specific rules in `references/project-rules.md` and a `scripts/verify.sh` runner so it adapts to any codebase. Use proactively whenever you're about to declare work done, hand off, or start a feature/fix — even if the user doesn't explicitly ask for a "review" or "checklist." Best paired with `spec-docs-generator`: when specs exist at `docs/00-index.md`, read the relevant spec files as the authoritative source of conventions and contracts — not just that tests pass, but that the implementation matches what the project's source of truth documents.
 compatibility: "Requires bash, git, and whatever tools scripts/verify.sh invokes (test runner, linter, type checker)"
 ---
 

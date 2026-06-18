@@ -158,8 +158,8 @@
     {
       "name": "mastermind",
       "source": "./skills/engineering/mastermind",
-      "description": "End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview — understand the real goal, constraints, and definition of done\n2. Fusion-reasoning — fan out agents to stress-test solution approaches\n3. Task-plan-architect — build a mapped, ordered implementation plan\n4. Planrunner — execute the plan with token-efficient orchestration\n5. Completion audit — confirm every tasked item was actually done\n6. Adversarial review — hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, adversarial-review.",
-      "version": "1.1.0",
+      "description": "End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview — understand the real goal, constraints, and definition of done\n2. Fusion-reasoning — fan out agents to stress-test solution approaches\n3. Task-plan-architect — build a mapped, ordered implementation plan\n4. Planrunner — execute with TDD + code-quality-checklist guardrails on every slice\n5. Completion audit — confirm every tasked item was actually done\n6. Adversarial review — hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, tdd, code-quality-checklist, spec-docs-generator, adversarial-review, pr-review.",
+      "version": "1.2.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["orchestration", "workflow", "meta-skill", "planning", "review", "end-to-end"],
       "category": "engineering"

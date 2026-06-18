@@ -29,10 +29,14 @@ mastermind is a **meta-skill**: it delegates each phase to a dedicated skill. Fo
 /plugin install task-plan-architect@skill-arsenal    # Phase 3 (plan)
 /plugin install planrunner@skill-arsenal             # Phase 4 (execute)
 /plugin install efficient-orchestration@skill-arsenal # operating model across all phases
-/plugin install adversarial-review@skill-arsenal     # Phase 6 (review)
+/plugin install tdd@skill-arsenal                    # Phase 4 (test-driven implementation)
+/plugin install code-quality-checklist@skill-arsenal # Phase 4 (quality guardrails + pre/post-task verification)
+/plugin install spec-docs-generator@skill-arsenal    # Phase 4 (spec-aware quality checks when specs exist)
+/plugin install adversarial-review@skill-arsenal     # Phase 6 (hostile review)
+/plugin install pr-review@skill-arsenal              # Phase 6 optional (if output becomes a pull request)
 ```
 
-These are **soft dependencies**: if one is missing, choreographer still runs that phase inline rather than aborting (see Phase 0) — but the workflow is meaningfully weaker without them, and the dedicated skills are the intended path. At Phase 0, check which of these are actually present and tell the user which phases will run inline because a skill is missing, so they can install it first if they'd rather.
+These are **soft dependencies**: if one is missing, mastermind still runs that phase inline rather than aborting (see Phase 0) — but the workflow is meaningfully weaker without them, and the dedicated skills are the intended path. At Phase 0, check which of these are actually present and tell the user which phases will run inline because a skill is missing, so they can install it first if they'd rather.
 
 ## Phase 0 — Take stock of your tools
 
@@ -45,9 +49,12 @@ The spine (all authored by the user; invoke by name):
 | Understand | *(inline interview)* | Interview the user until the problem is clear. |
 | Reason | `fusion-reasoning` | Fan out independent agents to gather options and converge on the right approach. |
 | Plan | `task-plan-architect` | Turn the chosen approach into a mapped, ordered plan folder. |
-| Execute | `planrunner` + `efficient-orchestration` | Run the plan: slice → delegate → verify → adversarial review, token-efficiently. |
+| Execute | `planrunner` + `efficient-orchestration` | Run the plan: slice → delegate → verify, token-efficiently. |
+| Execute | `tdd` | Enforce red → green → refactor on every implementation slice. |
+| Execute | `code-quality-checklist` | Pre/post-task guardrails and verification gate for each slice. Reads `docs/00-index.md` as the spec source of truth if `spec-docs-generator` has been run. |
 | Audit | `fusion-reasoning` (verification mode) | Independently confirm every tasked item was actually done. |
 | Review | `adversarial-review` | Hostile final pass for correctness, security, edge cases. |
+| Review | `pr-review` *(if output becomes a PR)* | GitHub-specific pass — verifies acceptance criteria from the linked ticket. |
 
 Throughout, operate under **`efficient-orchestration`**: you (the conductor) hold strategy, judgment, and the checkpoints; the bulk reading/writing/verifying fans out to the smallest capable model. Discover the available models at runtime and assign by capability tier (light / mid / top), never by hardcoded name.
 
@@ -73,6 +80,10 @@ Run **`task-plan-architect`** on the chosen approach to produce the mapped plan 
 
 Run **`planrunner`** to execute the approved plan. Because the plan came from `task-plan-architect`, planrunner consumes its roadmap, task files, and map directly rather than re-decomposing. It slices, delegates to tier-matched implementers, gets to green (tests/lint/typecheck) before adversarial review, fixes real blockers, and reports. This phase is autonomous — no checkpoint — but keep your own context lean per `efficient-orchestration`.
 
+**TDD — enforce test-first on every implementation slice.** Run **`tdd`** alongside planrunner so every slice follows red → green → refactor: failing test written before implementation, minimum code to pass, then refactor. If `tdd` isn't installed, instruct implementers directly to follow the same discipline — no new behavior ships without a test written first.
+
+**Code quality — wrap every slice with guardrails.** Run **`code-quality-checklist`** before and after each implementation slice: surfaces assumptions pre-task, enforces triggered workflows during (schema changes, API changes, UI changes), and runs the full verification gate (`scripts/verify.sh`) before marking the slice done. Before activating it, check whether **`spec-docs-generator`** has been run on this repo by looking for `docs/00-index.md`. If it exists, pass that path to `code-quality-checklist` as the project's spec source of truth — it will read the relevant spec files to verify the implementation matches the documented conventions and contracts, not just that tests pass. If `code-quality-checklist` isn't installed, apply its pre/post discipline inline.
+
 ## Phase 5 — Audit completion (fusion-reasoning, verification mode)
 
 This is the step that catches what a normal run misses. Independently verify that **every item the plan tasked was actually completed** — not "the implementer said so," but confirmed against the real code and the plan's acceptance criteria. Run **`fusion-reasoning`** in a verification framing: fan out **light-tier** agents, each taking a slice of the task list, each answering one question per task — *is this acceptance criterion actually met in the code, yes or no, with the evidence (file:line)?* Synthesize their findings into a completion matrix: done / partial / missed, with evidence.
@@ -81,9 +92,11 @@ Use light models here deliberately — it's mechanical confirmation work, and pa
 
 **This audit hard-gates the adversarial review. Do not proceed to Phase 6 until completion is confirmed.** Anything **partial or missed** goes straight **back to Phase 4 (execute)** — feed the unfinished items to `planrunner` as a fresh slice of work, let it implement and re-verify them, then **re-run this completion audit.** Loop Phase 4 ↔ Phase 5 until every tasked item is confirmed done. There's no point hunting for subtle bugs in work that isn't even finished — finish it first, then review.
 
-## Phase 6 — Adversarial review (adversarial-review)
+## Phase 6 — Adversarial review (adversarial-review, + optional pr-review)
 
 Only once the completion audit fully passes, run **`adversarial-review`** for a hostile correctness/security/edge-case pass over the whole change. Classify findings into real blockers vs. nitpicks. Real blockers feed the fix loop; nitpicks are noted for the user but don't gate.
+
+If the task's output will become a **pull request**, also run **`pr-review`** after adversarial-review. It performs a GitHub-specific pass — verifies acceptance criteria from the linked ticket, checks for issues nobody has flagged yet, and returns APPROVE or confirmed blockers with exact file:line citations. It never posts to GitHub on its own. If `pr-review` isn't installed, cover this pass inline.
 
 ## Phase 7 — Present verification, and loop until satisfied (CHECKPOINT)
 
