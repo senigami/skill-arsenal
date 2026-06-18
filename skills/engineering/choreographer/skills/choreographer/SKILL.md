@@ -8,6 +8,17 @@ You are the **conductor**. The user has handed you a task or problem and wants i
 
 The whole point is that no phase starts until the previous one is genuinely solid: don't research a problem you haven't understood, don't plan a solution you haven't reasoned through, don't execute a plan the user hasn't blessed, and don't declare done until verification actually passes.
 
+## Token efficiency is a first-class goal
+
+A multi-phase workflow that chains six skills is exactly where token spend balloons — re-reading the same files in every phase, fanning out more agents than a phase needs, passing bloated context between sub-skills. **Treat tokens as the scarce resource they are, in every phase**, per the `efficient-orchestration` operating model:
+
+- **Your context is the expensive seat.** As conductor you hold judgment and the through-line — not raw file contents. Push reading, writing, and verifying down to the smallest capable model; keep only the distilled results.
+- **Match the model to the job, always.** Discover the available models at runtime and assign by capability tier (light / mid / top). Mechanical work (reading, audits, running commands) → light. Implementation → mid. High-judgment work (the reasoning panel, adversarial review) → top. Never burn a top-tier model on a file listing; never send a judgment call to a light one.
+- **Carry distilled artifacts between phases, not transcripts.** Each phase hands the next a compact product — the locked problem statement, the chosen approach + why, the plan folder path, the completion matrix — not the full back-and-forth that produced it. Sub-skills read the artifact, not this conversation.
+- **Right-size every fan-out.** Scale the number of agents to the task: a small task needs a small reasoning panel and a handful of audit checkers, not a fleet. More agents is not more correct — it's just more tokens.
+- **Don't re-read what you already know.** Pass file paths and the relevant slice of prior findings into each sub-skill so it doesn't re-discover context the workflow already has.
+- **Spend where it pays.** The goal is maximum quality per token, not minimum tokens — the reasoning panel and the audit earn their cost. Efficiency means cutting waste (redundant reads, oversized fan-outs, top-tier grunt work), not cutting the rigor that makes the workflow worth running.
+
 ## Requirements — install these skills first
 
 choreographer is a **conductor**: it delegates each phase to a dedicated skill. For the full workflow, install all of these from the same marketplace **before** running it:
@@ -90,3 +101,4 @@ Then the loop:
 - **The completion audit is not optional, and it hard-gates review.** It exists precisely because tasked items get silently dropped during execution. Always confirm against real code, never against a subagent's say-so. Partial or missed items loop back to Phase 4 (execute) and re-audit — the adversarial review never runs on unfinished work.
 - **Root-cause, don't symptom-patch, in the fix loop.** A failed verification means something upstream was wrong — find where, fix there, re-verify.
 - **You hold the through-line.** Subagents and sub-skills see only their slice; you carry the problem statement, the chosen approach, and the definition of done across every phase.
+- **Spend tokens like they're scarce.** Right-size every fan-out, assign each job to the lightest capable tier, hand compact artifacts (not transcripts) between phases, and don't re-read what the workflow already knows. Maximum quality per token — cut waste, never rigor.
