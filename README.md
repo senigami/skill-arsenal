@@ -1,6 +1,6 @@
 # skill-arsenal
 
-A curated collection of reusable [Claude Code](https://claude.ai/code) and Codex skills organized by category.
+A curated collection of reusable Agent skills organized by category.
 
 
 ## Featured skill — Mastermind
@@ -106,7 +106,7 @@ Together: the generator captures *what the project is supposed to be*; the check
 
 ## Installation
 
-> **Quickest path:** paste this page's URL into Claude or Codex and say *"install the skill-arsenal"*. The agent instructions at the bottom of this page tell it exactly what to do — it will clone the repo, register the marketplace, and install the recommended skills with no further input from you.
+> **Quickest path:** paste this page's URL into Claude, Codex, or Antigravity and say *"install the skill-arsenal"*. The agent instructions at the bottom of this page tell it exactly what to do — it will clone the repo, register the marketplace, and install the recommended skills with no further input from you.
 
 ---
 
@@ -346,4 +346,33 @@ If the user is testing unpublished local changes from a checkout, register the l
 ```
 
 After installing, restart Codex or start a new thread so the skill appears in the picker/context.
+
+## Install via Antigravity / Gemini Code Agent
+If you are using Antigravity (or another Gemini agent with terminal and filesystem capabilities), paste the link to this README into the chat and say:
+*"Install a skill-arsenal skill"* or *"Install [skill-name] from this repo"*.
+
+### Agent Instructions for Installation:
+When a user points you to this repository/README and requests a skill installation, please follow these instructions:
+
+1. **Verify or Clone the Repository**:
+   - Check if a local clone of this repository exists on the user's system (e.g., check `~/GitHub/skill-arsenal` or a path mentioned by the user).
+   - If it does not exist, clone this repository to a local folder (e.g., `~/GitHub/skill-arsenal` or `~/.gemini/config/plugins/marketplaces/skill-arsenal`).
+
+2. **List Available Skills (If no skill name is specified)**:
+   - Scan the `skills/` folder of the cloned repository. 
+   - Note that each skill's actual definition folder is nested as: `skills/<category>/<skill_name>/skills/<skill_name>/` (which contains `SKILL.md`).
+   - Find all folders containing `SKILL.md`.
+   - Present a clean markdown table of available skills categorized by their parent category, displaying their names and descriptions.
+   - Ask the user: *"Which skill would you like to install?"*
+
+3. **Install the Selected/Specified Skill**:
+   - Locate the source path containing the `SKILL.md` file: `skills/<category>/<skill_name>/skills/<skill_name>`.
+   - Determine the destination based on the user's preference:
+     - **Globally**: `~/.gemini/config/skills/<skill_name>`
+     - **Workspace-specific**: `.agents/skills/<skill_name>` (relative to the active workspace root).
+   - Ensure the parent `skills/` directory exists in the destination.
+   - Create a symbolic link (symlink) from the source directory to the destination directory. For example:
+     `ln -s <absolute-source-path> <absolute-destination-path>`
+   - Confirm the installation was successful and state that the skill is now active.
+   
 </details>
