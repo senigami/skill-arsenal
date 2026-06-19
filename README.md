@@ -252,9 +252,14 @@ Panel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5
 </details>
 
 <details>
-<summary><a href="skills/productivity/efficient-orchestration/">efficient-orchestration</a> — Always-on token-efficiency model: delegate mechanical work to the smallest capable model</summary>
+<summary><a href="skills/productivity/efficient-orchestration/">efficient-orchestration</a> — Always-on token-efficiency model: minimize output tokens and delegate mechanical work to the smallest capable model</summary>
 
-Always-on token-efficiency operating model — for every non-trivial task, decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.
+Always-on token-efficiency operating model — for every task, minimize output tokens and decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.
+
+**Output thrift (every turn):**
+- No narration or preamble — lead with the result
+- Terse by default; read only what the task requires
+- Cap the tool-call loop; never re-derive what's already done
 
 **Delegation tiers:**
 - Light (Haiku-class) — reading, grepping, listing, mechanical work
@@ -422,7 +427,7 @@ Engineering
 
 Productivity
   ✅ fusion-reasoning*     Multi-agent reasoning panel + judge
-  ✅ efficient-orchestration* Token-efficient subagent model tiering
+  ✅ efficient-orchestration* Output thrift + subagent model tiering
 
 Design
   ❌ design-review-loop    Screenshot→review→build design loop

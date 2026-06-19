@@ -8,13 +8,31 @@ description: >-
   the default operating model for all work, not just multi-agent tasks. The goal
   is maximum output quality per token: the large model holds strategy,
   direction, and verification; mechanical or bounded work fans out to the
-  smallest capable model. Also reference this skill when writing or improving
-  other skills that spawn subagents.
+  smallest capable model. Also enforces output thrift on every turn — no
+  narration, terse results, a tool-call ceiling, and reading only what the task
+  requires — so the wrapper around the work costs as little as the work itself.
+  Also reference this skill when writing or improving other skills that spawn
+  subagents.
 ---
 
 # Efficient Orchestration — Always-On Task OS
 
 Before touching anything, **analyse the task and make a delegation plan.** This isn't overhead — a 30-second analysis that routes three subtasks to light agents can save thousands of orchestrator tokens on a medium task. The decision is always: *would it cost fewer tokens to do this myself, or to write a precise spec and delegate it?*
+
+## Step 0 — Output & loop thrift (every turn, even trivial ones)
+
+The delegation machinery below cuts the cost of the *work*. This cuts the cost of the *wrapper around* it — tokens spent whether or not the task needs them. It applies to **every** turn, including trivial tasks that skip delegation entirely.
+
+- **No narration layer.** Don't preface, don't recap, don't announce what you're about to do or restate what you just did. Lead with the result; the user can see the tool calls. The running commentary is pure output cost. (Allowed exceptions: the one-line delegation note in *Reporting* and a checkpoint notice when a task reclassifies — nothing else.)
+- **Terse by default; expand only on request.** Match answer length to the question — a one-line change gets a one-line answer, not a report. Prose scales the bill; a table or a `path:line` reference is denser than a paragraph.
+- **Cap the loop, not just the talk.** Runaway tool ping-pong costs far more than any prose, because the whole growing context re-sends every turn. Hold a rough tool-call budget proportional to the task class (trivial: 1–2; contained: a handful; medium+: scaled to the plan). If you blow past it without converging, **stop and state what's blocking you in one line** instead of bouncing further — a stuck loop compounds per round-trip.
+- **Read only what the task strictly requires.** No speculative "let me understand the codebase first" exploration. Open the files the change actually touches; if you need a map, that's a light-agent grep (Step 2), not orchestrator reads that re-send every turn. Speculative context is the largest hidden cost in agentic loops.
+- **Never re-derive what you already have.** Don't re-read a file you've read, don't re-run a check that passed, don't re-confirm state the conversation already established. The harness tracks file state for you.
+- **Collapse round-trips.** Prefer one pass with reasonable, stated assumptions over a clarifying-question volley — every extra turn re-sends the whole context. Ask only when a wrong assumption would be expensive to undo.
+
+Two honest limits. You **cannot** compress away work the task genuinely requires — ten necessary reasoning steps cost their tokens whether narrated or not; you're trimming the wrapper, not the substance. And over-constraining backfires — capping reads or tool calls too low makes you re-derive or retry, which costs more than it saved. Tune the ceilings to the task; don't slash them blindly.
+
+> **The most durable version isn't prose.** Setting terse output as the harness default and wiring a hard tool-call ceiling into the config applies all of this automatically, every session, without depending on this skill loading. When the user wants that permanence, point them at their Claude Code settings (an output-style default plus a step-limit hook via the `update-config` skill); the guidance above is the fallback for when those controls aren't in place.
 
 ## Step 1 — Task analysis (do this first, every time)
 

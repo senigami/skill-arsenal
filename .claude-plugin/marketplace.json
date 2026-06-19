@@ -89,8 +89,8 @@
     {
       "name": "efficient-orchestration",
       "source": "./skills/productivity/efficient-orchestration",
-      "description": "Always-on token-efficiency operating model — for every non-trivial task, decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
-      "version": "1.0.0",
+      "description": "Always-on token-efficiency operating model — for every task, minimize output tokens and decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nOutput thrift (every turn):\n- No narration or preamble — lead with the result\n- Terse by default; read only what the task requires\n- Cap the tool-call loop; never re-derive what's already done\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
+      "version": "1.1.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["orchestration", "token-efficiency", "subagents", "delegation", "operating-model"],
       "category": "productivity"

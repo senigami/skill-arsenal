@@ -15,7 +15,7 @@
     "red-green-refactor",
     "quality"
   ],
-  "skills": "./skills/",
+  "skills": "./",
   "interface": {
     "displayName": "TDD",
     "shortDescription": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.",
