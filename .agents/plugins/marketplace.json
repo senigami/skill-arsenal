@@ -29,30 +29,6 @@
       "category": "Automation"
     },
     {
-      "name": "comedy-writers-room",
-      "source": {
-        "source": "local",
-        "path": "./skills/content/comedy-writers-room"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Content"
-    },
-    {
-      "name": "gen-alpha-style",
-      "source": {
-        "source": "local",
-        "path": "./skills/content/gen-alpha-style"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Content"
-    },
-    {
       "name": "humanizer",
       "source": {
         "source": "local",

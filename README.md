@@ -323,34 +323,6 @@ Optionally voice-matches against a writing sample. Preserves specific detail, un
 
 </details>
 
-<details>
-<summary><a href="skills/content/comedy-writers-room/">comedy-writers-room</a> — One writer, three audience personas reacting in series — material iterates on real feedback</summary>
-
-Write stand-up comedy, jokes, or humorous material — one subagent writes while three audience personas react, and the material iterates based on synthesized feedback.
-
-**Audience personas:**
-1. Enthusiast — what landed and why
-2. Skeptic — what fell flat and why
-3. Overthinker — finds unintended interpretations
-
-Personas react in series so each reaction is visible. Synthesizes feedback and sends back to the writer for revision. Final output includes a summary of what got cut and what emerged.
-
-</details>
-
-<details>
-<summary><a href="skills/content/gen-alpha-style/">gen-alpha-style</a> — Transform any output into Gen Alpha / brainrot internet slang (code blocks stay clean)</summary>
-
-Transforms all explanatory text into Gen Alpha / brainrot internet slang while preserving code blocks, commands, and variable names exactly as written.
-
-**Applies:**
-- Vocabulary: no cap, fr fr, bussin, lowkey, rizz, gyatt, slay, etc.
-- 3–5+ slang terms per paragraph
-- Three intensity levels: light, moderate, full brainrot (default)
-
-Code blocks stay clean and valid. Error messages get dramatic interpretation; success messages celebrate with hype. Configure intensity via `.claude/gen-alpha-output-style.local.md`.
-
-</details>
-
 ---
 
 ### Automation
@@ -387,7 +359,7 @@ Supports app launchers (`api/<name>`) and plugin launchers (`plugin/<name>`). Ch
 
 ---
 
-> **Attribution.** Some skills are third-party, included here for easy reference and kept under their original licenses: **humanizer** by [Siqi Chen](https://github.com/blader/humanizer) (MIT), **comedy-writers-room** by [Tal Raviv](https://github.com/talsraviv/comedy-writers-room). Original LICENSE/README files are preserved inside each skill directory.
+> **Attribution.** Some skills are third-party, included here for easy reference and kept under their original licenses: **humanizer** by [Siqi Chen](https://github.com/blader/humanizer) (MIT). Original LICENSE/README files are preserved inside each skill directory.
 
 ---
 
@@ -472,9 +444,6 @@ Design
 
 Content
   ❌ humanizer             Strip AI-writing tells from prose
-  ❌ comedy-writers-room   Comedy writer + audience-react panel
-  ❌ gen-alpha-style       Gen Alpha / brainrot output filter
-
 Automation
   ❌ gepeto                Build Pinokio 1-click launchers
   ❌ pinokio               Discover, launch & use Pinokio apps

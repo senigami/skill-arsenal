@@ -235,38 +235,6 @@
       "category": "content"
     },
     {
-      "name": "comedy-writers-room",
-      "source": "./skills/content/comedy-writers-room",
-      "description": "Write stand-up comedy, jokes, or humorous material — one subagent writes while three audience personas react, and the material iterates based on synthesized feedback.\n\nAudience personas:\n1. Enthusiast — what landed and why\n2. Skeptic — what fell flat and why\n3. Overthinker — finds unintended interpretations\n\nPersonas react in series so each reaction is visible. Synthesizes feedback and sends back to the writer for revision. Final output includes a summary of what got cut and what emerged.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Tal Raviv",
-        "url": "https://github.com/talsraviv/comedy-writers-room"
-      },
-      "keywords": [
-        "comedy",
-        "writing",
-        "humor",
-        "jokes",
-        "subagents"
-      ],
-      "category": "content"
-    },
-    {
-      "name": "gen-alpha-style",
-      "source": "./skills/content/gen-alpha-style",
-      "description": "Transforms all explanatory text into Gen Alpha / brainrot internet slang while preserving code blocks, commands, and variable names exactly as written.\n\nApplies:\n- Vocabulary: no cap, fr fr, bussin, lowkey, rizz, gyatt, slay, etc.\n- 3–5+ slang terms per paragraph\n- Three intensity levels: light, moderate, full brainrot (default)\n\nCode blocks stay clean and valid. Error messages get dramatic interpretation; success messages celebrate with hype. Configure intensity via .claude/gen-alpha-output-style.local.md.",
-      "version": "0.1.0",
-      "keywords": [
-        "writing",
-        "style",
-        "slang",
-        "gen-alpha",
-        "output-style"
-      ],
-      "category": "content"
-    },
-    {
       "name": "gepeto",
       "source": "./skills/automation/gepeto",
       "description": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",

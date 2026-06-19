@@ -1,9 +1,0 @@
-{
-  "name": "comedy-writers-room",
-  "description": "Write stand-up comedy, jokes, or humorous material — one subagent writes while three audience personas react, and the material iterates based on synthesized feedback.\n\nAudience personas:\n1. Enthusiast — what landed and why\n2. Skeptic — what fell flat and why\n3. Overthinker — finds unintended interpretations\n\nPersonas react in series so each reaction is visible. Synthesizes feedback and sends back to the writer for revision. Final output includes a summary of what got cut and what emerged.",
-  "version": "1.0.0",
-  "author": { "name": "Tal Raviv", "url": "https://github.com/talsraviv/comedy-writers-room" },
-  "homepage": "https://github.com/talsraviv/comedy-writers-room",
-  "repository": "https://github.com/senigami/skill-arsenal",
-  "skills": ["./skills"]
-}
