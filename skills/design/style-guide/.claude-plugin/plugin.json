@@ -1,0 +1,11 @@
+{
+  "name": "style-guide",
+  "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
+  "version": "1.0.0",
+  "author": { "name": "Steven Dunn" },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/design/style-guide",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": ["design", "style-guide", "design-tokens", "ui", "components", "typography", "accessibility"],
+  "skills": ["./"]
+}

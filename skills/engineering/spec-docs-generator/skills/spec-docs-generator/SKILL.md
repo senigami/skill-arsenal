@@ -11,12 +11,9 @@ description: >-
   drift: it detects the existing set, diffs each spec against the code, updates
   what's drifted, adds what's missing, retires what's gone, supersedes (never
   rewrites) ADRs, and leaves a changelog. Works for existing codebases,
-  greenfield apps (interviews the user), a mix, or an existing spec set that
-  needs refreshing. Best paired with `code-quality-checklist`: once specs are
-  generated at docs/00-index.md, code-quality-checklist uses them as the
-  authoritative source of conventions for every future implementation task —
-  verifying not just that tests pass but that the code matches what the specs
-  document.
+  greenfield apps (interviews the user), or a mix. Best paired with
+  `code-quality-checklist`, which uses the generated docs/00-index.md as the
+  authoritative source of conventions for future implementation work.
 ---
 
 # Spec Docs Generator
@@ -29,6 +26,7 @@ Generate a set of numbered specification documents for an application, modeled o
 - **The index** (`docs/00-index.md`) is the router. An agent with limited context reads ~100 lines and knows exactly which one or two files to open for the task at hand. Without it, agents grep blindly or read everything.
 - **ADRs** capture *why* decisions were made, separately from *what* the system does. Specs stay clean statements of current behavior; the history and rejected alternatives live in `docs/decisions/`. When an agent is tempted to "improve" something, the ADR explains why it's shaped that way.
 - **Specs and code are jointly authoritative.** Specs carry intent and constraints; code proves what ships. Drift gets resolved explicitly — never silently.
+- **This skill writes docs, never code.** Its only outputs are specs, ADRs, and a compliance plan. When the code is internally inconsistent it picks a canonical rule by *convergence* (the most common implementation wins) and records every out-of-line occurrence on a to-do plan for a **separate** fix pass — it does not edit application code to make it conform. Bringing code into compliance is a follow-up task, gated by the plan this run leaves behind.
 
 ## Workflow
 
@@ -77,15 +75,22 @@ Read enough to understand the system before writing anything. **Token efficiency
 - **Testing & CI**: test layout, frameworks, pipelines
 - **Existing docs**: README, wikis, comments — mine them, but treat code as stronger evidence
 
-**Collect conflicts as you go.** When the codebase contains clashing rules — two error-response shapes, mixed naming conventions (snake_case and camelCase in the same API), two state-management approaches, duplicated logic that disagrees, config defaults that contradict the README — do **not** silently pick a winner. Record each conflict with file:line evidence for both sides.
+**Collect conflicts as you go — with a tally.** When the codebase contains clashing rules — two error-response shapes, mixed naming conventions (snake_case and camelCase in the same API), two state-management approaches, duplicated logic that disagrees, config defaults that contradict the README — do **not** silently pick a winner. Record each conflict with `file:line` evidence for **every** variant, and **count how many occurrences follow each one**. That ratio is what lets Step 3 pick a canon by convergence and put the rest on the compliance plan. You don't need to find every instance, but the counts must be honest and representative — note when a count is a sample (`~30 sites, all snake_case`) versus exhaustive.
 
-### Step 3 — Resolve conflicts with the user
+### Step 3 — Resolve conflicts: converge on a canon
 
-Present every conflict found in Step 2 **before writing the specs**, batched into one round of questions. For each: show both patterns with evidence, note which appears dominant or newer, and ask which one is canon. The spec then records the chosen rule, and may note the known deviation as migration debt.
+A spec that documents both patterns endorses both; a spec that picks one gives agents a rule to enforce. So every conflict from Step 2 must resolve to exactly **one** canonical rule — and the default resolution method is **convergence**.
 
-This step is the heart of making specs a *source of truth* rather than a mirror of the mess: a spec that documents both patterns endorses both; a spec that picks one gives agents a rule to enforce.
+**Pick the canon by convergence.** For each conflict, read the tally. If one variant clearly dominates — most occurrences, most modules, or it's the newer actively-maintained form — treat **the most popular implementation as canon**. Record it as the rule in the spec, with a one-line *why* that states the convergence ("error shape A is canon — used by 11 of 14 endpoints; the 3 on shape B predate the rewrite"). The minority occurrences don't move the canon; they become **drift**, and every one of them goes on the compliance plan (Step 6b) as code to bring into line. This is how the specs become a *source of truth* rather than a mirror of the mess — without editing any code to get there.
 
-If the user is unavailable (non-interactive run), choose the pattern that is dominant and/or newest, and record the conflict and your choice in a clearly-marked **"Assumed conventions — confirm these"** section of the index so it's reviewable later.
+**Escalate to the user only when convergence doesn't settle it** — batched into one round, each shown with your tally and a recommendation:
+- **No clear majority** — the split is roughly even, or there are two well-entrenched camps of comparable size.
+- **The majority looks like the mistake** — the dominant pattern is legacy code the newer code is deliberately moving away from, so raw count points the wrong way.
+- **High-stakes surface** — auth, money, data shape, security, or a public contract, where guessing is dangerous regardless of counts.
+
+Don't ask about conflicts a clear majority already answers; record the canon and list the deviations. Reserve the user's attention for the genuinely undecidable ones.
+
+**Non-interactive run:** convergence decides everything. Record each assumed canon in a clearly-marked **"Assumed conventions — confirm these"** section of the index, and every deviation on the compliance plan, so both are reviewable later.
 
 ### Step 4 — Propose the spec inventory
 
@@ -129,6 +134,21 @@ Read [references/adr-template.md](references/adr-template.md) for the template a
 
 Don't ADR the obvious ("we use git"). 3–8 seeded ADRs is typical. Date them today and note in Context when the decision predates the ADR ("retro-documented; decision originally made earlier").
 
+### Step 6b — Write the spec-compliance plan (when code is out of line)
+
+Whenever Step 3 picked a canon that some code doesn't follow — or update mode found code that contradicts a spec — collect **every** out-of-line occurrence into a single to-do plan at `docs/spec-compliance-plan.md`. This is the bridge between "the specs now say X" and "the code actually does X everywhere," and it's what keeps the run honest about what isn't aligned yet **without touching code to fix it**. The plan is the deliverable; the fixing is a later, separate task.
+
+Structure it as a checklist grouped by the canonical rule each item serves. For every item:
+
+- **Rule it violates** — link the spec (`per docs/04-api-conventions.md`).
+- **Where** — `file:line` for each occurrence, or a representative list plus a count when there are many.
+- **Now vs. canon** — what the code does today and what the rule requires.
+- **Blast radius** — rough effort and what depends on it, so a human can sequence the fixes safely.
+
+Order it by risk or by how much hangs on each fix. Headline the file and name it so no agent mistakes it for a spec of current behavior — it is an **action backlog**, not canon. Use `- [ ]` checkboxes so progress is trackable. If everything converges and nothing deviates, don't create the file — just note "code is internally consistent; no compliance plan needed" in your summary.
+
+This step never edits application code. It only writes the plan that a future fix pass (or `code-quality-checklist` / a planning skill) will execute.
+
 ### Step 7 — Write the index and wire it up
 
 `00-index.md` contains, in order:
@@ -138,9 +158,10 @@ Don't ADR the obvious ("we use git"). 3–8 seeded ADRs is typical. Date them to
 3. **Product Summary** — 3–6 sentences: what the app is, who uses it, deployment shape.
 4. **Key Decisions** — table of cross-cutting choices (Decision / Choice / Rationale), linking to ADRs where one exists.
 5. **Assumed conventions — confirm these** (only if Step 3 ran non-interactively).
+6. **Open compliance items** — a link to `spec-compliance-plan.md` when one was written, with a one-line note that it's the backlog of code that doesn't yet match canon (and that this skill left the code untouched).
 
 Finally, make the specs discoverable by agents: add (or append to) the repo's agent-instructions file — `CLAUDE.md`, `AGENTS.md`, or equivalent — a short block: read `docs/00-index.md` first, specs are the source of truth, follow the conventions specs, and update specs in the same PR as behavior changes. If no such file exists, create `AGENTS.md` with just that block. Don't overwrite existing content — append.
 
 ### Step 8 — Self-review
 
-Before handing off, re-read the set as if you were a cold agent assigned a task ("add an endpoint", "add a table"): can you get from the index to the rule you'd need in two hops? Check that cross-reference links resolve, numbering has no gaps or duplicates, every conflict from Step 3 has exactly one canonical answer, and no spec contradicts another. Fix what you find, then summarize for the user: docs created, conflicts resolved (and how), and what they should verify.
+Before handing off, re-read the set as if you were a cold agent assigned a task ("add an endpoint", "add a table"): can you get from the index to the rule you'd need in two hops? Check that cross-reference links resolve, numbering has no gaps or duplicates, every conflict from Step 3 has exactly one canonical answer, and no spec contradicts another. Confirm every deviation from a chosen canon is captured on the compliance plan — nothing silently dropped — and that no application code was modified anywhere in this run (docs, ADRs, and the plan are the only changes). Fix what you find, then summarize for the user: docs created, how each conflict converged (canon chosen + why), what was logged to the compliance plan, and what they should verify.

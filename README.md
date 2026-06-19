@@ -31,8 +31,9 @@ Generates or updates a numbered spec-document set that becomes the source of tru
 - `docs/00-index.md` — router index
 - `docs/NN-topic.md` — numbered spec files (100–400 lines each)
 - `docs/decisions/` — Architecture Decision Records (ADRs)
+- `docs/spec-compliance-plan.md` — backlog of code that doesn't match canon
 
-Detects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. Conflict resolution happens before writing.
+When the code is inconsistent, it picks the canonical rule by **convergence** (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. **Writes docs only — never edits application code.**
 
 Best paired with `code-quality-checklist`: once specs are generated, the checklist uses them as the authoritative source of conventions for every future implementation task.
 
@@ -229,6 +230,27 @@ Iterative multi-agent design review loop — captures live screenshots, fans out
 5. Accessibility — contrast, focus, ARIA
 
 Tracks scores per dimension round-over-round. Escalates genuine reviewer disagreements to the user.
+
+</details>
+
+<details>
+<summary><a href="skills/design/style-guide/">style-guide</a> — Generate or update a visual style guide: colors, typography, spacing, components, iconography, accessibility, and voice/tone</summary>
+
+Generate or update a visual style guide (docs/style-guide/) — the visual source of truth for a product, specific enough that an AI agent can implement a new component and match the existing design.
+
+Reverse-engineers visual DNA from code (CSS custom properties, Tailwind `@theme`, design token files, component variant patterns). Asks for screenshots in one batched request when code alone can't reveal color schemes, component states, or brand identity.
+
+**Produces:**
+- `docs/style-guide/00-index.md` — router, visual summary, key design decisions
+- `docs/style-guide/01-08-*.md` — numbered spec docs: brand identity, color palette, typography, spacing/layout, components, iconography, accessibility, voice/tone
+- `docs/style-guide/tokens.json` — machine-readable DTCG 2025.10 token export (compatible with Style Dictionary v4+, Tokens Studio, Figma)
+
+**Works in three modes:**
+- **Reverse-engineer** — reads existing code, extracts tokens, inventories components
+- **Greenfield** — interviews the user and documents what's planned
+- **Audit/update** — diffs existing style guide against current code, updates drifted sections, adds missing components
+
+Never edits application code. Marks visually unconfirmed values for review.
 
 </details>
 
@@ -431,6 +453,7 @@ Productivity
 
 Design
   ❌ design-review-loop    Screenshot→review→build design loop
+  ❌ style-guide           Generate/audit visual style guide + tokens
 
 Content
   ❌ humanizer             Strip AI-writing tells from prose

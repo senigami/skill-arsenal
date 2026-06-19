@@ -1,0 +1,29 @@
+{
+  "name": "style-guide",
+  "version": "1.0.0",
+  "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/design/style-guide",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": ["design", "style-guide", "design-tokens", "ui", "components", "typography", "accessibility"],
+  "skills": "./",
+  "interface": {
+    "displayName": "Style Guide",
+    "shortDescription": "Generate or update a visual style guide — colors, typography, spacing, components, iconography, accessibility, and voice/tone.",
+    "longDescription": "Generate or update a visual style guide (docs/style-guide/) that documents every visual decision: colors, typography, spacing, components, iconography, accessibility standards, and copy/tone guidelines. The output is the visual source of truth — specific enough that an AI agent can implement a new component and match the existing design.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces a navigable docs/style-guide/ directory with numbered spec files, an index router agents can follow, and machine-readable tokens.json in DTCG 2025.10 format.",
+    "developerName": "Steven Dunn",
+    "category": "Design",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Create a style guide for this project."
+    ],
+    "brandColor": "#7C3AED"
+  }
+}

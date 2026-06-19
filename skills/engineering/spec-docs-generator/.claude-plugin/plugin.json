@@ -1,7 +1,7 @@
 {
   "name": "spec-docs-generator",
-  "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n\nDetects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. Conflict resolution happens before writing.",
-  "version": "1.0.0",
+  "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n- docs/spec-compliance-plan.md — backlog of code that doesn't match canon\n\nWhen code is inconsistent, picks the canonical rule by convergence (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, fixes drift. ADRs are append-only. Writes docs only — never edits application code.",
+  "version": "1.1.0",
   "author": { "name": "Steven Dunn" },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/spec-docs-generator",
   "repository": "https://github.com/senigami/skill-arsenal",

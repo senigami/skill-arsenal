@@ -51,6 +51,15 @@
       "category": "design"
     },
     {
+      "name": "style-guide",
+      "source": "./skills/design/style-guide",
+      "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["design", "style-guide", "design-tokens", "ui", "components", "typography", "accessibility"],
+      "category": "design"
+    },
+    {
       "name": "fusion-reasoning",
       "source": "./skills/productivity/fusion-reasoning",
       "description": "Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
@@ -62,8 +71,8 @@
     {
       "name": "spec-docs-generator",
       "source": "./skills/engineering/spec-docs-generator",
-      "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n\nDetects existing specs, diffs them against the code, and fixes drift. ADRs are append-only — new ones supersede old ones, never deleted. Conflict resolution happens before writing.",
-      "version": "1.0.0",
+      "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n- docs/spec-compliance-plan.md — backlog of code that doesn't match canon\n\nWhen code is inconsistent, picks the canonical rule by convergence (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, fixes drift. ADRs are append-only. Writes docs only — never edits application code.",
+      "version": "1.1.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["documentation", "specs", "adr", "source-of-truth", "architecture"],
       "category": "engineering"
@@ -168,7 +177,7 @@
       "name": "tdd",
       "source": "./skills/engineering/tdd",
       "description": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": { "name": "Steven Dunn" },
       "keywords": ["tdd", "testing", "red-green-refactor", "quality"],
       "category": "engineering"
