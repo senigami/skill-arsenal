@@ -51,6 +51,15 @@
       "category": "design"
     },
     {
+      "name": "design-critique",
+      "source": "./skills/design/design-critique",
+      "description": "Evaluate an existing UI against Apple HIG, Nielsen's 10 heuristics, Gestalt principles, and WCAG 2.2 AA — producing a prioritized improvement plan with severity-rated findings (P1–P4) and before/after recommendations.\n\nIdentifies concrete violations:\n- Solid backgrounds where HIG expects layered translucency\n- Low-contrast text and UI components (exact ratios cited)\n- Broken visual hierarchy and Gestalt failures\n- Missing interactive states (hover, focus, disabled, error)\n- Off-grid spacing and inconsistent component styling\n- Touch targets below threshold, missing focus rings\n\nPreserves the existing theme. Asks the user to decide when a principle conflicts with intentional brand choices.\n\nProduces docs/design-critique/ with a findings list, impact/effort improvement roadmap, and explicit trade-off decisions.",
+      "version": "1.0.0",
+      "author": { "name": "Steven Dunn" },
+      "keywords": ["design", "ui", "critique", "hig", "wcag", "accessibility", "design-review", "ux"],
+      "category": "design"
+    },
+    {
       "name": "style-guide",
       "source": "./skills/design/style-guide",
       "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",

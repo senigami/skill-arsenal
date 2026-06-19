@@ -263,3 +263,16 @@ Check:
 - No application code was modified (docs, tokens.json, and AGENTS.md are the only changes)
 
 Summarize for the user: what was generated, what was inferred vs. confirmed from code, what needs screenshot verification before the guide should be considered complete, and what visual decisions should be reviewed or confirmed.
+
+---
+
+## What to run next
+
+**To evaluate whether the live UI actually matches what the style guide documents:**
+Run `/design-critique` — it will use the style guide as the reference canon and flag every place the implemented UI deviates from it. Style guide conformance and design-principle conformance are evaluated separately, so this also catches HIG, WCAG, and Gestalt violations beyond just spec drift. This is the natural next step after generating a guide for the first time.
+
+**To implement visual corrections found during the audit:**
+If the style guide documents how things *should* look but the code doesn't match, run `/task-plan-architect` to build a fix plan from the deviations, then `/planrunner` to execute it. Point the planner at the style guide's index and the relevant component files.
+
+**To run iterative visual improvement with the style guide as the reference:**
+`/design-review-loop` captures screenshots, fans out specialist reviewers, and rebuilds until quality scores clear a threshold — it works best when a style guide exists to anchor what "correct" looks like. Run it when you want the loop to enforce the guide rather than starting from scratch.

@@ -1,0 +1,29 @@
+{
+  "name": "design-critique",
+  "description": "Evaluate an existing UI against Apple HIG, Nielsen's 10 heuristics, Gestalt principles, and WCAG 2.2 AA — producing a prioritized improvement plan with severity-rated findings and before/after recommendations.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Steven Dunn",
+    "url": "https://github.com/senigami"
+  },
+  "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/design/design-critique",
+  "repository": "https://github.com/senigami/skill-arsenal",
+  "license": "MIT",
+  "keywords": ["design", "ui", "critique", "hig", "wcag", "accessibility", "design-review", "ux"],
+  "skills": "./",
+  "interface": {
+    "displayName": "Design Critique",
+    "shortDescription": "Evaluate an existing UI against Apple HIG, Nielsen's heuristics, Gestalt, and WCAG 2.2 AA — producing a prioritized improvement plan.",
+    "longDescription": "Evaluate an existing UI against Apple HIG (Clarity, Deference, Depth), Nielsen's 10 usability heuristics, Gestalt principles, and WCAG 2.2 AA. Identifies concrete violations — solid backgrounds that break depth, low-contrast text, broken visual hierarchy, missing interactive states, off-grid spacing — and prescribes specific before/after fixes with severity ratings (P1–P4) and effort estimates. Preserves the existing brand/theme while improving the design. Asks the user to decide on any recommendation that conflicts with intentional brand choices.",
+    "developerName": "Steven Dunn",
+    "category": "Design",
+    "capabilities": [
+      "Reusable workflow",
+      "Agent skill"
+    ],
+    "defaultPrompt": [
+      "Critique the design of this project."
+    ],
+    "brandColor": "#DC2626"
+  }
+}

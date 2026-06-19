@@ -165,3 +165,16 @@ Finally, make the specs discoverable by agents: add (or append to) the repo's ag
 ### Step 8 — Self-review
 
 Before handing off, re-read the set as if you were a cold agent assigned a task ("add an endpoint", "add a table"): can you get from the index to the rule you'd need in two hops? Check that cross-reference links resolve, numbering has no gaps or duplicates, every conflict from Step 3 has exactly one canonical answer, and no spec contradicts another. Confirm every deviation from a chosen canon is captured on the compliance plan — nothing silently dropped — and that no application code was modified anywhere in this run (docs, ADRs, and the plan are the only changes). Fix what you find, then summarize for the user: docs created, how each conflict converged (canon chosen + why), what was logged to the compliance plan, and what they should verify.
+
+---
+
+## What to run next
+
+**If a compliance plan was generated (`docs/spec-compliance-plan.md`):**
+The plan is a prioritized backlog of code that doesn't match the spec canon. To turn it into executable fix tasks, run `/task-plan-architect` pointed at the compliance plan. It will decompose each checklist item into a self-contained, map-linked task with acceptance criteria. Then run `/planrunner` to execute. Don't try to fix compliance violations by hand — the plan exists so an agent can do it systematically.
+
+**To enforce the specs on every future implementation task:**
+`/code-quality-checklist` reads `docs/00-index.md` and the spec files automatically when they exist. Once the specs are generated, the checklist enforces them without any additional configuration. If the team isn't using it yet, now is a good time to install it.
+
+**To pressure-test the specs themselves:**
+The spec docs are authoritative but not infallible — they represent the convergence of existing code, which may have inherited bad patterns. Running `/adversarial-review` on the spec files (especially any API contracts, data models, or auth conventions) will surface gaps, contradictions, and rules that sound right but will cause problems at the edges.

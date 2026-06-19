@@ -253,3 +253,16 @@ You are likely reviewing code you just wrote or just read. Your brain (weights) 
 - Related: `engineering-team/senior-security` — deep security analysis
 - Related: `engineering-team/code-reviewer` — general code quality review
 - Complementary: `ra-qm-team/` — quality management workflows
+
+---
+
+## What to run next
+
+**If the verdict is BLOCK or CONCERNS:**
+The findings are the input for the next step. Run `/task-plan-architect` to decompose each finding into a fix task — it will map the blast radius, order the fixes by dependency, and produce self-contained task files with acceptance criteria. Once the plan exists, run `/planrunner` to execute it. This is faster than fixing ad hoc and ensures every finding gets a verifiable resolution.
+
+**If a security or correctness finding needs deeper investigation:**
+When a finding is serious but the root cause isn't fully understood — a potential auth bypass, an ambiguous data flow, a race condition that might or might not be exploitable — run `/fusion-reasoning` with the specific finding as the prompt. It dispatches independent agents with different analytical lenses and synthesizes one answer. Useful when the stakes are high enough that "I think this is fine" isn't acceptable.
+
+**If the verdict is CLEAN:**
+The change is clear to ship. If this was a self-review (no human reviewer available), note the adversarial-review result in the PR description so reviewers know it was checked. A CLEAN verdict from three independent hostile personas is meaningful signal.

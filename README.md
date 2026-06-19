@@ -218,6 +218,33 @@ You (the large model) are the orchestrator and quality gate — workers are chea
 ### Design
 
 <details>
+<summary><a href="skills/design/design-critique/">design-critique</a> — Evaluate an existing UI against Apple HIG, Nielsen's heuristics, Gestalt, and WCAG 2.2 AA — severity-rated findings and an improvement roadmap</summary>
+
+Evaluate an existing UI against established design principles, then produce a concrete improvement plan. Works from screenshots and/or a codebase.
+
+**Identifies violations:**
+- Solid backgrounds where HIG expects layered translucency (`backdrop-filter: blur()` surfaces for modals, sidebars, dropdowns)
+- Text and UI components below WCAG contrast thresholds (exact ratios cited, e.g. `3.1:1 — fails SC 1.4.3 by 1.4:1`)
+- Broken visual hierarchy — squint test failures, competing CTAs, proximity and figure/ground failures
+- Missing interactive states — hover, focus, active, disabled, loading, error
+- Off-grid spacing (`7px`, `13px`, `15px` — any value not a multiple of 4)
+- Touch targets below 44×44px (HIG) / 24×24px (WCAG 2.5.8 AA floor)
+- `outline: none` without a replacement focus style
+- `prefers-reduced-motion` not honored
+
+**Every finding includes:** the violated principle, exact before/after code, a severity rating (P1 blocker → P4 cosmetic), and an effort estimate.
+
+**Theme preservation:** never touches logos, wordmarks, or brand hue without explicit user approval. Asks the user to decide when a principle conflicts with an intentional brand choice.
+
+**Produces `docs/design-critique/`:**
+- `00-summary.md` — severity breakdown, top P1s, total effort estimate
+- `01-findings.md` — full findings list with citations and fixes
+- `02-improvement-plan.md` — impact/effort matrix and phased roadmap
+- `03-trade-offs.md` — brand conflicts requiring user decision (if any)
+
+</details>
+
+<details>
 <summary><a href="skills/design/design-review-loop/">design-review-loop</a> — Iterative multi-agent design review loop: screenshot → review → build → repeat until scores clear</summary>
 
 Iterative multi-agent design review loop — captures live screenshots, fans out specialist reviewers, synthesizes findings, builds the changes, and repeats until quality scores clear a threshold.
@@ -452,6 +479,7 @@ Productivity
   ✅ efficient-orchestration* Output thrift + subagent model tiering
 
 Design
+  ❌ design-critique       UI audit vs HIG/Nielsen/WCAG + improvement plan
   ❌ design-review-loop    Screenshot→review→build design loop
   ❌ style-guide           Generate/audit visual style guide + tokens
 

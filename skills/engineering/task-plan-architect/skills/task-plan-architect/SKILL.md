@@ -102,3 +102,16 @@ Re-read the plan as the stranger who'll execute it — a small model with only o
 - **Don't audit — plan.** Research only the task's blast radius. If you find unrelated problems, note them for the user; don't fold a repo cleanup into this plan.
 - **The map is the product.** A plan that lists tasks but doesn't wire them together is just a checklist — and checklists are exactly what lose the big picture. The connections are the value.
 - **Plan for a context-limited stranger.** If a task can't be executed from its own file plus the map, it's underspecified. Over-link to the map and to source paths; never rely on "as we discussed."
+
+---
+
+## What to run next
+
+**To execute the plan:**
+Run `/planrunner` pointed at the plan folder. It slices the work, delegates each task to implementer subagents, runs adversarial review on every return, and verifies completion against the acceptance criteria. It consumes the task files directly — no reformatting needed.
+
+**Before executing, if the approach is contested:**
+If the plan reflects a significant architectural decision and you want independent perspectives before committing, run `/fusion-reasoning` with the core tradeoff as input. It dispatches agents with distinct viewpoints and synthesizes one recommendation. Better to surface disagreement now than mid-execution.
+
+**To review the plan for gaps before any code is written:**
+`/adversarial-review` can review the plan documents themselves — treating the `00-overview.md`, `01-map.md`, and task files as the artifact under review. It will find missing acceptance criteria, underspecified contracts, and tasks that will break each other. A plan review is faster to fix than a mid-execution correction.
