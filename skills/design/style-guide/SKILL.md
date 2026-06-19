@@ -274,5 +274,5 @@ Run `/design-critique` — it will use the style guide as the reference canon an
 **To implement visual corrections found during the audit:**
 If the style guide documents how things *should* look but the code doesn't match, run `/task-plan-architect` to build a fix plan from the deviations, then `/planrunner` to execute it. Point the planner at the style guide's index and the relevant component files.
 
-**To run iterative visual improvement with the style guide as the reference:**
-`/design-review-loop` captures screenshots, fans out specialist reviewers, and rebuilds until quality scores clear a threshold — it works best when a style guide exists to anchor what "correct" looks like. Run it when you want the loop to enforce the guide rather than starting from scratch.
+**To run a deeper visual audit with the style guide as the reference:**
+`/design-critique` can be re-run after corrections land to verify the fixes held and catch anything new — it uses the style guide as canon, so each pass is anchored to the same standard. Pair with `/fusion-reasoning` when you want multiple independent reviewers to pressure-test a specific design decision before committing to it.

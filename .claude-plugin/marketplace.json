@@ -16,7 +16,11 @@
       "author": {
         "name": "ekreloff"
       },
-      "keywords": ["code-review", "security", "quality"],
+      "keywords": [
+        "code-review",
+        "security",
+        "quality"
+      ],
       "category": "engineering"
     },
     {
@@ -27,7 +31,13 @@
       "author": {
         "name": "Steven Dunn"
       },
-      "keywords": ["audit", "planning", "code-quality", "refactoring", "orchestration"],
+      "keywords": [
+        "audit",
+        "planning",
+        "code-quality",
+        "refactoring",
+        "orchestration"
+      ],
       "category": "engineering"
     },
     {
@@ -38,25 +48,33 @@
       "author": {
         "name": "Steven Dunn"
       },
-      "keywords": ["planning", "architecture", "task-breakdown", "implementation-plan", "orchestration"],
+      "keywords": [
+        "planning",
+        "architecture",
+        "task-breakdown",
+        "implementation-plan",
+        "orchestration"
+      ],
       "category": "engineering"
-    },
-    {
-      "name": "design-review-loop",
-      "source": "./skills/design/design-review-loop",
-      "description": "Iterative multi-agent design review loop — captures live screenshots, fans out specialist reviewers, synthesizes findings, builds the changes, and repeats until quality scores clear a threshold.\n\nReviewers (run in parallel):\n1. General UX — usability and information hierarchy\n2. UI Craft — visual polish and consistency\n3. Apple HIG — platform convention compliance\n4. Design System — token and component conformance\n5. Accessibility — contrast, focus, ARIA\n\nTracks scores per dimension round-over-round. Escalates genuine reviewer disagreements to the user.",
-      "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["design", "ui", "ux", "review", "accessibility", "orchestration"],
-      "category": "design"
     },
     {
       "name": "design-critique",
       "source": "./skills/design/design-critique",
       "description": "Evaluate an existing UI against Apple HIG, Nielsen's 10 heuristics, Gestalt principles, and WCAG 2.2 AA — producing a prioritized improvement plan with severity-rated findings (P1–P4) and before/after recommendations.\n\nIdentifies concrete violations:\n- Solid backgrounds where HIG expects layered translucency\n- Low-contrast text and UI components (exact ratios cited)\n- Broken visual hierarchy and Gestalt failures\n- Missing interactive states (hover, focus, disabled, error)\n- Off-grid spacing and inconsistent component styling\n- Touch targets below threshold, missing focus rings\n\nPreserves the existing theme. Asks the user to decide when a principle conflicts with intentional brand choices.\n\nProduces docs/design-critique/ with a findings list, impact/effort improvement roadmap, and explicit trade-off decisions.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["design", "ui", "critique", "hig", "wcag", "accessibility", "design-review", "ux"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "design",
+        "ui",
+        "critique",
+        "hig",
+        "wcag",
+        "accessibility",
+        "design-review",
+        "ux"
+      ],
       "category": "design"
     },
     {
@@ -64,8 +82,18 @@
       "source": "./skills/design/style-guide",
       "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["design", "style-guide", "design-tokens", "ui", "components", "typography", "accessibility"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "design",
+        "style-guide",
+        "design-tokens",
+        "ui",
+        "components",
+        "typography",
+        "accessibility"
+      ],
       "category": "design"
     },
     {
@@ -73,8 +101,16 @@
       "source": "./skills/productivity/fusion-reasoning",
       "description": "Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["reasoning", "planning", "multi-agent", "consensus", "judge"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "reasoning",
+        "planning",
+        "multi-agent",
+        "consensus",
+        "judge"
+      ],
       "category": "productivity"
     },
     {
@@ -82,8 +118,16 @@
       "source": "./skills/engineering/spec-docs-generator",
       "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n- docs/spec-compliance-plan.md — backlog of code that doesn't match canon\n\nWhen code is inconsistent, picks the canonical rule by convergence (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, fixes drift. ADRs are append-only. Writes docs only — never edits application code.",
       "version": "1.1.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["documentation", "specs", "adr", "source-of-truth", "architecture"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "documentation",
+        "specs",
+        "adr",
+        "source-of-truth",
+        "architecture"
+      ],
       "category": "engineering"
     },
     {
@@ -91,8 +135,17 @@
       "source": "./skills/engineering/frontend-code-layout",
       "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["frontend", "react", "css", "design-tokens", "separation-of-concerns", "refactoring"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "frontend",
+        "react",
+        "css",
+        "design-tokens",
+        "separation-of-concerns",
+        "refactoring"
+      ],
       "category": "engineering"
     },
     {
@@ -100,8 +153,16 @@
       "source": "./skills/engineering/pr-review",
       "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["pr-review", "code-review", "github", "blockers", "security"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "pr-review",
+        "code-review",
+        "github",
+        "blockers",
+        "security"
+      ],
       "category": "engineering"
     },
     {
@@ -109,8 +170,16 @@
       "source": "./skills/productivity/efficient-orchestration",
       "description": "Always-on token-efficiency operating model — for every task, minimize output tokens and decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nOutput thrift (every turn):\n- No narration or preamble — lead with the result\n- Terse by default; read only what the task requires\n- Cap the tool-call loop; never re-derive what's already done\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
       "version": "1.1.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["orchestration", "token-efficiency", "subagents", "delegation", "operating-model"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "orchestration",
+        "token-efficiency",
+        "subagents",
+        "delegation",
+        "operating-model"
+      ],
       "category": "productivity"
     },
     {
@@ -118,8 +187,17 @@
       "source": "./skills/engineering/planrunner",
       "description": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate — tests, lint, and typecheck pass before review\n2. Slice → delegate → verify — each slice checked against the plan's acceptance criteria\n3. Adversarial review — up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
       "version": "1.2.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["orchestration", "execution", "implementation", "plan", "subagents", "review"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "orchestration",
+        "execution",
+        "implementation",
+        "plan",
+        "subagents",
+        "review"
+      ],
       "category": "engineering"
     },
     {
@@ -127,7 +205,14 @@
       "source": "./skills/engineering/modern-web-guidance",
       "description": "Searches a curated database of standardized modern web-platform patterns before writing any browser code — so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.\n\nCovers:\n- Layout: container queries, :has(), subgrid\n- Motion: View Transitions, scroll-driven animations\n- Performance: LCP, Core Web Vitals, INP\n- Platform APIs: anchor positioning, Popover API\n- Accessibility and forms\n\nSearch first, then retrieve the full guide. Patterns default to Baseline Widely Available — safe across modern browsers.",
       "version": "1.0.0",
-      "keywords": ["frontend", "css", "html", "web-platform", "performance", "core-web-vitals"],
+      "keywords": [
+        "frontend",
+        "css",
+        "html",
+        "web-platform",
+        "performance",
+        "core-web-vitals"
+      ],
       "category": "engineering"
     },
     {
@@ -135,9 +220,18 @@
       "source": "./skills/content/humanizer",
       "description": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm — the signals that make writing sound human.",
       "version": "2.8.0",
-      "author": { "name": "Siqi Chen", "url": "https://github.com/blader/humanizer" },
+      "author": {
+        "name": "Siqi Chen",
+        "url": "https://github.com/blader/humanizer"
+      },
       "license": "MIT",
-      "keywords": ["writing", "editing", "ai-detection", "humanize", "prose"],
+      "keywords": [
+        "writing",
+        "editing",
+        "ai-detection",
+        "humanize",
+        "prose"
+      ],
       "category": "content"
     },
     {
@@ -145,8 +239,17 @@
       "source": "./skills/content/comedy-writers-room",
       "description": "Write stand-up comedy, jokes, or humorous material — one subagent writes while three audience personas react, and the material iterates based on synthesized feedback.\n\nAudience personas:\n1. Enthusiast — what landed and why\n2. Skeptic — what fell flat and why\n3. Overthinker — finds unintended interpretations\n\nPersonas react in series so each reaction is visible. Synthesizes feedback and sends back to the writer for revision. Final output includes a summary of what got cut and what emerged.",
       "version": "1.0.0",
-      "author": { "name": "Tal Raviv", "url": "https://github.com/talsraviv/comedy-writers-room" },
-      "keywords": ["comedy", "writing", "humor", "jokes", "subagents"],
+      "author": {
+        "name": "Tal Raviv",
+        "url": "https://github.com/talsraviv/comedy-writers-room"
+      },
+      "keywords": [
+        "comedy",
+        "writing",
+        "humor",
+        "jokes",
+        "subagents"
+      ],
       "category": "content"
     },
     {
@@ -154,7 +257,13 @@
       "source": "./skills/content/gen-alpha-style",
       "description": "Transforms all explanatory text into Gen Alpha / brainrot internet slang while preserving code blocks, commands, and variable names exactly as written.\n\nApplies:\n- Vocabulary: no cap, fr fr, bussin, lowkey, rizz, gyatt, slay, etc.\n- 3–5+ slang terms per paragraph\n- Three intensity levels: light, moderate, full brainrot (default)\n\nCode blocks stay clean and valid. Error messages get dramatic interpretation; success messages celebrate with hype. Configure intensity via .claude/gen-alpha-output-style.local.md.",
       "version": "0.1.0",
-      "keywords": ["writing", "style", "slang", "gen-alpha", "output-style"],
+      "keywords": [
+        "writing",
+        "style",
+        "slang",
+        "gen-alpha",
+        "output-style"
+      ],
       "category": "content"
     },
     {
@@ -162,7 +271,13 @@
       "source": "./skills/automation/gepeto",
       "description": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
       "version": "1.0.0",
-      "keywords": ["pinokio", "launcher", "apps", "automation", "1-click"],
+      "keywords": [
+        "pinokio",
+        "launcher",
+        "apps",
+        "automation",
+        "1-click"
+      ],
       "category": "automation"
     },
     {
@@ -170,7 +285,13 @@
       "source": "./skills/automation/pinokio",
       "description": "Discovers, launches, and uses Pinokio-managed apps and tools via the pterm CLI control plane.\n\nWorkflow:\n1. Search for the app (pterm search)\n2. If not found, optionally search the registry with user approval\n3. Launch and poll until ready (pterm run <ref>)\n4. Use the app's HTTP API — direct call or generated client\n\nCreates a reusable skill folder with SKILL.md and client code for the app. Supports parallel launch for multiple apps. Never hardcodes paths, ports, or tokens in client files.",
       "version": "1.0.0",
-      "keywords": ["pinokio", "launcher", "apps", "automation", "discovery"],
+      "keywords": [
+        "pinokio",
+        "launcher",
+        "apps",
+        "automation",
+        "discovery"
+      ],
       "category": "automation"
     },
     {
@@ -178,8 +299,17 @@
       "source": "./skills/engineering/mastermind",
       "description": "End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview — understand the real goal, constraints, and definition of done\n2. Fusion-reasoning — fan out agents to stress-test solution approaches\n3. Task-plan-architect — build a mapped, ordered implementation plan\n4. Planrunner — execute with TDD + code-quality-checklist guardrails on every slice\n5. Completion audit — confirm every tasked item was actually done\n6. Adversarial review — hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, tdd, code-quality-checklist, spec-docs-generator, adversarial-review, pr-review.",
       "version": "1.2.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["orchestration", "workflow", "meta-skill", "planning", "review", "end-to-end"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "orchestration",
+        "workflow",
+        "meta-skill",
+        "planning",
+        "review",
+        "end-to-end"
+      ],
       "category": "engineering"
     },
     {
@@ -187,8 +317,15 @@
       "source": "./skills/engineering/tdd",
       "description": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
       "version": "1.1.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["tdd", "testing", "red-green-refactor", "quality"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "quality"
+      ],
       "category": "engineering"
     },
     {
@@ -196,8 +333,16 @@
       "source": "./skills/engineering/codex",
       "description": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["codex", "handoff", "implementation", "scope", "worker"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "codex",
+        "handoff",
+        "implementation",
+        "scope",
+        "worker"
+      ],
       "category": "engineering"
     },
     {
@@ -205,8 +350,16 @@
       "source": "./skills/engineering/code-quality-checklist",
       "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task — surface assumptions, clarify scope, read project-rules.md\n2. During — run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task — run scripts/verify.sh; self-review before handoff\n\nSilent by default — fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["quality", "checklist", "verification", "testing", "conventions"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "quality",
+        "checklist",
+        "verification",
+        "testing",
+        "conventions"
+      ],
       "category": "engineering"
     },
     {
@@ -214,8 +367,16 @@
       "source": "./skills/engineering/worker",
       "description": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate — workers are cheap execution.",
       "version": "1.0.0",
-      "author": { "name": "Steven Dunn" },
-      "keywords": ["orchestration", "cursor", "subagents", "haiku", "task-execution"],
+      "author": {
+        "name": "Steven Dunn"
+      },
+      "keywords": [
+        "orchestration",
+        "cursor",
+        "subagents",
+        "haiku",
+        "task-execution"
+      ],
       "category": "engineering"
     }
   ]

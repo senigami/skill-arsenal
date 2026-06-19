@@ -245,22 +245,6 @@ Evaluate an existing UI against established design principles, then produce a co
 </details>
 
 <details>
-<summary><a href="skills/design/design-review-loop/">design-review-loop</a> — Iterative multi-agent design review loop: screenshot → review → build → repeat until scores clear</summary>
-
-Iterative multi-agent design review loop — captures live screenshots, fans out specialist reviewers, synthesizes findings, builds the changes, and repeats until quality scores clear a threshold.
-
-**Reviewers (run in parallel):**
-1. General UX — usability and information hierarchy
-2. UI Craft — visual polish and consistency
-3. Apple HIG — platform convention compliance
-4. Design System — token and component conformance
-5. Accessibility — contrast, focus, ARIA
-
-Tracks scores per dimension round-over-round. Escalates genuine reviewer disagreements to the user.
-
-</details>
-
-<details>
 <summary><a href="skills/design/style-guide/">style-guide</a> — Generate or update a visual style guide: colors, typography, spacing, components, iconography, accessibility, and voice/tone</summary>
 
 Generate or update a visual style guide (docs/style-guide/) — the visual source of truth for a product, specific enough that an AI agent can implement a new component and match the existing design.
@@ -448,7 +432,11 @@ If the marketplace is registered and the user wants to **remove** it, use your p
 
 Check which skills from this arsenal are already installed on the user's platform. Use a native list command if available (e.g. `/plugin list`); otherwise check your platform's skill location (e.g. `~/.claude/skills/`, `~/.gemini/config/skills/`, `.agents/skills/`, or equivalent) for folder names matching skills in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
 
-Build two lists: **installed** and **not installed**. Also read [`.claude-plugin/defaults.json`](.claude-plugin/defaults.json) to know which skills are in the recommended set.
+For each installed skill, check whether an update is available: read the `version` field from the installed skill's local `plugin.json`, and compare it to the `version` in this repo's `.claude-plugin/marketplace.json`. If the repo version is higher, mark that skill for update.
+
+Also check whether any installed skill is **no longer listed in the marketplace at all** — that means it was removed from the repo and is now an orphaned install.
+
+Build four lists: **installed and current**, **installed with update available**, **not installed**, and **installed but removed from marketplace**. Also read [`.claude-plugin/defaults.json`](.claude-plugin/defaults.json) to know which skills are in the recommended set.
 
 ---
 
@@ -471,7 +459,7 @@ Engineering
   ✅ code-audit-planner*   Codebase audit → ordered task list
   ✅ frontend-code-layout* Separable UI layers — tokens + MVP
   ✅ modern-web-guidance*  Modern CSS/HTML/browser-API patterns
-  ❌ codex                 Bounded worker rules for Codex handoffs
+  ⬆️ codex                 Bounded worker rules for Codex handoffs
   ❌ worker                Cursor orchestrator — dispatches to Haiku
 
 Productivity
@@ -480,7 +468,6 @@ Productivity
 
 Design
   ❌ design-critique       UI audit vs HIG/Nielsen/WCAG + improvement plan
-  ❌ design-review-loop    Screenshot→review→build design loop
   ❌ style-guide           Generate/audit visual style guide + tokens
 
 Content
@@ -495,7 +482,14 @@ Automation
 * indicates default
 ```
 
-Replace ✅/❌ with the actual install status. Mark defaults with `*` using the list in `defaults.json`.
+If any installed skills are no longer in the marketplace, add a section at the bottom of the dashboard:
+
+```
+Removed from marketplace
+  ⚠️ design-review-loop    No longer available — uninstall recommended
+```
+
+Replace ✅/⬆️/❌ with the actual install status. Use ⬆️ for installed skills where a newer version is available in the marketplace. Use ⚠️ for installed skills that no longer exist in the marketplace. Mark defaults with `*` using the list in `defaults.json`.
 
 ---
 
@@ -507,11 +501,14 @@ After the dashboard, offer these actions. If your platform has an option picker,
 - **Install all skills**
 - **Install a skill** — pick from the picker, or type the skill name
 - **Uninstall a skill** — pick from the picker, or type the skill name
+- **Update available skills** — update all skills marked ⬆️
+- **Update a skill** — pick a specific skill to update
+- **Uninstall removed skills** — remove all skills marked ⚠️ (no longer in the marketplace)
 - **Nothing, just browsing**
 
-When the user needs to choose *which* skill to install or uninstall, present the relevant skills (not-installed for install, installed for uninstall) through the picker if available — never ask them to match a letter or number. In plain-text chat, they simply type the skill name.
+When the user needs to choose *which* skill to install, uninstall, or update, present the relevant skills through the picker if available — never ask them to match a letter or number. In plain-text chat, they simply type the skill name.
 
-If **all defaults are already installed**, lead with that and skip option 1.
+If **all defaults are already installed**, lead with that and skip option 1. If **no skills have updates available**, omit options 5 and 6. If **no removed skills are installed**, omit option 7.
 
 ---
 
