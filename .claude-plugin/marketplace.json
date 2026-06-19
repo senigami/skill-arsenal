@@ -14,6 +14,9 @@
       "description": "Adversarial review that breaks the self-review monoculture — three hostile personas each must find at least one issue.\n\nPicks the 3 best-fit personas from a library of 52, matched to what's being reviewed:\n- Code & reliability: Saboteur, Concurrency Specialist, Regression Hunter, Mutant\n- Security: Security Auditor, Threat Modeler, Red Teamer\n- Data & API: Query Planner, Contract Breaker, Chaos Engineer\n- UX: Accessibility Critic, First-Click Saboteur, Dark-Pattern Hunter\n- Content: Proofreader, Fact-Checker, Humanizer, Lost Reader\n\nFindings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact citations and paste-ready comments.",
       "version": "2.9.0",
       "author": {
+        "name": "Steven Dunn"
+      },
+      "based_on": {
         "name": "ekreloff"
       },
       "keywords": [
