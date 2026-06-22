@@ -1,7 +1,7 @@
 {
   "name": "design-critique",
-  "description": "Evaluate an existing UI against Apple HIG, Nielsen's 10 heuristics, Gestalt principles, and WCAG 2.2 AA — producing a prioritized improvement plan with severity-rated findings and before/after recommendations.",
-  "version": "1.0.0",
+  "description": "Audit a UI across six evaluation lanes — WCAG 2.2 accessibility, Nielsen heuristics, cognitive load, affordances/conventions (HIG, Jakob's Law, Norman), visual hierarchy (Refactoring UI, Gestalt), and color/design-systems — each backed by an itemized reference checklist. Fans the lanes out to parallel sub-agents (fusion-style panel) and produces a prioritized improvement plan with severity-rated findings (P1–P4) and before/after fixes.",
+  "version": "1.1.0",
   "author": { "name": "Steven Dunn" },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/design/design-critique",
   "repository": "https://github.com/senigami/skill-arsenal",

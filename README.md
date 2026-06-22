@@ -218,9 +218,21 @@ You (the large model) are the orchestrator and quality gate — workers are chea
 ### Design
 
 <details>
-<summary><a href="skills/design/design-critique/">design-critique</a> — Evaluate an existing UI against Apple HIG, Nielsen's heuristics, Gestalt, and WCAG 2.2 AA — severity-rated findings and an improvement roadmap</summary>
+<summary><a href="skills/design/design-critique/">design-critique</a> — Audit a UI across six evaluation lanes, each with an itemized reference checklist — severity-rated findings and an improvement roadmap</summary>
 
-Evaluate an existing UI against established design principles, then produce a concrete improvement plan. Works from screenshots and/or a codebase.
+Evaluate an existing UI against established design principles, then produce a concrete improvement plan. Works from a style guide, a codebase, a specific page, screenshots, or any combination.
+
+**Six evaluation lanes**, each backed by an itemized checklist in `references/`:
+| Lane | Covers |
+|------|--------|
+| **A — Accessibility** | WCAG 2.2 — contrast, use-of-color, focus, target size, reflow |
+| **B — Usability** | Nielsen's heuristics, error messages, slips vs. mistakes |
+| **C — Cognitive load** | Hick's Law, Von Restorff, Prägnanz |
+| **D — Affordances & conventions** | Norman, Jakob's Law, Apple HIG (Clarity/Deference/Depth) |
+| **E — Visual hierarchy** | Refactoring UI, Gestalt |
+| **F — Color & design systems** | Material Design 3 roles, design tokens, product precedent |
+
+The lanes can **fan out to parallel sub-agents** — a fusion-style panel where each lane is an independent reviewer. Findings are deduplicated and severity-promoted when multiple lanes agree. Checklists carry adversarially-verified WCAG/Nielsen thresholds and an evidence-grading rule, so blocker-severity findings rest on verified facts, not opinion.
 
 **Identifies violations:**
 - Solid backgrounds where HIG expects layered translucency (`backdrop-filter: blur()` surfaces for modals, sidebars, dropdowns)
@@ -439,7 +451,7 @@ Productivity
   ✅ efficient-orchestration* Output thrift + subagent model tiering
 
 Design
-  ❌ design-critique       UI audit vs HIG/Nielsen/WCAG + improvement plan
+  ❌ design-critique       Six-lane UI audit + improvement plan
   ❌ style-guide           Generate/audit visual style guide + tokens
 
 Content

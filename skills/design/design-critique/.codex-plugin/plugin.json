@@ -1,7 +1,7 @@
 {
   "name": "design-critique",
-  "description": "Evaluate an existing UI against Apple HIG, Nielsen's 10 heuristics, Gestalt principles, and WCAG 2.2 AA — producing a prioritized improvement plan with severity-rated findings and before/after recommendations.",
-  "version": "1.0.0",
+  "description": "Audit a UI across six evaluation lanes — WCAG 2.2 accessibility, Nielsen heuristics, cognitive load, affordances/conventions (HIG, Jakob's Law, Norman), visual hierarchy (Refactoring UI, Gestalt), and color/design-systems — each backed by an itemized reference checklist. Fans the lanes out to parallel sub-agents (fusion-style panel) and produces a prioritized improvement plan with severity-rated findings (P1–P4) and before/after fixes.",
+  "version": "1.1.0",
   "author": {
     "name": "Steven Dunn",
     "url": "https://github.com/senigami"
@@ -13,8 +13,8 @@
   "skills": "./",
   "interface": {
     "displayName": "Design Critique",
-    "shortDescription": "Evaluate an existing UI against Apple HIG, Nielsen's heuristics, Gestalt, and WCAG 2.2 AA — producing a prioritized improvement plan.",
-    "longDescription": "Evaluate an existing UI against Apple HIG (Clarity, Deference, Depth), Nielsen's 10 usability heuristics, Gestalt principles, and WCAG 2.2 AA. Identifies concrete violations — solid backgrounds that break depth, low-contrast text, broken visual hierarchy, missing interactive states, off-grid spacing — and prescribes specific before/after fixes with severity ratings (P1–P4) and effort estimates. Preserves the existing brand/theme while improving the design. Asks the user to decide on any recommendation that conflicts with intentional brand choices.",
+    "shortDescription": "Audit a UI across six evaluation lanes (WCAG, Nielsen, cognitive load, affordances/HIG, hierarchy, color) — each with an itemized checklist — and produce a prioritized improvement plan.",
+    "longDescription": "Audit a UI across six evaluation lanes, each backed by an itemized reference checklist: (A) WCAG 2.2 accessibility — contrast, use-of-color, focus, target size, reflow; (B) Nielsen's usability heuristics; (C) cognitive load — Hick's Law, Von Restorff, Prägnanz; (D) affordances & conventions — Norman, Jakob's Law, Apple HIG (Clarity/Deference/Depth); (E) visual hierarchy — Refactoring UI and Gestalt; (F) color semantics & design systems — Material Design 3 roles, design tokens, product precedent. The lanes can be fanned out to parallel sub-agents (a fusion-style panel) for a full audit, with findings deduplicated and severity-promoted when multiple lanes agree. Checklists carry adversarially-verified WCAG/Nielsen thresholds and an evidence-grading rule so blocker-severity findings rest on verified facts, not opinion. Prescribes specific before/after fixes with severity ratings (P1–P4) and effort estimates, preserves the existing brand/theme, and asks the user to decide on any recommendation that conflicts with intentional brand choices.",
     "developerName": "Steven Dunn",
     "category": "Design",
     "capabilities": [
