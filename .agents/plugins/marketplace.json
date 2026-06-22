@@ -41,6 +41,30 @@
       "category": "Content"
     },
     {
+      "name": "design-critique",
+      "source": {
+        "source": "local",
+        "path": "./skills/design/design-critique"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "style-guide",
+      "source": {
+        "source": "local",
+        "path": "./skills/design/style-guide"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "adversarial-review",
       "source": {
         "source": "local",
