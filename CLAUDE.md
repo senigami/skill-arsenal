@@ -20,10 +20,8 @@ skill-arsenal/
 │       └── <skill-name>/         # the plugin directory (source of the entry)
 │           ├── .claude-plugin/
 │           │   └── plugin.json    # plugin manifest
-│           └── skills/
-│               └── <skill-name>/
-│                   ├── SKILL.md   # skill content + frontmatter
-│                   └── references/ # optional supporting docs
+│           ├── SKILL.md           # skill content + frontmatter (at plugin root)
+│           └── references/        # optional supporting docs (at plugin root)
 ├── install.sh                     # manual (non-plugin) installer; discovers via plugin.json
 ├── CLAUDE.md                      # this file
 └── README.md
@@ -36,8 +34,8 @@ before creating the directory (e.g. a code-review skill → `engineering`).
 
 1. Pick the category (confirm with the user). Create `skills/<category>/<name>/`.
 2. Write `skills/<category>/<name>/.claude-plugin/plugin.json` (schema below).
-3. Write `skills/<category>/<name>/skills/<name>/SKILL.md` (frontmatter below).
-4. Add any reference docs under `.../skills/<name>/references/`.
+3. Write `skills/<category>/<name>/SKILL.md` (frontmatter below) — at the plugin root, not nested.
+4. Add any reference docs under `skills/<category>/<name>/references/` — also at plugin root.
 5. Add a plugin entry to the root `.claude-plugin/marketplace.json`.
 6. Update the README "Available skills" table.
 7. Commit + push. Existing users pick it up with `/plugin update`.
@@ -55,14 +53,14 @@ Only `name` is **required**. Keep the others for good metadata.
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/adversarial-review",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": ["./"]
 }
 ```
 
 - `name` — REQUIRED. Becomes the namespace; skills invoke as `/<name>:<skill>`.
 - `version` — optional but recommended. If set, users only get updates when it
   bumps. If omitted on a git-distributed plugin, every commit counts as a new version.
-- `skills` — path(s) to the skill folder(s) inside the plugin. `["./skills"]`.
+- `skills` — path(s) to the skill folder(s) inside the plugin. Use `["./"]` (plugin root).
 - Other valid fields: `author{name,email,url}`, `homepage`, `repository`,
   `license`, `keywords`, `dependencies`, `hooks`, `commands`, `agents`,
   `mcpServers`, `lspServers`, `monitors`, `settings`, `userConfig`.
@@ -112,9 +110,10 @@ it's how Claude decides when to use the skill. Optional frontmatter:
 - **No `skill.json`.** It is not part of the spec; Claude Code never reads it.
   `marketplace.json` is the single source of truth for the catalog.
 - **Directory placement:** only `plugin.json` goes inside `.claude-plugin/`.
-  `skills/` (and `agents/`, `hooks/`, etc.) live at the plugin root.
-- A single-skill plugin *may* put `SKILL.md` at the plugin root, but this repo
-  uses the `skills/<name>/SKILL.md` layout consistently — keep it that way.
+  `SKILL.md`, `references/`, and other content live at the plugin root.
+- **Flat layout only.** `SKILL.md` goes at the plugin root (`skills/<name>/SKILL.md`),
+  not nested inside a `skills/<name>/skills/<name>/` subfolder. All skills in
+  this repo use `"skills": ["./"]` in `plugin.json`. Do not create the nested layout.
 
 ## Verifying
 
