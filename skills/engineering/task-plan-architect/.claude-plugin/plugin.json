@@ -1,10 +1,14 @@
 {
   "name": "task-plan-architect",
-  "description": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md — goal, scope, and success criteria\n2. 01-map.md — parts, connections, contracts, and invariants\n3. 02-roadmap.md — ordered workloads and dependency graph\n4. tasks/NNN-slug.md — self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
+  "description": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md \u2014 goal, scope, and success criteria\n2. 01-map.md \u2014 parts, connections, contracts, and invariants\n3. 02-roadmap.md \u2014 ordered workloads and dependency graph\n4. tasks/NNN-slug.md \u2014 self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
   "version": "1.3.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/task-plan-architect",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

@@ -1,10 +1,14 @@
 {
   "name": "planrunner",
-  "description": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate — tests, lint, and typecheck pass before review\n2. Slice → delegate → verify — each slice checked against the plan's acceptance criteria\n3. Adversarial review — up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
+  "description": "Orchestrator-driven execution of an approved implementation plan \u2014 slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate \u2014 tests, lint, and typecheck pass before review\n2. Slice \u2192 delegate \u2192 verify \u2014 each slice checked against the plan's acceptance criteria\n3. Adversarial review \u2014 up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
   "version": "1.2.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/planrunner",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

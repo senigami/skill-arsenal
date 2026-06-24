@@ -1,10 +1,14 @@
 {
   "name": "fusion-reasoning",
-  "description": "Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
+  "description": "Reasoning amplifier \u2014 runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3\u20135 with cross-examination for hard problems.",
   "version": "1.1.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/productivity/fusion-reasoning",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

@@ -1,10 +1,14 @@
 {
   "name": "pr-review",
-  "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
+  "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet \u2014 verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
   "version": "1.0.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/pr-review",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

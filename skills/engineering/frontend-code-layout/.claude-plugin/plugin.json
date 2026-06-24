@@ -1,10 +1,14 @@
 {
   "name": "frontend-code-layout",
-  "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
+  "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) \u2014 all in one file\n2. Model/View/Presenter layering \u2014 data/logic separate from markup\n3. View components are pure functions of props \u2014 renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
   "version": "1.0.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/frontend-code-layout",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

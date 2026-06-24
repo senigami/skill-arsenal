@@ -1,12 +1,16 @@
 {
   "name": "mastermind",
-  "description": "End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview — understand the real goal, constraints, and definition of done\n2. Fusion-reasoning — fan out agents to stress-test solution approaches\n3. Task-plan-architect — build a mapped, ordered implementation plan\n4. Planrunner — execute the plan with token-efficient orchestration\n5. Completion audit — confirm every tasked item was actually done\n6. Adversarial review — hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, adversarial-review.",
+  "description": "End-to-end workflow conductor \u2014 takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview \u2014 understand the real goal, constraints, and definition of done\n2. Fusion-reasoning \u2014 fan out agents to stress-test solution approaches\n3. Task-plan-architect \u2014 build a mapped, ordered implementation plan\n4. Planrunner \u2014 execute the plan with token-efficient orchestration\n5. Completion audit \u2014 confirm every tasked item was actually done\n6. Adversarial review \u2014 hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, adversarial-review.",
   "version": "1.2.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/mastermind",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"],
+  "skills": [
+    "./"
+  ],
   "dependencies": [
     "fusion-reasoning",
     "task-plan-architect",

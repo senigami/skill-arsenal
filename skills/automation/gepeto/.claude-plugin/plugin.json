@@ -1,8 +1,10 @@
 {
   "name": "gepeto",
-  "description": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
+  "description": "Development guide for building Pinokio launcher projects \u2014 enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder \u2014 never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
   "version": "1.0.0",
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/automation/gepeto",
   "repository": "https://github.com/senigami/skill-arsenal",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

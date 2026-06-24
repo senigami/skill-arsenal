@@ -1,10 +1,14 @@
 {
   "name": "code-quality-checklist",
-  "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task — surface assumptions, clarify scope, read project-rules.md\n2. During — run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task — run scripts/verify.sh; self-review before handoff\n\nSilent by default — fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
+  "description": "Pre/during/post-task quality guardrail \u2014 surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task \u2014 surface assumptions, clarify scope, read project-rules.md\n2. During \u2014 run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task \u2014 run scripts/verify.sh; self-review before handoff\n\nSilent by default \u2014 fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
   "version": "1.0.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/code-quality-checklist",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

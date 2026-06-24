@@ -11,7 +11,7 @@
     {
       "name": "adversarial-review",
       "source": "./skills/engineering/adversarial-review",
-      "description": "Adversarial review that breaks the self-review monoculture — three hostile personas each must find at least one issue.\n\nPicks the 3 best-fit personas from a library of 52, matched to what's being reviewed:\n- Code & reliability: Saboteur, Concurrency Specialist, Regression Hunter, Mutant\n- Security: Security Auditor, Threat Modeler, Red Teamer\n- Data & API: Query Planner, Contract Breaker, Chaos Engineer\n- UX: Accessibility Critic, First-Click Saboteur, Dark-Pattern Hunter\n- Content: Proofreader, Fact-Checker, Humanizer, Lost Reader\n\nFindings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact citations and paste-ready comments.",
+      "description": "Adversarial review that breaks the self-review monoculture \u2014 three hostile personas each must find at least one issue.\n\nPicks the 3 best-fit personas from a library of 52, matched to what's being reviewed:\n- Code & reliability: Saboteur, Concurrency Specialist, Regression Hunter, Mutant\n- Security: Security Auditor, Threat Modeler, Red Teamer\n- Data & API: Query Planner, Contract Breaker, Chaos Engineer\n- UX: Accessibility Critic, First-Click Saboteur, Dark-Pattern Hunter\n- Content: Proofreader, Fact-Checker, Humanizer, Lost Reader\n\nFindings are deduplicated and severity-promoted when multiple personas catch the same issue. Delivers a structured BLOCK / CONCERNS / CLEAN verdict with exact citations and paste-ready comments.",
       "version": "2.9.0",
       "author": {
         "name": "Steven Dunn"
@@ -29,7 +29,7 @@
     {
       "name": "code-audit-planner",
       "source": "./skills/engineering/code-audit-planner",
-      "description": "Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.\n\nAudit dimensions:\n- DRY/reuse and code organization\n- Logic errors and test quality\n- UX and responsive design\n- Spec drift (code vs. spec gaps)\n- Theming and accessibility\n\nFans reading out to light agents in parallel; writes numbered task files with exact acceptance criteria so a future agent can execute each independently. Plans only — never edits source.",
+      "description": "Audits a codebase across many quality dimensions and produces a self-contained implementation-plan folder of ordered, verifiable tasks.\n\nAudit dimensions:\n- DRY/reuse and code organization\n- Logic errors and test quality\n- UX and responsive design\n- Spec drift (code vs. spec gaps)\n- Theming and accessibility\n\nFans reading out to light agents in parallel; writes numbered task files with exact acceptance criteria so a future agent can execute each independently. Plans only \u2014 never edits source.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -46,7 +46,7 @@
     {
       "name": "task-plan-architect",
       "source": "./skills/engineering/task-plan-architect",
-      "description": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md — goal, scope, and success criteria\n2. 01-map.md — parts, connections, contracts, and invariants\n3. 02-roadmap.md — ordered workloads and dependency graph\n4. tasks/NNN-slug.md — self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
+      "description": "Research a large task and produce a mapped implementation plan a smaller model can execute without losing the big picture.\n\nProduces:\n1. 00-overview.md \u2014 goal, scope, and success criteria\n2. 01-map.md \u2014 parts, connections, contracts, and invariants\n3. 02-roadmap.md \u2014 ordered workloads and dependency graph\n4. tasks/NNN-slug.md \u2014 self-contained, map-linked task files\n\nEvery task links back to the map so a context-limited executor knows what it connects to and must not break. Saves the plan outside the repo by default.",
       "version": "1.3.0",
       "author": {
         "name": "Steven Dunn"
@@ -63,7 +63,7 @@
     {
       "name": "design-critique",
       "source": "./skills/design/design-critique",
-      "description": "Audit a UI across six evaluation lanes, each backed by an itemized reference checklist, and produce a prioritized improvement plan with severity-rated findings (P1–P4) and before/after fixes.\n\nThe six lanes:\n- A. Accessibility — WCAG 2.2 contrast, use-of-color, focus, target size, reflow\n- B. Usability — Nielsen's heuristics, error messages, slips vs. mistakes\n- C. Cognitive load — Hick's Law, Von Restorff, Prägnanz\n- D. Affordances & conventions — Norman, Jakob's Law, Apple HIG (Clarity/Deference/Depth)\n- E. Visual hierarchy — Refactoring UI, Gestalt\n- F. Color & design systems — Material Design 3 roles, design tokens, product precedent\n\nLanes can fan out to parallel sub-agents (a fusion-style panel); findings are deduplicated and severity-promoted when multiple lanes agree. Checklists carry adversarially-verified WCAG/Nielsen thresholds and an evidence-grading rule, so blocker-severity findings rest on verified facts.\n\nPreserves the existing theme. Asks the user to decide when a principle conflicts with intentional brand choices. Produces docs/design-critique/ with a findings list, impact/effort roadmap, and explicit trade-off decisions.",
+      "description": "Audit a UI across six evaluation lanes, each backed by an itemized reference checklist, and produce a prioritized improvement plan with severity-rated findings (P1\u2013P4) and before/after fixes.\n\nThe six lanes:\n- A. Accessibility \u2014 WCAG 2.2 contrast, use-of-color, focus, target size, reflow\n- B. Usability \u2014 Nielsen's heuristics, error messages, slips vs. mistakes\n- C. Cognitive load \u2014 Hick's Law, Von Restorff, Pr\u00e4gnanz\n- D. Affordances & conventions \u2014 Norman, Jakob's Law, Apple HIG (Clarity/Deference/Depth)\n- E. Visual hierarchy \u2014 Refactoring UI, Gestalt\n- F. Color & design systems \u2014 Material Design 3 roles, design tokens, product precedent\n\nLanes can fan out to parallel sub-agents (a fusion-style panel); findings are deduplicated and severity-promoted when multiple lanes agree. Checklists carry adversarially-verified WCAG/Nielsen thresholds and an evidence-grading rule, so blocker-severity findings rest on verified facts.\n\nPreserves the existing theme. Asks the user to decide when a principle conflicts with intentional brand choices. Produces docs/design-critique/ with a findings list, impact/effort roadmap, and explicit trade-off decisions.",
       "version": "1.1.0",
       "author": {
         "name": "Steven Dunn"
@@ -83,7 +83,7 @@
     {
       "name": "style-guide",
       "source": "./skills/design/style-guide",
-      "description": "Generate or update a visual style guide (docs/style-guide/) — colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md — router and visual summary\n- docs/style-guide/01-08-*.md — numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json — DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides — detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
+      "description": "Generate or update a visual style guide (docs/style-guide/) \u2014 colors, typography, spacing, components, iconography, accessibility, and voice/tone.\n\nReverse-engineers visual DNA from code (CSS custom properties, Tailwind @theme, design token files, component variant patterns). Asks for screenshots when code can't reveal color schemes, component states, or brand identity.\n\nProduces:\n- docs/style-guide/00-index.md \u2014 router and visual summary\n- docs/style-guide/01-08-*.md \u2014 numbered spec docs (brand, color, type, spacing, components, icons, a11y, voice)\n- docs/style-guide/tokens.json \u2014 DTCG 2025.10 machine-readable token export\n\nAlso audits existing style guides \u2014 detects drift, adds missing components, retires obsolete patterns. Never edits application code.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -102,7 +102,7 @@
     {
       "name": "fusion-reasoning",
       "source": "./skills/productivity/fusion-reasoning",
-      "description": "Reasoning amplifier — runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3–5 with cross-examination for hard problems.",
+      "description": "Reasoning amplifier \u2014 runs an adaptive panel of independent agent personas, optionally cross-examines, and a judge synthesizes one answer that beats any single pass.\n\nHow it works:\n1. Pick distinct personas from a library of 39 (Skeptic, Risk Scout, Innovator, Pre-Mortem Coroner, Disconfirmer, and more)\n2. Dispatch panel agents in parallel (independently, no cross-talk)\n3. Optionally run a cross-examination reaction pass\n4. Judge verifies, deduplicates, resolves contradictions, surfaces blind spots\n\nPanel size adapts to difficulty: 2 agents for light tasks, 3 for standard, 3\u20135 with cross-examination for hard problems.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -119,7 +119,7 @@
     {
       "name": "spec-docs-generator",
       "source": "./skills/engineering/spec-docs-generator",
-      "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md — router index\n- docs/NN-topic.md — numbered spec files (100–400 lines each)\n- docs/decisions/ — Architecture Decision Records (ADRs)\n- docs/spec-compliance-plan.md — backlog of code that doesn't match canon\n\nWhen code is inconsistent, picks the canonical rule by convergence (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, fixes drift. ADRs are append-only. Writes docs only — never edits application code.",
+      "description": "Generates or updates a numbered spec-document set that becomes the source of truth an agent obeys when writing code.\n\nProduces:\n- docs/00-index.md \u2014 router index\n- docs/NN-topic.md \u2014 numbered spec files (100\u2013400 lines each)\n- docs/decisions/ \u2014 Architecture Decision Records (ADRs)\n- docs/spec-compliance-plan.md \u2014 backlog of code that doesn't match canon\n\nWhen code is inconsistent, picks the canonical rule by convergence (the most common implementation wins) and logs every out-of-line occurrence to the compliance plan. Detects existing specs, diffs them against the code, fixes drift. ADRs are append-only. Writes docs only \u2014 never edits application code.",
       "version": "1.1.0",
       "author": {
         "name": "Steven Dunn"
@@ -136,7 +136,7 @@
     {
       "name": "frontend-code-layout",
       "source": "./skills/engineering/frontend-code-layout",
-      "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) — all in one file\n2. Model/View/Presenter layering — data/logic separate from markup\n3. View components are pure functions of props — renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
+      "description": "Keeps frontend code's structure, styling, and behavior separable so the look can swap without rewriting components.\n\nCore principles:\n1. Semantic tokens named by role (--color-primary) not value (--blue-500) \u2014 all in one file\n2. Model/View/Presenter layering \u2014 data/logic separate from markup\n3. View components are pure functions of props \u2014 renderable in tests with no side effects\n\nTo rebrand: only the token file changes. Color is never the sole signal for accessibility.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -154,7 +154,7 @@
     {
       "name": "pr-review",
       "source": "./skills/engineering/pr-review",
-      "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet — verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
+      "description": "Reviews a GitHub PR for real blocking problems nobody has flagged yet \u2014 verified against the actual code before reporting.\n\nChecks for:\n- Correctness bugs and logic errors\n- Security gaps and auth issues\n- Broken contracts and data races\n- Unmet acceptance criteria from the linked ticket\n\nReads files by ref (not checkout) to avoid corrupting local state. Returns APPROVE or REQUEST CHANGES with exact file:line citations and paste-ready comments. Never posts to GitHub on its own.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -171,8 +171,8 @@
     {
       "name": "efficient-orchestration",
       "source": "./skills/productivity/efficient-orchestration",
-      "description": "Always-on token-efficiency operating model — for every task, minimize output tokens and decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nOutput thrift (every turn):\n- No narration or preamble — lead with the result\n- Terse by default; read only what the task requires\n- Cap the tool-call loop; never re-derive what's already done\n\nDelegation tiers:\n- Light (Haiku-class) — reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) — bounded judgment and implementation\n- Top (Opus-class) — synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
-      "version": "1.1.0",
+      "description": "Always-on token-efficiency operating model \u2014 for every task, minimize output tokens and decide inline vs. delegate to cheaper subagents, then monitor spend and checkpoint when work reclassifies.\n\nOutput thrift (every turn):\n- No narration or preamble \u2014 lead with the result\n- Terse by default; read only what the task requires\n- Cap the tool-call loop; never re-derive what's already done\n\nDelegation tiers:\n- Light (Haiku-class) \u2014 reading, grepping, listing, mechanical work\n- Mid (Sonnet-class) \u2014 bounded judgment and implementation\n- Top (Opus-class) \u2014 synthesis, cross-cutting review, high-stakes decisions\n\nThe large model holds strategy and verification; mechanical work fans out to the smallest capable model. Never spend a bigger model than the job needs.",
+      "version": "1.2.0",
       "author": {
         "name": "Steven Dunn"
       },
@@ -188,7 +188,7 @@
     {
       "name": "planrunner",
       "source": "./skills/engineering/planrunner",
-      "description": "Orchestrator-driven execution of an approved implementation plan — slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate — tests, lint, and typecheck pass before review\n2. Slice → delegate → verify — each slice checked against the plan's acceptance criteria\n3. Adversarial review — up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
+      "description": "Orchestrator-driven execution of an approved implementation plan \u2014 slices the work, delegates each slice to implementer subagents, verifies against intent, and runs adversarial review rounds.\n\nExecution loop:\n1. Green gate \u2014 tests, lint, and typecheck pass before review\n2. Slice \u2192 delegate \u2192 verify \u2014 each slice checked against the plan's acceptance criteria\n3. Adversarial review \u2014 up to 3 rounds fixing real blockers\n4. Re-verify after each fix round\n\nConsumes task-plan-architect output directly. File-collision guard prevents parallel slices from conflicting.",
       "version": "1.2.0",
       "author": {
         "name": "Steven Dunn"
@@ -206,7 +206,7 @@
     {
       "name": "modern-web-guidance",
       "source": "./skills/engineering/modern-web-guidance",
-      "description": "Searches a curated database of standardized modern web-platform patterns before writing any browser code — so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.\n\nCovers:\n- Layout: container queries, :has(), subgrid\n- Motion: View Transitions, scroll-driven animations\n- Performance: LCP, Core Web Vitals, INP\n- Platform APIs: anchor positioning, Popover API\n- Accessibility and forms\n\nSearch first, then retrieve the full guide. Patterns default to Baseline Widely Available — safe across modern browsers.",
+      "description": "Searches a curated database of standardized modern web-platform patterns before writing any browser code \u2014 so Claude uses the platform instead of heavy dependencies or ad-hoc solutions.\n\nCovers:\n- Layout: container queries, :has(), subgrid\n- Motion: View Transitions, scroll-driven animations\n- Performance: LCP, Core Web Vitals, INP\n- Platform APIs: anchor positioning, Popover API\n- Accessibility and forms\n\nSearch first, then retrieve the full guide. Patterns default to Baseline Widely Available \u2014 safe across modern browsers.",
       "version": "1.0.0",
       "keywords": [
         "frontend",
@@ -221,7 +221,7 @@
     {
       "name": "humanizer",
       "source": "./skills/content/humanizer",
-      "description": "Removes signs of AI-generated writing from text — based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm — the signals that make writing sound human.",
+      "description": "Removes signs of AI-generated writing from text \u2014 based on Wikipedia's 'Signs of AI writing' guide.\n\nDetects and fixes:\n- Inflated symbolism and promotional language\n- Em dash overuse (zero allowed in final output)\n- Rule of three and -ing padding\n- AI vocabulary (delve, tapestry, showcase, etc.)\n- Passive voice and negative parallelisms\n\nOptionally voice-matches against a writing sample. Preserves specific detail, unresolved tension, and natural rhythm \u2014 the signals that make writing sound human.",
       "version": "2.8.0",
       "author": {
         "name": "Siqi Chen",
@@ -240,7 +240,7 @@
     {
       "name": "gepeto",
       "source": "./skills/automation/gepeto",
-      "description": "Development guide for building Pinokio launcher projects — enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder — never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
+      "description": "Development guide for building Pinokio launcher projects \u2014 enforces a mandatory workflow and pattern-lock rules so launchers are consistent and debuggable.\n\nMandatory before any edits:\n1. Check the examples folder \u2014 never invent syntax\n2. Run pre-flight and mid-task verification steps\n3. Use relative paths in scripts, never absolute\n4. Store captured web URLs with local.set via the example's regex capture block\n\nSupports app launchers (api/<name>) and plugin launchers (plugin/<name>). Check logs folder first when troubleshooting.",
       "version": "1.0.0",
       "keywords": [
         "pinokio",
@@ -254,7 +254,7 @@
     {
       "name": "pinokio",
       "source": "./skills/automation/pinokio",
-      "description": "Discovers, launches, and uses Pinokio-managed apps and tools via the pterm CLI control plane.\n\nWorkflow:\n1. Search for the app (pterm search)\n2. If not found, optionally search the registry with user approval\n3. Launch and poll until ready (pterm run <ref>)\n4. Use the app's HTTP API — direct call or generated client\n\nCreates a reusable skill folder with SKILL.md and client code for the app. Supports parallel launch for multiple apps. Never hardcodes paths, ports, or tokens in client files.",
+      "description": "Discovers, launches, and uses Pinokio-managed apps and tools via the pterm CLI control plane.\n\nWorkflow:\n1. Search for the app (pterm search)\n2. If not found, optionally search the registry with user approval\n3. Launch and poll until ready (pterm run <ref>)\n4. Use the app's HTTP API \u2014 direct call or generated client\n\nCreates a reusable skill folder with SKILL.md and client code for the app. Supports parallel launch for multiple apps. Never hardcodes paths, ports, or tokens in client files.",
       "version": "1.0.0",
       "keywords": [
         "pinokio",
@@ -268,7 +268,7 @@
     {
       "name": "mastermind",
       "source": "./skills/engineering/mastermind",
-      "description": "End-to-end workflow conductor — takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview — understand the real goal, constraints, and definition of done\n2. Fusion-reasoning — fan out agents to stress-test solution approaches\n3. Task-plan-architect — build a mapped, ordered implementation plan\n4. Planrunner — execute with TDD + code-quality-checklist guardrails on every slice\n5. Completion audit — confirm every tasked item was actually done\n6. Adversarial review — hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, tdd, code-quality-checklist, spec-docs-generator, adversarial-review, pr-review.",
+      "description": "End-to-end workflow conductor \u2014 takes a task from raw problem to verified, reviewed completion.\n\nWorkflow:\n1. Interview \u2014 understand the real goal, constraints, and definition of done\n2. Fusion-reasoning \u2014 fan out agents to stress-test solution approaches\n3. Task-plan-architect \u2014 build a mapped, ordered implementation plan\n4. Planrunner \u2014 execute with TDD + code-quality-checklist guardrails on every slice\n5. Completion audit \u2014 confirm every tasked item was actually done\n6. Adversarial review \u2014 hostile correctness, security, and edge-case pass\n\nThree checkpoints (confirm-understanding, confirm-plan, present-verification); loops to root-cause and fix until satisfied.\n\nAlso installs: fusion-reasoning, task-plan-architect, planrunner, efficient-orchestration, tdd, code-quality-checklist, spec-docs-generator, adversarial-review, pr-review.",
       "version": "1.2.0",
       "author": {
         "name": "Steven Dunn"
@@ -286,7 +286,7 @@
     {
       "name": "tdd",
       "source": "./skills/engineering/tdd",
-      "description": "Enforces the red → green → refactor TDD cycle for every new behavior or bug fix — no shortcuts.\n\nCycle:\n1. Red — write a failing test that expresses the desired contract\n2. Green — write the minimum code to make it pass\n3. Refactor — clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal — no over-engineering to anticipate future needs.",
+      "description": "Enforces the red \u2192 green \u2192 refactor TDD cycle for every new behavior or bug fix \u2014 no shortcuts.\n\nCycle:\n1. Red \u2014 write a failing test that expresses the desired contract\n2. Green \u2014 write the minimum code to make it pass\n3. Refactor \u2014 clean up duplication and naming without breaking the test\n\nEvery failure must be for the right reason (not a setup error). Every implementation must be minimal \u2014 no over-engineering to anticipate future needs.",
       "version": "1.1.0",
       "author": {
         "name": "Steven Dunn"
@@ -302,7 +302,7 @@
     {
       "name": "codex",
       "source": "./skills/engineering/codex",
-      "description": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
+      "description": "Bounded implementation worker rules for handing off tasks to Codex \u2014 enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -319,7 +319,7 @@
     {
       "name": "code-quality-checklist",
       "source": "./skills/engineering/code-quality-checklist",
-      "description": "Pre/during/post-task quality guardrail — surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task — surface assumptions, clarify scope, read project-rules.md\n2. During — run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task — run scripts/verify.sh; self-review before handoff\n\nSilent by default — fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
+      "description": "Pre/during/post-task quality guardrail \u2014 surfaces assumptions before coding, enforces triggered workflows during work, and runs full verification before marking done.\n\nStages:\n1. Pre-task \u2014 surface assumptions, clarify scope, read project-rules.md\n2. During \u2014 run triggered workflows (schema changes, UI changes, API changes)\n3. Post-task \u2014 run scripts/verify.sh; self-review before handoff\n\nSilent by default \u2014 fixes issues without listing them. Reads project-specific rules from references/project-rules.md.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"
@@ -336,7 +336,7 @@
     {
       "name": "worker",
       "source": "./skills/engineering/worker",
-      "description": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate — workers are cheap execution.",
+      "description": "Cursor task orchestrator \u2014 decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate \u2014 workers are cheap execution.",
       "version": "1.0.0",
       "author": {
         "name": "Steven Dunn"

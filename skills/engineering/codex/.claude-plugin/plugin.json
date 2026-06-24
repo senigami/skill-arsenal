@@ -1,10 +1,14 @@
 {
   "name": "codex",
-  "description": "Bounded implementation worker rules for handing off tasks to Codex — enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
+  "description": "Bounded implementation worker rules for handing off tasks to Codex \u2014 enforces scope discipline, handoff checklist, and Studio 2.0 state conventions.\n\nKey rules:\n- Follow the prompt exactly before expanding scope\n- Never modify files outside the task's scope\n- Keep durable state in SQLite, not state.json\n- Run git status before handoff; remove scratch files\n\nHandoff always includes: changed files, tests run, pass/fail result, remaining risks, and artifacts left behind.",
   "version": "1.0.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/codex",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }

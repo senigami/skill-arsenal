@@ -1,10 +1,14 @@
 {
   "name": "worker",
-  "description": "Cursor task orchestrator — decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate — workers are cheap execution.",
+  "description": "Cursor task orchestrator \u2014 decomposes a task JSON into focused slices, dispatches each to Haiku subagents in parallel, adversarially reviews their output, fixes blockers, and returns a clean report.\n\nExecution loop:\n1. Parse task JSON and project rules\n2. Decompose into independent slices\n3. Dispatch each slice to Haiku with tight context\n4. Adversarially review every return (max 3 fix rounds per slice)\n5. Run full verification; report pass/fail honestly\n\nYou (the large model) are the orchestrator and quality gate \u2014 workers are cheap execution.",
   "version": "1.0.0",
-  "author": { "name": "Steven Dunn" },
+  "author": {
+    "name": "Steven Dunn"
+  },
   "homepage": "https://github.com/senigami/skill-arsenal/tree/main/skills/engineering/worker",
   "repository": "https://github.com/senigami/skill-arsenal",
   "license": "MIT",
-  "skills": ["./skills"]
+  "skills": [
+    "./"
+  ]
 }
