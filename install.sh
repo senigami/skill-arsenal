@@ -26,7 +26,7 @@ install_skill() {
   local skill_name="$1"
   local plugin_dir
 
-  plugin_dir=$(find "$REPO_DIR/skills" -type d -name "$skill_name" 2>/dev/null | head -1)
+  plugin_dir=$(find "$REPO_DIR/skills" -type d -name "$skill_name" -print -quit 2>/dev/null)
 
   if [ -z "$plugin_dir" ]; then
     echo "Error: skill '$skill_name' not found."
@@ -35,23 +35,26 @@ install_skill() {
     exit 1
   fi
 
-  # Skill content lives at skills/<skill-name>/SKILL.md within the plugin dir
-  local skill_content_dir="$plugin_dir/skills/$skill_name"
-
-  if [ ! -f "$skill_content_dir/SKILL.md" ]; then
-    echo "Error: $skill_content_dir/SKILL.md not found — invalid skill directory."
+  # Skill content lives at the plugin root (flat layout): SKILL.md + optional
+  # references/, scripts/, evals/ — everything except the manifest folders.
+  if [ ! -f "$plugin_dir/SKILL.md" ]; then
+    echo "Error: $plugin_dir/SKILL.md not found — invalid skill directory."
     exit 1
   fi
 
   local target_dir="$SKILLS_DIR/$skill_name"
   mkdir -p "$target_dir"
 
-  cp "$skill_content_dir/SKILL.md" "$target_dir/SKILL.md"
+  cp "$plugin_dir/SKILL.md" "$target_dir/SKILL.md"
 
-  if [ -d "$skill_content_dir/references" ] && [ -n "$(ls -A "$skill_content_dir/references" 2>/dev/null)" ]; then
-    mkdir -p "$target_dir/references"
-    cp -r "$skill_content_dir/references/"* "$target_dir/references/"
-  fi
+  local sub
+  for sub in "$plugin_dir"/*/; do
+    [ -d "$sub" ] || continue
+    case "$(basename "$sub")" in
+      .claude-plugin|.codex-plugin) continue ;;
+    esac
+    cp -r "${sub%/}" "$target_dir/"
+  done
 
   echo "Installed: $skill_name → $target_dir"
 }
